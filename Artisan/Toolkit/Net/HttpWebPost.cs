@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Data.Json;
 using Windows.Web.Http;
 
 namespace Artisan.Toolkit.Net
@@ -18,16 +19,18 @@ namespace Artisan.Toolkit.Net
         /// <returns></returns>
         public static async Task<Dictionary<string, string>> PostDataToUriAsync(string uri, Dictionary<string, string> paramters)
         {
-            StringBuilder sb = new StringBuilder();
-            foreach(var param in paramters)
+    
+            JsonObject jsonObj = new JsonObject();
+            foreach (var param in paramters)
             {
-                sb.Append($"{param.Key}={param.Value}&");
+                jsonObj.Add(param.Key, JsonValue.CreateStringValue(param.Value));
             }
-           return await PostDataToUriAsync(uri, sb.ToString());
+           return await PostDataToUriAsync(uri, jsonObj.ToString());
         }
         public static async Task<Dictionary<string, string>> PostDataToUriAsync(string uri, string paramters)
         {
             HttpWebRequest request = HttpWebRequest.CreateHttp(uri);
+            request.ContentType = "application/json";
             request.Method = "POST";
             try {
                 using (var stream = await request.GetRequestStreamAsync())
