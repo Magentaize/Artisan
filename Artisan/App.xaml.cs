@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Artisan.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -32,6 +33,8 @@ namespace Artisan
             this.InitializeComponent();
             this.Suspending += OnSuspending;
         }
+
+        public UserInfo CurrentUser;
 
         /// <summary>
         /// 在应用程序由最终用户正常启动时进行调用。

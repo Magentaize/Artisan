@@ -15,6 +15,14 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="300">
             <TextBox Header="用户名" x:Name="UserId" Margin="10"></TextBox>
             <PasswordBox Header="密码" x:Name="Password" Margin="10"></PasswordBox>
+            <Grid Margin="10 0 10 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Grid.Column="0" x:Name="SavePassword" Content="记住密码"/>
+                <CheckBox Grid.Column="1" x:Name="AutoSignin" Content="自动登录"/>
+            </Grid>
             <PasswordBox Header="确认密码" x:Name="Password2" Margin="10" Visibility="Collapsed"></PasswordBox>
             <TextBlock x:Name="ErrorInfo" FontSize="12" Foreground="Red" Text=" " HorizontalAlignment="Right" Margin="10 0 10 1"/>
             <Button x:Name="SigninButton" Click="SigninButton_Click" LostFocus="SigninButton_LostFocus" Content="登录" HorizontalAlignment="Stretch" Margin="10 0 10 0"/>
