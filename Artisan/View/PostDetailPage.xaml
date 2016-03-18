@@ -258,7 +258,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Image x:Name="PostDetailImage" Grid.Row="0" Source="{x:Bind PostDetailPageVM.PostSource}"/>
+                <Image x:Name="PostDetailImage" Grid.Row="0" Source="{x:Bind PostDetailPageVM.Pics}"/>
                 <Grid Grid.Row="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -277,7 +277,7 @@
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <TextBlock x:Name="textBlock" Margin="0" TextWrapping="Wrap" Text="Kaso.Lu" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                        <TextBlock x:Name="AuthorName" Margin="0" TextWrapping="Wrap" Text="{x:Bind PostDetailPageVM.Name}" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
                         <Grid Grid.Row="1" Grid.Column="1">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>

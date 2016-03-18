@@ -29,6 +29,7 @@ using Artisan.View.NewsPage;
 using Artisan.ViewModel;
 using Artisan.View.AboutMePage;
 using Windows.ApplicationModel.DataTransfer;
+using Artisan.Interface;
 
 //“空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409 上有介绍
 
@@ -82,12 +83,6 @@ namespace Artisan.View
             StorageFile file = await picker.PickSingleFileAsync();
         }
 
-        private void Test_OnClick(object sender, RoutedEventArgs e)
-        {
-            var item = MainPageViewModel.GetItem();
-            MainPageVm.HomePivotListItems.Add(item);
-        }
-
         private void Setting_OnClick(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(PersonalTweetPage), "ms-appx:///Assets/img/1.jpg");
@@ -96,9 +91,11 @@ namespace Artisan.View
         private void ItemTapped(object sender, TappedRoutedEventArgs e)
         {
             var grid = (Grid) sender;
-            var img = VisualTree.FindVisualElement<Image>(grid);
-            var str = ((BitmapImage) img.Source).UriSource.ToString();
-            this.Frame.Navigate(typeof (PostDetail), str);
+            var dataContext = grid.DataContext;
+            //var img = VisualTree.FindVisualElement<Image>(grid);
+            //var str = ((BitmapImage) img.Source).UriSource.ToString();
+            //this.Frame.Navigate(typeof (PostDetail), str);
+            this.Frame.Navigate(typeof(PostDetail), dataContext);
         }
 
         private void HomePageAuthorDeatiltapped(object sender, TappedRoutedEventArgs e)
