@@ -7,26 +7,36 @@ namespace Artisan.ViewModel
 {
     public class PostDetailPageViewModel:NotifyPropertyObject
     {
-        private string _postSource;
-
         private ObservableCollection<AuthorOtherPostListItem> _authorOtherPostList =
             new ObservableCollection<AuthorOtherPostListItem>();
-
-        public string PostSource
-        {
-            get { return _postSource; }
-            set { UpdateProperty(ref _postSource,value);}
-        }
 
         public ObservableCollection<AuthorOtherPostListItem> AuthorOtherPostList
         {
             get { return _authorOtherPostList; }
             set
             {
-                if(_authorOtherPostList!=value)
-                    UpdateProperty(ref _authorOtherPostList,value);
+                if (_authorOtherPostList != value)
+                    UpdateProperty(ref _authorOtherPostList, value);
             }
         }
+
+        private string _name;
+
+        public string Name
+        {
+            get { return _name; }
+            set { UpdateProperty(ref _name, value); }
+        }
+
+        private string _pics;
+
+        public string Pics
+        {
+            get { return _pics; }
+            set { UpdateProperty(ref _pics,value);}
+        }
+
+
 
         public PostDetailPageViewModel()
         {

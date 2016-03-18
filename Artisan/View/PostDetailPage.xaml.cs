@@ -17,6 +17,7 @@ using Artisan.Model;
 using Artisan.ViewModel;
 using Artisan.Toolkit.Helper;
 using Windows.UI.Xaml.Media.Imaging;
+using Artisan.Interface;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上提供
 
@@ -48,15 +49,22 @@ namespace Artisan.View
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            PostDetailPageVM.PostSource = e.Parameter.ToString();
+            var dataContext = e.Parameter as IHomePivotListItem;
+            PostDetailPageVM.Name = dataContext.User.Name;
+            PostDetailPageVM.Pics = dataContext.Pics;
         }
 
         private void ItemTapped(object sender, TappedRoutedEventArgs e)
         {
             var grid = (Grid)sender;
-            var img =VisualTree.FindVisualElement<Image>(grid);
-            var str = ((BitmapImage)img.Source).UriSource.ToString();
-            this.Frame.Navigate(typeof(PostDetail), str);
+            var dataContext = new HomePivotListItem
+            {
+             Pics= (grid.DataContext as AuthorOtherPostListItem).PostSource,
+             User=new HomePivotListItemUser { Name = PostDetailPageVM.Name,},
+            };
+            //var img =VisualTree.FindVisualElement<Image>(grid);
+            //var str = ((BitmapImage)img.Source).UriSource.ToString();
+            this.Frame.Navigate(typeof(PostDetail), dataContext);
         }
     
     }
