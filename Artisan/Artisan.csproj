@@ -109,9 +109,12 @@
     <Compile Include="Interface\IAuthorOtherPostListItem.cs" />
     <Compile Include="Interface\ICommentListItem.cs" />
     <Compile Include="Interface\IDiscoveryPivotListItem.cs" />
+    <Compile Include="Interface\IGeo.cs" />
     <Compile Include="Interface\IHomePivotListItem.cs" />
+    <Compile Include="Interface\IUserInfo.cs" />
     <Compile Include="Model\AuthorOtherPostListItem.cs" />
     <Compile Include="Model\CommentListItem.cs" />
+    <Compile Include="Model\HomePivotListItemUser.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Toolkit\Exceptions\ToolkitInternalException.cs" />
     <Compile Include="Toolkit\Net\HttpWebPost.cs" />

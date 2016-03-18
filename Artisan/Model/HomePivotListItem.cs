@@ -9,7 +9,6 @@ namespace Artisan.Model
     public class HomePivotListItem:NotifyPropertyObject,IHomePivotListItem
     {
         private int _id;
-
         public int Id
         {
             get { return _id; }
@@ -37,6 +36,13 @@ namespace Artisan.Model
             set { UpdateProperty(ref _pics, value); }
         }
 
+        private HomePivotListItemGeo _geo;
+        public IGeo Geo
+        {
+            get { return _geo; }
+            set { UpdateProperty(ref _geo, (HomePivotListItemGeo)value);}
+        }
+
         private string _authorName;
         public string AuthorName
         {
@@ -45,5 +51,22 @@ namespace Artisan.Model
         }
 
 
+    }
+
+    public class HomePivotListItemGeo : NotifyPropertyObject, IGeo
+    {
+        private string _city;
+        public string City
+        {
+            get { return _city; }
+            set { UpdateProperty(ref _city, value);}
+        }
+
+        private string _province;
+        public string Province
+        {
+            get { return _province; }
+            set { UpdateProperty(ref _province, value);}
+        }
     }
 }

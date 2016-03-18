@@ -8,12 +8,8 @@
         string CreatTime { get; set; } //Set per-post's posted time
         string Text { get; set; } //Set per-post's info
         string Pics { get; set; } //Set per-post's thumbnail image fetch url
-    }
-
-    public interface IHomePivotListItemGeo
-    {
-        string City { get; set; }
-        string Province { get;set; }
+        IGeo Geo { get; set; }
+        IHomePivotListItemUser User { get; set; }
     }
 
     public interface IHomePivotListItemUser
@@ -22,6 +18,7 @@
         string Name { get; set; }
         string Pic { get; set; }
         int Gender { get; set; }
+        IGeo Geo { get; set; }
         string Intro { get; set; }
     }
 }
