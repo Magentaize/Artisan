@@ -89,7 +89,8 @@ namespace Artisan.ViewModel
                 AuthorName = "Artist " + i.ToString(),
                 Text = "IMG" + i.ToString() + ":0x" + Address(),
                 CreatTime = DateFormat.GetFormattedTime(),
-                Pics = str
+                Pics = str,
+                User = new HomePivotListItemUser { Name = "Artist " + i.ToString(),},
             };
             return item;
         }

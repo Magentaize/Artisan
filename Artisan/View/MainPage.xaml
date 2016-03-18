@@ -368,7 +368,7 @@
                             VerticalAlignment="Stretch" Tapped="HomePageAuthorDeatiltapped"/>
                         <TextBlock x:Name="AuthorName" 
                                TextWrapping="Wrap"
-                               Text="{x:Bind AuthorName}" 
+                               Text="{x:Bind User.Name}" 
                                d:LayoutOverrides="Width, Height" 
                                Grid.Column="1" 
                                HorizontalAlignment="Left" 

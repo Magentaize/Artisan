@@ -1,4 +1,6 @@
-﻿namespace Artisan.Interface
+﻿using Artisan.Model;
+
+namespace Artisan.Interface
 {
     public interface IHomePivotListItem
     {
