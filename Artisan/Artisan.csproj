@@ -98,6 +98,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="project.json" />
+    <PRIResource Include="String\zh-cn\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -132,6 +133,7 @@
     <Compile Include="Toolkit\MessageDialog.cs" />
     <Compile Include="Toolkit\MyCommand.cs" />
     <Compile Include="Toolkit\NotifyPropertyObject.cs" />
+    <Compile Include="ViewModel\SignPageViewModel.cs" />
     <Compile Include="View\AboutMePage\IntroductionEditDialog.xaml.cs">
       <DependentUpon>IntroductionEditDialog.xaml</DependentUpon>
     </Compile>
@@ -146,6 +148,9 @@
     </Compile>
     <Compile Include="View\CommentPage.xaml.cs">
       <DependentUpon>CommentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SignPage.xaml.cs">
+      <DependentUpon>SignPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\NewsPage\CommentPage.xaml.cs">
       <DependentUpon>CommentPage.xaml</DependentUpon>
@@ -222,6 +227,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\CommentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SignPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
