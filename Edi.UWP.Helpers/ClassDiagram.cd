@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Comment CommentText="Converters">
+    <Position X="0.5" Y="14.25" Height="0.284" Width="13.505" />
+  </Comment>
+  <Class Name="Edi.UWP.Helpers.Utils">
+    <Position X="0.5" Y="4.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>ECAAAgAAAAIgAAAAABAQAABAAAAABAABAAIACAAAQAA=</HashCode>
+      <FileName>Utils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Tasks">
+    <Position X="0.5" Y="11.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAACAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tasks.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Edi.UWP.Helpers.UI">
+    <Position X="0.5" Y="0.5" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Edi.UWP.Helpers.UI.NotificationAudioNames" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>UI.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAgAACAABAAAAQAAAAAAAAQAAEAEAAAAAAAAQ=</HashCode>
+      <FileName>UI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Edi.UWP.Helpers.CollectionExtensions">
+    <Position X="8" Y="7.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CollectionExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Converters.StringFormatConverter" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="16.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\StringFormatConverters.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Converters.BooleanToVisibilityConverter" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="15" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\BooleanToVisibilityConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Converters.ColorToSolidColorBrushValueConverter" BaseTypeListCollapsed="true">
+    <Position X="11" Y="15" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\ColorToSolidColorBrushValueConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Converters.ColorToRgbStringConverter" BaseTypeListCollapsed="true">
+    <Position X="11" Y="16.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\ColorToRgbStringConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Converters.ColorToHexStringConverter" BaseTypeListCollapsed="true">
+    <Position X="3.25" Y="15" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\ColorToHexStringConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Converters.ColorToCMYKStringConverter" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="16.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAIAAAAQAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\ColorToCMYKStringConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Converters.ColorHexStringToBrushConverter" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="15" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\ColorHexStringToBrushConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Converters.ColorHexStringToColorConverter" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="16.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\ColorHexStringToColorConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Converters.DateTimeToOffsetConverter" BaseTypeListCollapsed="true">
+    <Position X="3.25" Y="16.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\DateTimeToOffsetConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DBCSCodePage.DBCSEncoding">
+    <Position X="4" Y="0.5" Width="3.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="DBCSCodePage.DBCSEncoding.DBCSDecoder">
+        <TypeIdentifier>
+          <NewMemberFileName>DBCSEncoding.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AACAAAEQAIABAAAECBAAgAAAAABAAACAAEAAAAUAAAA=</HashCode>
+      <FileName>DBCSEncoding.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Response">
+    <Position X="12" Y="10" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAIAAAAAA=</HashCode>
+      <FileName>Response.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Response&lt;T&gt;">
+    <Position X="12" Y="12.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Response.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Edi.UWP.Helpers.ResponseExtension">
+    <Position X="0.5" Y="10.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Response.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Mobile">
+    <Position X="0.5" Y="8.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgBAAAAAAAAAQgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Mobile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Edi.UWP.Helpers.Converters.BitmapImageConverter">
+    <Position X="8.75" Y="15" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\BitmapImageConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Edi.UWP.Helpers.WrapperBase&lt;T&gt;">
+    <Position X="8" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SelectorWrapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Edi.UWP.Helpers.SelectorWrapper&lt;T&gt;">
+    <Position X="8" Y="2.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEIAAAAAAACCAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SelectorWrapper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Edi.UWP.Helpers.BitmapExtensions">
+    <Position X="4" Y="7.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAIAAAAAAAAAAIAABAAAAAAAAAAA=</HashCode>
+      <FileName>BitmapExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Edi.UWP.Helpers.ToastHelper">
+    <Position X="8" Y="6" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>ToastHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Edi.UWP.Helpers.JsonDataRepository&lt;T&gt;">
+    <Position X="9" Y="10" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAgAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>JsonDataRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Edi.UWP.Helpers.ExceptionHandlingSynchronizationContext">
+    <Position X="3.75" Y="10" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAACAEAAAAgAKAABBIgAAAgACAAAAAA=</HashCode>
+      <FileName>ExceptionHandlingSynchronizationContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Edi.UWP.Helpers.UnhandledExceptionEventArgs">
+    <Position X="9" Y="12.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>ExceptionHandlingSynchronizationContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>
