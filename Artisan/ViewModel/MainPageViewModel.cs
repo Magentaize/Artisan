@@ -59,10 +59,10 @@ namespace Artisan.ViewModel
                 string str = "../Assets/img/" + random.Next(1, 7).ToString() + ".jpg";
                 HomePivotListItems.Add(new HomePivotListItem
                 {
-                    AuthorName = "Artist " + j.ToString(),
                     Text = "IMG" + j.ToString() + ":0x" + Address(),
                     CreatTime = DateFormat.GetFormattedTime(),
-                    Pics = str
+                    Pics = str,
+                    User = new HomePivotListItemUser { Name = "Artist " + j.ToString(), },
                 });
 
                 DiscoveryPivotListItems.Add(new DiscoveryPivotListItem
@@ -86,7 +86,6 @@ namespace Artisan.ViewModel
             string str = "../Assets/img/" + i.ToString() + ".jpg";
             item = new HomePivotListItem
             {
-                AuthorName = "Artist " + i.ToString(),
                 Text = "IMG" + i.ToString() + ":0x" + Address(),
                 CreatTime = DateFormat.GetFormattedTime(),
                 Pics = str,

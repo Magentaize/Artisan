@@ -120,4 +120,23 @@ JSON示例 {
             set { UpdateProperty(ref _fans, value);}
         }
     }
+
+    public class UserInfoGeo : NotifyPropertyObject, IGeo
+    {
+        private string _city;
+
+        public string City
+        {
+            get { return _city; }
+            set { UpdateProperty(ref _city, value);}
+        }
+
+        private string _province;
+
+        public string Province
+        {
+            get { return _province; }
+            set { UpdateProperty(ref _province ,value);}
+        }
+    }
 }

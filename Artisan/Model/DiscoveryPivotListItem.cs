@@ -8,13 +8,6 @@ namespace Artisan.Model
 {
     public class DiscoveryPivotListItem:NotifyPropertyObject, IDiscoveryPivotListItem
     {
-        public DiscoveryPivotListItem()
-        {
-            ThemeColorBrush = new SolidColorBrush((Color)Application.Current.Resources["SystemAccentColor"]);
-        }
-
-        private Brush _themeColorBrush;
-
         private int _id;
         public int Id
         {
@@ -41,11 +34,6 @@ namespace Artisan.Model
         {
             get { return _title;}
             set { UpdateProperty(ref _title, value);}
-        }
-        public Brush ThemeColorBrush
-        {
-            get { return _themeColorBrush; }
-            set { UpdateProperty(ref _themeColorBrush, value); }
         }
 
 
