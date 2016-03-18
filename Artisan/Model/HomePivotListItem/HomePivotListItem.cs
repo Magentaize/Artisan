@@ -43,6 +43,14 @@ namespace Artisan.Model
             set { UpdateProperty(ref _geo, (HomePivotListItemGeo)value);}
         }
 
+        private HomePivotListItemUser _user;
+
+        public IHomePivotListItemUser User
+        {
+            get { return _user; }
+            set { UpdateProperty(ref _user, (HomePivotListItemUser)value);}
+        }
+
         private string _authorName;
         public string AuthorName
         {

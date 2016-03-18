@@ -114,7 +114,8 @@
     <Compile Include="Interface\IUserInfo.cs" />
     <Compile Include="Model\AuthorOtherPostListItem.cs" />
     <Compile Include="Model\CommentListItem.cs" />
-    <Compile Include="Model\HomePivotListItemUser.cs" />
+    <Compile Include="Model\HomePivotListItem\HomePivotListItemUser.cs" />
+    <Compile Include="Model\UserInfo.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Toolkit\Exceptions\ToolkitInternalException.cs" />
     <Compile Include="Toolkit\Net\HttpWebPost.cs" />
@@ -125,7 +126,7 @@
     <Compile Include="ViewModel\PostDetailPageViewModel.cs" />
     <Compile Include="Model\DiscoveryPivotListItem.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
-    <Compile Include="Model\HomePivotListItem.cs" />
+    <Compile Include="Model\HomePivotListItem\HomePivotListItem.cs" />
     <Compile Include="Model\ThemeColor.cs" />
     <Compile Include="Toolkit\Helper\VisualTree.cs" />
     <Compile Include="Toolkit\MessageDialog.cs" />
