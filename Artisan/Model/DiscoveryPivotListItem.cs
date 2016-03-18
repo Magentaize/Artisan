@@ -14,25 +14,40 @@ namespace Artisan.Model
         }
 
         private Brush _themeColorBrush;
-        private string _postInfo;
-        private string _postSource;
 
+        private int _id;
+        public int Id
+        {
+            get { return _id; }
+            set { UpdateProperty(ref _id, value);}
+        }
+
+        private string _intro;
+        public string Intro
+        {
+            get { return _intro; }
+            set { UpdateProperty(ref _intro, value); }
+        }
+
+        private string _pic;
+        public string Pic
+        {
+            get { return _pic; }
+            set { UpdateProperty(ref _pic, value); }
+        }
+
+        private string _title;
+        public string Title
+        {
+            get { return _title;}
+            set { UpdateProperty(ref _title, value);}
+        }
         public Brush ThemeColorBrush
         {
             get { return _themeColorBrush; }
             set { UpdateProperty(ref _themeColorBrush, value); }
         }
 
-        public string PostInfo
-        {
-            get { return _postInfo; }
-            set { UpdateProperty(ref _postInfo, value); }
-        }
 
-        public string PostSource
-        {
-            get { return _postSource; }
-            set { UpdateProperty(ref _postSource, value); }
-        }
     }
 }

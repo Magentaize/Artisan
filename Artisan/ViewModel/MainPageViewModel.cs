@@ -60,15 +60,15 @@ namespace Artisan.ViewModel
                 HomePivotListItems.Add(new HomePivotListItem
                 {
                     AuthorName = "Artist " + j.ToString(),
-                    PostInfo = "IMG" + j.ToString() + ":0x" + Address(),
-                    PostTime = DateFormat.GetFormattedTime(),
-                    PostSource = str
+                    Text = "IMG" + j.ToString() + ":0x" + Address(),
+                    CreatTime = DateFormat.GetFormattedTime(),
+                    Pics = str
                 });
 
                 DiscoveryPivotListItems.Add(new DiscoveryPivotListItem
                 {
-                    PostInfo = "今日推荐:IMG" + j++.ToString(),
-                    PostSource = str
+                    Intro = "今日推荐:IMG" + j++.ToString(),
+                    Pic = str
                 });
             }
         }
@@ -87,9 +87,9 @@ namespace Artisan.ViewModel
             item = new HomePivotListItem
             {
                 AuthorName = "Artist " + i.ToString(),
-                PostInfo = "IMG" + i.ToString() + ":0x" + Address(),
-                PostTime = DateFormat.GetFormattedTime(),
-                PostSource = str
+                Text = "IMG" + i.ToString() + ":0x" + Address(),
+                CreatTime = DateFormat.GetFormattedTime(),
+                Pics = str
             };
             return item;
         }

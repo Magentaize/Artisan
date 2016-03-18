@@ -8,45 +8,42 @@ namespace Artisan.Model
 {
     public class HomePivotListItem:NotifyPropertyObject,IHomePivotListItem
     {
-        public HomePivotListItem()
+        private int _id;
+
+        public int Id
         {
-            ThemeColorBrush = new SolidColorBrush((Color) Application.Current.Resources["SystemAccentColor"]);
+            get { return _id; }
+            set { UpdateProperty(ref _id, value);}
         }
 
-        private Brush _themeColorBrush;
+        private string _creatTime;
+        public string CreatTime
+        {
+            get { return _creatTime; }
+            set { UpdateProperty(ref _creatTime, value); }
+        }
+
+        private string _text;
+        public string Text
+        {
+            get { return _text; }
+            set { UpdateProperty(ref _text, value);}
+        }
+
+        private string _pics;
+        public string Pics
+        {
+            get { return _pics; }
+            set { UpdateProperty(ref _pics, value); }
+        }
+
         private string _authorName;
-        private string _postTime;
-        private string _postInfo;
-        private string _postSource;
-
-        public Brush ThemeColorBrush
-        {
-            get { return _themeColorBrush; }
-            set { UpdateProperty(ref _themeColorBrush, value); }
-        }
-
         public string AuthorName
         {
             get{ return _authorName; }
             set{ UpdateProperty(ref _authorName, value); }
         }
 
-        public string PostTime
-        {
-            get { return _postTime; }
-            set { UpdateProperty(ref _postTime, value); }
-        }
 
-        public string PostInfo
-        {
-            get { return _postInfo; }
-            set { UpdateProperty(ref _postInfo, value); }
-        }
-
-        public string PostSource
-        {
-            get { return _postSource; }
-            set { UpdateProperty(ref _postSource, value); }
-        }
     }
 }

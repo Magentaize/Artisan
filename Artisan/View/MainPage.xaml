@@ -344,7 +344,7 @@
                     </Grid.RowDefinitions>
                     <Image x:Name="PostImage"
                        Stretch="UniformToFill"
-                       Source="{x:Bind PostSource}"
+                       Source="{x:Bind Pics}"
                        Grid.Row="1"/>
                     <!--x:Bind PostSource-->
                     <Grid VerticalAlignment="Top" Grid.Row="0">
@@ -373,15 +373,15 @@
                                Grid.Column="1" 
                                HorizontalAlignment="Left" 
                                Margin="0,8,0,0"/>
-                        <TextBlock x:Name="PostTime" 
+                        <TextBlock x:Name="CreatTime" 
                                TextWrapping="Wrap"
-                               Text="{x:Bind PostTime}"
+                               Text="{x:Bind CreatTime}"
                                HorizontalAlignment="Right"
                                Grid.Column="1"
                                Margin="0,8,8,0"/>
                         <TextBlock x:Name="PostInfo"
                                TextWrapping="Wrap"
-                               Text="{x:Bind PostInfo}"
+                               Text="{x:Bind Text}"
                                HorizontalAlignment="Left"
                                Grid.Column="1" 
                                Grid.Row="1"
@@ -411,7 +411,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Image x:Name="PostImage" Stretch="UniformToFill" Source="{x:Bind PostSource}" Grid.RowSpan="2" Height="180"/>
+                <Image x:Name="PostImage" Stretch="UniformToFill" Source="{x:Bind Pic}" Grid.RowSpan="2" Height="180"/>
                 <Grid VerticalAlignment="Bottom" Grid.Row="1">
                     <Grid.Background>
                         <SolidColorBrush Color="{ThemeResource SystemAccentColor}" Opacity="0.4"/>
@@ -421,7 +421,7 @@
                     </Grid.RowDefinitions>
                     <TextBlock x:Name="PostInfo"
                                TextWrapping="Wrap" 
-                               Text="{x:Bind PostInfo}"
+                               Text="{x:Bind Intro}"
                                d:LayoutOverrides="Width, Height, TopPosition, BottomPosition"
                                Margin="0,4,8,4"
                                HorizontalAlignment="Right"

@@ -2,7 +2,9 @@
 {
     public interface IDiscoveryPivotListItem
     {
-        string PostInfo { get; set; }
-        string PostSource { get; set; }
+        int Id { get; set; }
+        string Title { get; set; }
+        string Intro { get; set; }
+        string Pic { get; set; }
     }
 }

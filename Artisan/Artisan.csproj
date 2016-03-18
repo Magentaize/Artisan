@@ -114,6 +114,7 @@
     <Compile Include="Model\CommentListItem.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Toolkit\Exceptions\ToolkitInternalException.cs" />
+    <Compile Include="Toolkit\Net\HttpWebPost.cs" />
     <Compile Include="Toolkit\Utilities\GetVersion.cs" />
     <Compile Include="Toolkit\Helper\DateFormat.cs" />
     <Compile Include="Toolkit\Net\HttpRequest.cs" />
