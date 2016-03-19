@@ -10,14 +10,15 @@ using Windows.Web.Http;
 
 namespace Artisan.Toolkit.Net
 {
-    public class HttpWebPost
+    public class HttpWebPost//懒得改名字了
     {
+        private static CookieContainer cookies = new CookieContainer();
         /// <summary>
         /// 向指定uri post一组参数
         /// </summary>
         /// <param name="paramters">要post的参数</param>
         /// <returns></returns>
-        public static async Task<Dictionary<string, string>> PostDataToUriAsync(string uri, Dictionary<string, string> paramters)
+        public static async Task<JsonObject> PostJsonToUriAsync(string uri, Dictionary<string, string> paramters)
         {
     
             JsonObject jsonObj = new JsonObject();
@@ -27,10 +28,11 @@ namespace Artisan.Toolkit.Net
             }
            return await PostDataToUriAsync(uri, jsonObj.ToString());
         }
-        public static async Task<Dictionary<string, string>> PostDataToUriAsync(string uri, string paramters)
+        public static async Task<JsonObject> PostDataToUriAsync(string uri, string paramters)
         {
             HttpWebRequest request = HttpWebRequest.CreateHttp(uri);
             request.ContentType = "application/json";
+            request.CookieContainer = cookies;
             request.Method = "POST";
             try {
                 using (var stream = await request.GetRequestStreamAsync())
@@ -50,16 +52,45 @@ namespace Artisan.Toolkit.Net
                 if (result != null)
                 {
                     var array = Windows.Data.Json.JsonObject.Parse(result);
-                    Dictionary<string, string> dict = new Dictionary<string, string>();
-                    foreach(var data in array)
-                    {
-                        dict.Add(data.Key, data.Value.ToString());
-                    }
-                    return dict;
+                    return array;
                 }
                 return null;
             }
             catch(Exception e)
+            {
+                return null;
+            }
+        }
+        /// <summary>
+        /// 使用html方式发送get参数,返回jsonObject
+        /// </summary>
+        /// <param name="uri"></param>
+        /// <param name="paramters"></param>
+        /// <returns></returns>
+        public static async Task<JsonObject> GetJsonFromUriAsync(string uri, Dictionary<string, string> paramters)
+        {
+            StringBuilder sb = new StringBuilder(uri);
+            sb.Append("?");
+            foreach(var param in paramters)
+            {
+                sb.Append($"{param.Key}={param.Value}&");
+            }
+            sb.Remove(sb.Length - 1, 1);
+            HttpWebRequest request = HttpWebRequest.CreateHttp(sb.ToString());
+            request.CookieContainer = cookies;
+            request.Method = "GET";
+            try {
+                var response = await request.GetResponseAsync();
+                string result;
+                using (var stream = response.GetResponseStream())
+                {
+                    StreamReader sr = new StreamReader(stream);
+                    result = sr.ReadToEnd();
+                }
+                var obj = JsonObject.Parse(result);
+                return obj;
+            }
+            catch (Exception e)
             {
                 return null;
             }
