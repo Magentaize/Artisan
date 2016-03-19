@@ -140,6 +140,7 @@ namespace Artisan.ViewModel
 
         public async Task<bool> GetTimeLineAsync()
         {
+            HomePivotListItems.Clear();
             Dictionary<string, string> param = new Dictionary<string, string>();
             param.Add("page", CurrentPage.ToString());
             var TimeLineUri = ResourceLoader.GetForCurrentView().GetString("TimeLineUri");

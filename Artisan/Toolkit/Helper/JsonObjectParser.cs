@@ -44,6 +44,7 @@ namespace Artisan.Toolkit.Helper
             {
                 result[i] = hostUri + array[i].ToString();
             }
+            
             return result;
 
         }
@@ -72,6 +73,8 @@ namespace Artisan.Toolkit.Helper
                 Pics = ParseStringArray(token["pics"]),
                 Sell = int.Parse(token["sell"].ToString()),
                 Size = ParseSize(token["size"]),
+                Uid = token["uid"].ToString(),
+                Wid = token["_id"].ToString()
             };
         }
         //public static 

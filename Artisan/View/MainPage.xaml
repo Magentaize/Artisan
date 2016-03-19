@@ -331,7 +331,7 @@
             </Setter>
         </Style>
         <DataTemplate x:Key="HomeListDT" x:DataType="interface:IHomePivotListItem">
-            <Grid>
+            <Grid HorizontalAlignment="Stretch">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -611,10 +611,10 @@
         </Style>-->
     </Page.Resources>
     <Page.BottomAppBar>
-        <CommandBar>
-            <AppBarButton Icon="Back" Click="PrePage_click"/>
-            <AppBarButton Icon="Refresh" Click="Refresh_click"/>
-            <AppBarButton Icon="Next" Click="NextPage_click"/><!--什么鬼。。-->
+        <CommandBar ClosedDisplayMode="Minimal">
+            <AppBarButton Icon="Back" Content="上一页" Click="PrePage_click"/>
+                <AppBarButton Icon="Refresh" Content="刷新" Click="Refresh_click"/>
+            <AppBarButton Icon="Forward" Content="下一页" Click="NextPage_click"/>
         </CommandBar>
     </Page.BottomAppBar>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
