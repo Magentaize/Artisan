@@ -5,7 +5,7 @@ namespace Artisan.Interface
     public interface IHomePivotListItem
     {
         //Objects of HomePage pivot ListViewItem
-        int Tid { get; set; }
+        string Tid { get; set; }
         string PostTime { get; set; } //Set per-post's posted time
         IUser User { get; set; }
         //string Text { get; set; } //Set per-post's info

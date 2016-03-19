@@ -17,22 +17,7 @@ namespace Artisan.Toolkit.Helper
         {
             return token.Type == JTokenType.Null ? null : new UserInfoGeo { City = token["city"].ToString(), Province = token["province"].ToString() };
         }
-        public static UserInfo ParseUserInfo(JToken token)
-        {
-            var hostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
-            return new UserInfo()
-            {
-                Article = int.Parse(token["article_num"].ToString()),
-                Fans = int.Parse(token["fans_num"].ToString()),
-                Follows = int.Parse(token["follows_num"].ToString()),
-                Gender = int.Parse(token["gender"].ToString()),
-                Geo = ParseUserGeo(token["geo"]),
-                Intro = token["intro"].ToString(),
-                Name = token["nickname"].ToString(),
-                Pic = hostUri + token["head_pic"].ToString(),
-                Works = int.Parse(token["works_num"].ToString())
-            };
-        }
+    
         public static string[] ParseStringArray(JToken token)
         {
             var hostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
@@ -78,18 +63,34 @@ namespace Artisan.Toolkit.Helper
             };
         }
         //public static 
-        public static HomePivotListItemUser ParseTimeLineUser(JToken token)
+        public static UserInfo ParseUserInfo(JToken token)
         {
-            var user = new HomePivotListItemUser();
+            var hostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
+            return new UserInfo()
+            {
+                Article = int.Parse(token["article_num"].ToString()),
+                Fans = int.Parse(token["fans_num"].ToString()),
+                Follows = int.Parse(token["follows_num"].ToString()),
+                Gender = int.Parse(token["gender"].ToString()),
+                Geo = ParseUserGeo(token["geo"]),
+                Intro = token["intro"].ToString(),
+                NickName = token["nickname"].ToString(),
+                HeadPic = hostUri + token["head_pic"].ToString(),
+                Works = int.Parse(token["works_num"].ToString())
+            };
+        }
+        public static User ParseUser(JToken token)
+        {
+            var user = new User();
             var hostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
             if (token.Type != JTokenType.Null)
             {
-                user.Name = token["nickname"].ToString();
+                user.NickName = token["nickname"].ToString();
                 user.Uid = token["_id"].ToString();
                 user.Gender = int.Parse(token["gender"].ToString());
                 user.Geo = ParseUserGeo(token["geo"]);
                 user.Intro = token["intro"].ToString();
-                user.Pic = hostUri + token["head_pic"].ToString();
+                user.HeadPic = hostUri + token["head_pic"].ToString();
             }
             return user;
         }
@@ -107,16 +108,37 @@ namespace Artisan.Toolkit.Helper
             {
                 result.Add(new HomePivotListItem
                 {
-                    Text = item["work"]["intro"].ToString(),
+                    Tid = item["_id"].ToString(),
                     PostTime = item["post_time"].ToString(),
-                    Pics = hostUri + ((JValue)item["work"]["pics"][0]).ToString(),
-                    User = ParseTimeLineUser(item["user"])
+                    Work = ParseWork(item["work"]),
+                    User = ParseUser(item["user"])
                 });
             }
 
             return result;
         }
-
+        public static Work[] ParseWorkArray(JToken token)
+        {
+            if (token.Type == JTokenType.Null) return null;
+            var array = token.ToArray();
+            Work[] result = new Work[array.Count()];
+            for(int i = 0; i < result.Count(); ++i)
+            {
+                result[i] = ParseWork(array[i]);
+            }
+            return result;
+        }
+        public static User[] ParseUserArray(JToken token)
+        {
+            if (token.Type == JTokenType.Null) return null;
+            var array = token.ToArray();
+            User[] result = new User[array.Count()];
+            for (int i = 0; i < result.Count(); ++i)
+            {
+                result[i] = ParseUser(array[i]);
+            }
+            return result;
+        }
         /// <summary>
         /// 对应首页发现数据
         /// </summary>
@@ -131,8 +153,8 @@ namespace Artisan.Toolkit.Helper
             {
                 result.Add(new DiscoveryPivotListItem
                 {
-                    Intro = item["intro"].ToString(),
-                    Pic = hostUri + ((JValue)item["pics"][0]).ToString(),                
+                    Works =  ParseWorkArray(item["works"]),
+                    Users = ParseUserArray(item["users"])
                 });
             }
             return result;

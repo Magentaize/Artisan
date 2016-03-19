@@ -8,9 +8,9 @@ namespace Artisan.Model
 {
     public class HomePivotListItem:NotifyPropertyObject,IHomePivotListItem
     {
-        private int _tid;
+        private string _tid;
 
-        public int Tid
+        public string Tid
         {
             get { return _tid; }
             set { UpdateProperty(ref _tid, value);}
