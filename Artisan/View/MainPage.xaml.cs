@@ -76,7 +76,7 @@ namespace Artisan.View
                     await myWorkPageEditDialog.ShowAsync();
                 };
 
-            IntroductionEditDialog EditIntroduction = new IntroductionEditDialog();
+            var EditIntroduction = new IntroductionEditDialog();
             Introduction.Tapped += async delegate (object sedner, TappedRoutedEventArgs e)
               {
                   await EditIntroduction.ShowAsync();
@@ -93,6 +93,7 @@ namespace Artisan.View
             {
                
                 var success = await MainPageVm.GetTimeLineAsync(1);
+                var success2 = await MainPageVm.GetDiscoveryAsync();
                 _isFirstNavigatedToMainPage = false;
             }
             bool result = await MainPageVm.AutoLoginAsync();

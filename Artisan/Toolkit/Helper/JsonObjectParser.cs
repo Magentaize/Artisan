@@ -35,7 +35,6 @@ namespace Artisan.Toolkit.Helper
         public static  ObservableCollection<HomePivotListItem> ParseTimeLineItem(string data)
         {
             var result = new ObservableCollection<HomePivotListItem>();
-
             var hostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
             var jToken = JObject.Parse(data).First.First;
             foreach (var item in jToken)
@@ -51,5 +50,26 @@ namespace Artisan.Toolkit.Helper
 
             return result;
         }
+
+        /// <summary>
+        /// 对应首页发现数据
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static ObservableCollection<DiscoveryPivotListItem> ParseDiscoveryItem(string data)
+        {
+            var result = new ObservableCollection<DiscoveryPivotListItem>();
+            var hostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
+            var jToken = JObject.Parse(data).First.First["works"];
+            foreach (var item in jToken)
+            {
+                result.Add(new DiscoveryPivotListItem
+                {
+                    Intro = item["intro"].ToString(),
+                    Pic = hostUri + ((JValue)item["pics"][0]).ToString(),
+                });
+            }
+            return result;
+        } 
     }
 }

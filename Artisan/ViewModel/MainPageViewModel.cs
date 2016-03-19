@@ -112,26 +112,21 @@ namespace Artisan.ViewModel
             else return true;
         }
 
-        private static string Address()
-        {
-            return Guid.NewGuid().ToString().Substring(0, 8).ToUpper();
-        }
-
-        public static HomePivotListItem GetItem()
-        {
-            Random random = new Random((int)DateTime.Now.Ticks);
-            HomePivotListItem item = null;
-            int i = random.Next(1, 7);
-            string str = "../Assets/img/" + i.ToString() + ".jpg";
-            item = new HomePivotListItem
-            {
-                Text = "IMG" + i.ToString() + ":0x" + Address(),
-                CreatTime = DateFormat.GetFormattedTime(),
-                Pics = str,
-                User = new HomePivotListItemUser { Name = "Artist " + i.ToString(),},
-            };
-            return item;
-        }
+        //public static HomePivotListItem GetItem()
+        //{
+        //    Random random = new Random((int)DateTime.Now.Ticks);
+        //    HomePivotListItem item = null;
+        //    int i = random.Next(1, 7);
+        //    string str = "../Assets/img/" + i.ToString() + ".jpg";
+        //    item = new HomePivotListItem
+        //    {
+        //        Text = "IMG" + i.ToString() + ":0x" + Address(),
+        //        CreatTime = DateFormat.GetFormattedTime(),
+        //        Pics = str,
+        //        User = new HomePivotListItemUser { Name = "Artist " + i.ToString(),},
+        //    };
+        //    return item;
+        //}
 
         public async Task<bool> GetTimeLineAsync(int timeLinePage)
         {
@@ -139,14 +134,25 @@ namespace Artisan.ViewModel
             param.Add("page", timeLinePage.ToString());
             string TimeLineUri = ResourceLoader.GetForCurrentView().GetString("TimeLineUri");
             var result = await HttpWebPost.GetJsonStringFromUriAsync(TimeLineUri, param);
-            //MessageBox.Show(result.ToString());
-           var items = JsonObjectParser.ParseTimeLineItem(result);
+            var items = JsonObjectParser.ParseTimeLineItem(result);
             foreach(var item in items)
             {
                 HomePivotListItems.Add(item);
             }
             return  HomePivotListItems != null;
         }
+
+        public async Task<bool> GetDiscoveryAsync()
+        {
+            string DiscoveryUri = ResourceLoader.GetForCurrentView().GetString("FindUri");
+            var result = await HttpWebPost.GetJsonStringFromUriAsync(DiscoveryUri);
+            var items = JsonObjectParser.ParseDiscoveryItem(result);
+            foreach (var item in items)
+            {
+                DiscoveryPivotListItems.Add(item);
+            }
+            return DiscoveryPivotListItems != null;
+        } 
 
         internal async void Signout()
         {
