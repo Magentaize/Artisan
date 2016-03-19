@@ -41,7 +41,6 @@ namespace Artisan.View
     public sealed partial class MainPage : Page
     {
         private MainPageViewModel MainPageVm { get; } = new MainPageViewModel();
-        private ThemeColor ThemeColorVM { get; set; }=new ThemeColor();
 
         public MainPage()
         {
@@ -74,7 +73,7 @@ namespace Artisan.View
         {
             base.OnNavigatedFrom(e);
             SignPageViewModel spvm = new SignPageViewModel();
-            await spvm.GetTimeLineAsync(1);
+            await spvm.GetTimeLineAsync(5);
         }
         private async void Upload_Click(object sender, RoutedEventArgs e)
         {

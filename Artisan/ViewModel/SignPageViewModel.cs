@@ -8,6 +8,7 @@ using Windows.ApplicationModel.Resources;
 using Artisan.Toolkit;
 using Artisan.Model;
 using Windows.Data.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Artisan.ViewModel
 {
@@ -42,6 +43,7 @@ namespace Artisan.ViewModel
             param.Add("page", timeLinePage.ToString());
             string TimeLineUri = ResourceLoader.GetForCurrentView().GetString("TimeLineUri");
             var result = await HttpWebPost.GetJsonFromUriAsync(TimeLineUri, param);
+            var jObj = JObject.Parse(result.ToString());
             //var result = await HttpWebPost.PostJsonToUriAsync(TimeLineUri, param);
             MessageBox.Show(result.ToString());
             return result ?? null;
