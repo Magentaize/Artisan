@@ -406,7 +406,7 @@
             </Grid>
         </DataTemplate>
         <DataTemplate x:Key="DiscoveryDT" x:DataType="interface:IDiscoveryPivotListItem">
-            <Grid Margin="0,0,0,4">
+            <Grid Margin="0,0,0,4" Tapped="ItemTapped">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -613,7 +613,7 @@
     <Page.BottomAppBar>
         <CommandBar>
             <AppBarButton Icon="Back" Content="上一页" Click="PrePage_click"/>
-                <AppBarButton Icon="Refresh" Content="刷新" Click="Refresh_click"/>
+            <AppBarButton Icon="Refresh" Content="刷新" Click="Refresh_click"/>
             <AppBarButton Icon="Forward" Content="下一页" Click="NextPage_click"/>
         </CommandBar>
     </Page.BottomAppBar>
@@ -626,7 +626,7 @@
                 <!--<Grid Background="{x:Bind MainPageVm.ThemeColorBrush}">-->
                 <Grid>
                     <ListView x:Name="HomePageList" 
-                              ItemsSource="{x:Bind MainPageVm.HomePivotListItems}" 
+                              ItemsSource="{x:Bind MainPageVm.HomePivotList}" 
                               ItemContainerStyle="{StaticResource HomeListItemStyle}"
                               ItemTemplate="{StaticResource HomeListDT}" 
                               ScrollViewer.VerticalScrollBarVisibility="Hidden">
@@ -640,9 +640,9 @@
                        Header="发现" 
                        Style="{StaticResource HomePivotItemStyle}" 
                        Margin="0">
-                <Grid Background="{x:Bind MainPageVm.ThemeColorBrush}">
+                <Grid Background="{ThemeResource SystemAccentColor}">
                     <ListView x:Name="DiscoveryList" 
-                              ItemsSource="{x:Bind MainPageVm.DiscoveryPivotListItems}"
+                              ItemsSource="{x:Bind MainPageVm.DiscoveryPivotList}"
                               ItemContainerStyle="{StaticResource HomeListItemStyle}" 
                               ItemTemplate="{StaticResource DiscoveryDT}"
                               ScrollViewer.VerticalScrollBarVisibility="Hidden">

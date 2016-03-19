@@ -238,12 +238,10 @@
     </Page.Resources>
 
     <Page.BottomAppBar>
-        <AppBar IsOpen="False" IsSticky="True">
-            <StackPanel Orientation="Horizontal">
-                <AppBarButton x:Name="ShareBtn" Icon="ReShare" Label="分享"/>
-                <AppBarButton Icon="People" Label="打赏"/>
-            </StackPanel>
-        </AppBar>
+        <CommandBar>
+            <AppBarButton x:Name="ShareBtn" Icon="ReShare" Label="分享"/>
+            <AppBarButton Icon="People" Label="打赏"/>
+        </CommandBar>
     </Page.BottomAppBar>
     <Grid>
         <Grid.Background>

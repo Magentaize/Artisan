@@ -149,12 +149,6 @@ namespace Artisan.Toolkit.Net
         public static async Task<string> GetJsonStringFromUriAsync(string uri)
         {
             StringBuilder sb = new StringBuilder(uri);
-            //sb.Append("?");
-            //foreach (var param in paramters)
-            //{
-            //    sb.Append($"{param.Key}={param.Value}&");
-            //}
-            //sb.Remove(sb.Length - 1, 1);
             HttpWebRequest request = HttpWebRequest.CreateHttp(sb.ToString());
             request.CookieContainer = cookies;
             request.Method = "GET";

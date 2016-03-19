@@ -155,6 +155,7 @@ namespace Artisan.Toolkit.Helper
             {
                 result.Add(new DiscoveryPivotListItem
                 {
+                    User = new User { NickName = @"KuosLo"},
                     Work =  ParseWork(item)                   
                 });
             }

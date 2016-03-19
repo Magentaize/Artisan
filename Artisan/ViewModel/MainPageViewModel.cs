@@ -18,76 +18,31 @@ namespace Artisan.ViewModel
 {
     public class MainPageViewModel : NotifyPropertyObject
     {
-        private Brush _themeColorBrush = new SolidColorBrush((Color) Application.Current.Resources["SystemAccentColor"]);
-
-        private int currentPage = 1;
+        private int _currentPage = 1;
         public int CurrentPage
         {
-            get { return currentPage; }
+            get { return _currentPage; }
             set
             {
-                UpdateProperty(ref currentPage, value);
+                UpdateProperty(ref _currentPage, value);
             }
         }
-        private ObservableCollection<HomePivotListItem> _homePivotListItems =
+        private ObservableCollection<HomePivotListItem> _homePivotList =
             new ObservableCollection<HomePivotListItem>();
 
-        private ObservableCollection<DiscoveryPivotListItem> _discoveryPivotListItems =
+        private ObservableCollection<DiscoveryPivotListItem> _discoveryPivotList =
             new ObservableCollection<DiscoveryPivotListItem>();
 
-        public Brush ThemeColorBrush
+        public ObservableCollection<HomePivotListItem> HomePivotList
         {
-            get { return _themeColorBrush; }
-            set { UpdateProperty(ref _themeColorBrush, value); }
+            get { return _homePivotList; }
+            set { UpdateProperty(ref _homePivotList, value); }
         }
 
-        public ObservableCollection<HomePivotListItem> HomePivotListItems
+        public ObservableCollection<DiscoveryPivotListItem> DiscoveryPivotList
         {
-            get { return _homePivotListItems; }
-            set
-            {
-                if (_homePivotListItems != value)
-                {
-                    UpdateProperty(ref _homePivotListItems, value);
-                }
-            }
-        }
-
-        public ObservableCollection<DiscoveryPivotListItem> DiscoveryPivotListItems
-        {
-            get { return _discoveryPivotListItems; }
-            set
-            {
-                if (_discoveryPivotListItems != value)
-                {
-                    UpdateProperty(ref _discoveryPivotListItems, value);
-                }
-            }
-        }
-
-        public MainPageViewModel()
-        {
-            
-            ////DiscoveryPivotListItems= new ObservableCollection<DiscoveryPivotListItem>();
-            ////ThemeColorBrush = new SolidColorBrush((Color)Application.Current.Resources["SystemAccentColor"]);
-            //Random random = new Random((int) DateTime.Now.Ticks);
-            //for (int j = 1; j <= 8;)
-            //{
-            //    string str = "../Assets/img/" + random.Next(1, 7).ToString() + ".jpg";
-            //    HomePivotListItems.Add(new HomePivotListItem
-            //    {
-            //        Text = "IMG" + j.ToString() + ":0x" + Address(),
-            //        CreatTime = DateFormat.GetFormattedTime(),
-            //        Pics = str,
-            //        User = new HomePivotListItemUser { Name = "Artist " + j.ToString(), },
-            //    });
-
-            //    DiscoveryPivotListItems.Add(new DiscoveryPivotListItem
-            //    {
-            //        Intro = "今日推荐:IMG" + j++.ToString(),
-            //        Pic = str
-            //    });
-            //}
+            get { return _discoveryPivotList; }
+            set { UpdateProperty(ref _discoveryPivotList, value); }
         }
 
         internal async Task<bool> AutoLoginAsync()
@@ -122,25 +77,9 @@ namespace Artisan.ViewModel
             else return true;
         }
 
-        //public static HomePivotListItem GetItem()
-        //{
-        //    Random random = new Random((int)DateTime.Now.Ticks);
-        //    HomePivotListItem item = null;
-        //    int i = random.Next(1, 7);
-        //    string str = "../Assets/img/" + i.ToString() + ".jpg";
-        //    item = new HomePivotListItem
-        //    {
-        //        Text = "IMG" + i.ToString() + ":0x" + Address(),
-        //        CreatTime = DateFormat.GetFormattedTime(),
-        //        Pics = str,
-        //        User = new HomePivotListItemUser { Name = "Artist " + i.ToString(),},
-        //    };
-        //    return item;
-        //}
-
         public async Task<bool> GetTimeLineAsync()
         {
-            HomePivotListItems.Clear();
+            HomePivotList.Clear();
             Dictionary<string, string> param = new Dictionary<string, string>();
             param.Add("page", CurrentPage.ToString());
             var TimeLineUri = ResourceLoader.GetForCurrentView().GetString("TimeLineUri");
@@ -149,9 +88,9 @@ namespace Artisan.ViewModel
             var items = JsonObjectParser.ParseTimeLineItem(result);
             foreach(var item in items)
             {
-                HomePivotListItems.Add(item);
+                HomePivotList.Add(item);
             }
-            return  HomePivotListItems != null;
+            return  HomePivotList != null;
         }
 
         public async Task<bool> GetDiscoveryAsync()
@@ -161,9 +100,9 @@ namespace Artisan.ViewModel
             var items = JsonObjectParser.ParseDiscoveryItem(result);
             foreach (var item in items)
             {
-                DiscoveryPivotListItems.Add(item);
+                DiscoveryPivotList.Add(item);
             }
-            return DiscoveryPivotListItems != null;
+            return DiscoveryPivotList != null;
         } 
 
         internal async void Signout()

@@ -110,7 +110,7 @@ namespace Artisan.View
         }
         private async void Upload_Click(object sender, RoutedEventArgs e)
         {
-            FileOpenPicker picker = new FileOpenPicker();
+            var picker = new FileOpenPicker();
             picker.SuggestedStartLocation = PickerLocationId.VideosLibrary;
             picker.FileTypeFilter.Add(".bmp");
             picker.FileTypeFilter.Add(".jpg");
@@ -128,7 +128,11 @@ namespace Artisan.View
         private void ItemTapped(object sender, TappedRoutedEventArgs e)
         {
             var grid = (Grid) sender;
-            var dataContext = grid.DataContext;
+            var dataContext = new HomePivotListItem
+            {
+                Work = new Work { Pic = ((DiscoveryPivotListItem)(((Image)VisualTree.FindVisualElementFormName(grid, "PostImage")).DataContext)).Work.Pic },
+                User = new User { NickName = @"KuosLo", },
+            };
             //var img = VisualTree.FindVisualElement<Image>(grid);
             //var str = ((BitmapImage) img.Source).UriSource.ToString();
             //this.Frame.Navigate(typeof (PostDetail), str);
@@ -189,33 +193,6 @@ namespace Artisan.View
                 }
             }
         }
-
-        //bool _chatPageBtnIsFirstOne = true;
-        //private void NotificationTapped(object sender, TappedRoutedEventArgs e)
-        //{
-        //    if(_chatPageBtnIsFirstOne!=true)
-        //    {
-        //        var brush = new SolidColorBrush(Colors.White);
-        //        brush.Opacity = 0.4;
-        //        NotificationBtn.Background = new SolidColorBrush(Colors.Transparent);
-        //        TweetBtn.Background = brush;
-        //        CommonFrame.Navigate(typeof(ChatNotification));
-        //        _chatPageBtnIsFirstOne = true;
-        //    }
-        //}
-
-        //private void TweetTapped(object sender, TappedRoutedEventArgs e)
-        //{
-        //    if (_chatPageBtnIsFirstOne == true)
-        //    {
-        //        var brush = new SolidColorBrush(Colors.White);
-        //        brush.Opacity = 0.4;
-        //        TweetBtn.Background = new SolidColorBrush(Colors.Transparent);
-        //        NotificationBtn.Background = brush;
-        //        CommonFrame.Navigate(typeof(ChatTweet));
-        //        _chatPageBtnIsFirstOne = false;
-        //    }
-        //}
 
         bool PraisedTxb = false;
         private void MainPagePostPraised_Tapped(object sender, TappedRoutedEventArgs e)
