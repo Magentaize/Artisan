@@ -64,9 +64,9 @@ namespace Artisan.View
             }
             var vm = this.DataContext as SignPageViewModel;
             var result = await vm.SigninAsync(UserId.Text, Password.Password);
-            if (result["result"] == "false")
+            if (result == null)
             {
-                ErrorInfo.Text = result["reason"];
+                ErrorInfo.Text = "登录失败";
             }
             else
             Frame.Navigate(typeof(MainPage));
@@ -89,6 +89,7 @@ namespace Artisan.View
             Password2.Visibility = Visibility.Collapsed;
             SignupButton.Visibility = Visibility.Collapsed;
             e.Handled = true;
+            SystemNavigationManager.GetForCurrentView().BackRequested -= SignPage_BackRequested;
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
         }
 
@@ -97,10 +98,5 @@ namespace Artisan.View
             ErrorInfo.Text = "     ";
         }
 
-        private async void Button_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            var vm = new SignPageViewModel();
-            await vm.GetTimeLineAsync(1);
-        }
     }
 }

@@ -70,7 +70,12 @@ namespace Artisan.View
 
             Upload.Click += Upload_Click;
         }
-
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            SignPageViewModel spvm = new SignPageViewModel();
+            await spvm.GetTimeLineAsync(1);
+        }
         private async void Upload_Click(object sender, RoutedEventArgs e)
         {
             FileOpenPicker picker = new FileOpenPicker();
