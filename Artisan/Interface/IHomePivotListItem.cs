@@ -18,7 +18,7 @@ namespace Artisan.Interface
     /// </summary>
     public interface IHomePivotListItemUser
     {
-        int Uid { get; set; }
+        string Uid { get; set; }
         string Name { get; set; }
         string Pic { get; set; }
         int Gender { get; set; }
