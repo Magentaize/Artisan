@@ -39,7 +39,6 @@ namespace Artisan.ViewModel
             Dictionary<string, string> param = new Dictionary<string, string>();
             param.Add("page", timeLinePage.ToString());
             string TimeLineUri = ResourceLoader.GetForCurrentView().GetString("TimeLineUri");
-            var result2 = await HttpWebPost.PostDataToUriAsync(TimeLineUri, param);
             var result = await HttpWebPost.PostDataToUriAsync(TimeLineUri, param);
             MessageBox.Show(result.ToString());
             return result ?? null;
