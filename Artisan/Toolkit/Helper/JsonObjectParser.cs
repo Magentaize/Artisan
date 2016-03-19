@@ -69,7 +69,7 @@ namespace Artisan.Toolkit.Helper
         {
             var result = new ObservableCollection<DiscoveryPivotListItem>();
             var hostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
-            var jToken = JObject.Parse(data).First.First["works"];
+            var jToken = JObject.Parse(data).First.First["works"];//这里直接取了works数组，没考虑users数组 那么user是什么鬼
             foreach (var item in jToken)
             {
                 result.Add(new DiscoveryPivotListItem
