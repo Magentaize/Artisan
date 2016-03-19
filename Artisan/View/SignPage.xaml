@@ -11,6 +11,7 @@
         <vm:SignPageViewModel/>
     </Page.DataContext>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button Tapped="Button_Tapped"></Button>
         <TextBlock Margin="10">登录Artisan</TextBlock>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="300">
             <TextBox Header="用户名" x:Name="UserId" Margin="10"></TextBox>

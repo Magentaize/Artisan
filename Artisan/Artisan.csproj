@@ -152,8 +152,8 @@
     <Compile Include="View\SignPage.xaml.cs">
       <DependentUpon>SignPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\NewsPage\CommentPage.xaml.cs">
-      <DependentUpon>CommentPage.xaml</DependentUpon>
+    <Compile Include="View\NewsPage\CommentMePage.xaml.cs">
+      <DependentUpon>CommentMePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\NewsPage\FollowedPage.xaml.cs">
       <DependentUpon>FollowedPage.xaml</DependentUpon>
@@ -234,7 +234,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\NewsPage\CommentPage.xaml">
+    <Page Include="View\NewsPage\CommentMePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

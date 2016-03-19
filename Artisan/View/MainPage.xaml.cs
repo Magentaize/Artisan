@@ -144,7 +144,7 @@ namespace Artisan.View
                         CommonFrame.Navigate(typeof (AllTweetPage));
                         break;
                     case 2:
-                        CommonFrame.Navigate(typeof (CommentPage));
+                        CommonFrame.Navigate(typeof (CommentMePage));
                         break;
                     case 3:
                         CommonFrame.Navigate(typeof (PraisedPage));

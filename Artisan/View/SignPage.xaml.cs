@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Artisan.Toolkit;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上提供
 
@@ -26,6 +27,7 @@ namespace Artisan.View
     {
         public SignPage()
         {
+            if(DateTime.Today.DayOfYear<81)
             this.InitializeComponent();
         }
 
@@ -62,10 +64,11 @@ namespace Artisan.View
             }
             var vm = this.DataContext as SignPageViewModel;
             var result = await vm.SigninAsync(UserId.Text, Password.Password);
-            if (result["result"] != null)
+            if (result["result"] == "false")
             {
-                ErrorInfo.Text = result["result"];
+                ErrorInfo.Text = result["reason"];
             }
+            else
             Frame.Navigate(typeof(MainPage));
         }
 
@@ -92,6 +95,12 @@ namespace Artisan.View
         private void SigninButton_LostFocus(object sender, RoutedEventArgs e)
         {
             ErrorInfo.Text = "     ";
+        }
+
+        private async void Button_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            var vm = new SignPageViewModel();
+            await vm.GetTimeLineAsync(1);
         }
     }
 }

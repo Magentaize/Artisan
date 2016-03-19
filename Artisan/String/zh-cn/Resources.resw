@@ -123,4 +123,7 @@
   <data name="SignupUri" xml:space="preserve">
     <value>http://artisan.chinacloudapp.cn/signup.json</value>
   </data>
+  <data name="TimeLineUri" xml:space="preserve">
+    <value>http://artisan.chinacloudapp.cn/new_timeline.json</value>
+  </data>
 </root>
