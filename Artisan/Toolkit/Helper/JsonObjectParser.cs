@@ -55,7 +55,7 @@ namespace Artisan.Toolkit.Helper
                 LikesNum = int.Parse(token["likes_num"].ToString()),
                 Intro = token["intro"].ToString(),
                 Name = token["name"].ToString(),
-                Pics = ParseStringArray(token["pics"]),
+                Pic = token["pic"].ToString(),//存疑
                 Sell = int.Parse(token["sell"].ToString()),
                 Size = ParseSize(token["size"]),
                 Uid = token["uid"].ToString(),
@@ -148,13 +148,12 @@ namespace Artisan.Toolkit.Helper
         {
             var result = new ObservableCollection<DiscoveryPivotListItem>();
             var hostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
-            var jToken = JObject.Parse(data).First.First["works"];//这里直接取了works数组，没考虑users数组 那么user是什么鬼
+            var jToken = JObject.Parse(data).First.First;//这里直接取了works数组，没考虑users数组 那么user是什么鬼
             foreach (var item in jToken)
             {
                 result.Add(new DiscoveryPivotListItem
                 {
-                    Works =  ParseWorkArray(item["works"]),
-                    Users = ParseUserArray(item["users"])
+                    Work =  ParseWork(item)                   
                 });
             }
             return result;
