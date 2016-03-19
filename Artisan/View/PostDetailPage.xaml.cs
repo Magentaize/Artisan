@@ -48,10 +48,16 @@ namespace Artisan.View
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            base.OnNavigatedTo(e);
-            var dataContext = e.Parameter as IHomePivotListItem;
-            PostDetailPageVM.Name = dataContext.User.Name;
-            PostDetailPageVM.Pics = dataContext.Pics;
+                base.OnNavigatedTo(e);
+                var dataContext = e.Parameter as IHomePivotListItem;
+            try
+            {
+                PostDetailPageVM.Name = dataContext.User.Name;
+                PostDetailPageVM.Pics = dataContext.Pics;
+            }
+            catch (NullReferenceException ex)
+            {
+            }
         }
 
         private void ItemTapped(object sender, TappedRoutedEventArgs e)
