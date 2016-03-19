@@ -48,12 +48,12 @@ namespace Artisan.View
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-                base.OnNavigatedTo(e);
-                var dataContext = e.Parameter as IHomePivotListItem;
+            base.OnNavigatedTo(e);
+            var dataContext = e.Parameter as IHomePivotListItem;
             try
             {
-                PostDetailPageVM.Name = dataContext.User.Name;
-                PostDetailPageVM.Pics = dataContext.Pics;
+                PostDetailPageVM.Name = dataContext.User.NickName;
+                PostDetailPageVM.Pics = dataContext.Work.Pic;
             }
             catch (NullReferenceException ex)
             {
@@ -65,13 +65,13 @@ namespace Artisan.View
             var grid = (Grid)sender;
             var dataContext = new HomePivotListItem
             {
-             Pics= (grid.DataContext as AuthorOtherPostListItem).PostSource,
-             User=new HomePivotListItemUser { Name = PostDetailPageVM.Name,},
+                Work = new Work { Pic = (grid.DataContext as AuthorOtherPostListItem).PostSource },
+                User = new User { NickName = PostDetailPageVM.Name, },
             };
             //var img =VisualTree.FindVisualElement<Image>(grid);
             //var str = ((BitmapImage)img.Source).UriSource.ToString();
             this.Frame.Navigate(typeof(PostDetail), dataContext);
         }
-    
+
     }
 }

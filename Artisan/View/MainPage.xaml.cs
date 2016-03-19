@@ -75,6 +75,11 @@ namespace Artisan.View
                 {
                     await myWorkPageEditDialog.ShowAsync();
                 };
+            Gallery.Click +=
+                async delegate (object sedner, RoutedEventArgs e)
+                {
+                    await myWorkPageEditDialog.ShowAsync();
+                };
 
             var EditIntroduction = new IntroductionEditDialog();
             Introduction.Tapped += async delegate (object sedner, TappedRoutedEventArgs e)
