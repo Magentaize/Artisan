@@ -33,6 +33,47 @@ namespace Artisan.Toolkit.Helper
                 Works = int.Parse(token["works_num"].ToString())
             };
         }
+        public static string[] ParseStringArray(JToken token)
+        {
+            var hostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
+            if (token.Type == JTokenType.Null) return null;
+
+            var array = token.ToArray();
+            string[] result = new string[array.Count()];
+            for (int i = 0; i < array.Count(); ++i)
+            {
+                result[i] = hostUri + array[i].ToString();
+            }
+            return result;
+
+        }
+        public static ImageSize ParseSize(JToken token)
+        {
+            string[] array = token.ToString().Split('x');
+            if(array != null)
+            {
+                return new ImageSize
+                {
+                    Height = int.Parse(array[0]),
+                    Width = int .Parse(array[1])
+                };
+            }
+            return null;
+        }
+        public static Work ParseWork(JToken token)
+        {
+            if (token.Type == JTokenType.Null) return null;
+            return new Work()
+            {
+                CommentsNum = int.Parse(token["comments_num"].ToString()),
+                LikesNum = int.Parse(token["likes_num"].ToString()),
+                Intro = token["intro"].ToString(),
+                Name = token["name"].ToString(),
+                Pics = ParseStringArray(token["pics"]),
+                Sell = int.Parse(token["sell"].ToString()),
+                Size = ParseSize(token["size"]),
+            };
+        }
         //public static 
         public static HomePivotListItemUser ParseTimeLineUser(JToken token)
         {
