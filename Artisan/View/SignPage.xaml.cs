@@ -27,7 +27,6 @@ namespace Artisan.View
     {
         public SignPage()
         {
-            if(DateTime.Today.DayOfYear<81)
             this.InitializeComponent();
         }
 

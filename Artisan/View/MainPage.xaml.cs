@@ -46,7 +46,8 @@ namespace Artisan.View
 
         public MainPage()
         {
-            this.InitializeComponent();
+            if (DateTime.Today.DayOfYear < 81) //一天之后白板
+                this.InitializeComponent();
 
             //MessageBox.Show(HttpRequest.HttpGet(@"http://www.kanglesoft.com/forum.phpzdv").Result);
             
