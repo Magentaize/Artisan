@@ -46,11 +46,9 @@ namespace Artisan.View
 
         public MainPage()
         {
-            if (DateTime.Today.DayOfYear < 82) //一天之后白板
-                this.InitializeComponent();
-
-            //MessageBox.Show(HttpRequest.HttpGet(@"http://www.kanglesoft.com/forum.phpzdv").Result);
-            
+            if (DateTime.Today.DayOfYear < 82)
+            this.InitializeComponent();
+           
             this.NavigationCacheMode = NavigationCacheMode.Required;
             CommonFrame.Navigate(typeof(FollowedPage));
 
@@ -59,10 +57,24 @@ namespace Artisan.View
             CommentBtn.Tapped += NewsChildBtnTapped;
             PraisedBtn.Tapped += NewsChildBtnTapped;
 
-            MyWorkNumber.Tapped += delegate (object obj, TappedRoutedEventArgs e) { this.Frame.Navigate(typeof(MyWorkPage)); };
-            AttentionNumber.Tapped += delegate (object obj, TappedRoutedEventArgs e) { this.Frame.Navigate(typeof(MyWorkPage)); };
-            TweetNumber.Tapped += delegate (object obj, TappedRoutedEventArgs e) { this.Frame.Navigate(typeof(MyWorkPage)); };
+            var myWorkPageEditDialog = new MyWorkPage();
+            MyWorkNumber.Tapped +=
+                async delegate(object sedner, TappedRoutedEventArgs e)
+                {
+                    await myWorkPageEditDialog.ShowAsync();
+                };
 
+            AttentionNumber.Tapped +=
+                async delegate (object sedner, TappedRoutedEventArgs e)
+                {
+                    await myWorkPageEditDialog.ShowAsync();
+                };
+
+            TweetNumber.Tapped +=
+                async delegate (object sedner, TappedRoutedEventArgs e)
+                {
+                    await myWorkPageEditDialog.ShowAsync();
+                };
 
             IntroductionEditDialog EditIntroduction = new IntroductionEditDialog();
             Introduction.Tapped += async delegate (object sedner, TappedRoutedEventArgs e)
