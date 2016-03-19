@@ -267,14 +267,17 @@ namespace Artisan.View
             await MainPageVm.GetTimeLineAsync();
         }
 
-        private void NextPage_click(object sender, RoutedEventArgs e)
+        private async void NextPage_click(object sender, RoutedEventArgs e)
         {
-
+            ++MainPageVm.CurrentPage;
+            await MainPageVm.GetTimeLineAsync();
         }
 
-        private void PrePage_click(object sender, RoutedEventArgs e)
+        private async void PrePage_click(object sender, RoutedEventArgs e)
         {
-
+            if (MainPageVm.CurrentPage > 1)
+                --MainPageVm.CurrentPage;
+            await MainPageVm.GetTimeLineAsync();
         }
     }
 
