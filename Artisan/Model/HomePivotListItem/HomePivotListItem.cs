@@ -24,12 +24,12 @@ namespace Artisan.Model
             set { UpdateProperty(ref _postTime, value); }
         }
 
-        private UserInfo _user;
+        private User _user;
 
-        public IUserInfo User
+        public IUser User
         {
             get { return _user; }
-            set { UpdateProperty(ref _user, (UserInfo)value);}
+            set { UpdateProperty(ref _user, (User)value);}
         }
 
         private Work _work;

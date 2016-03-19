@@ -7,7 +7,7 @@ namespace Artisan.Interface
         //Objects of HomePage pivot ListViewItem
         int Tid { get; set; }
         string PostTime { get; set; } //Set per-post's posted time
-        IUserInfo User { get; set; }
+        IUser User { get; set; }
         //string Text { get; set; } //Set per-post's info
         //string Pics { get; set; } //Set per-post's thumbnail image fetch url
         //IGeo Geo { get; set; }

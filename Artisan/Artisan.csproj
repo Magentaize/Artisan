@@ -114,9 +114,11 @@
     <Compile Include="Interface\IHomePivotListItem.cs" />
     <Compile Include="Interface\IUserInfo.cs" />
     <Compile Include="Interface\IWork.cs" />
+    <Compile Include="Interface\IUser.cs" />
     <Compile Include="Model\AuthorOtherPostListItem.cs" />
     <Compile Include="Model\CommentListItem.cs" />
     <Compile Include="Model\HomePivotListItem\HomePivotListItemUser.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Model\UserInfo.cs" />
     <Compile Include="Model\Work.cs" />
     <Compile Include="Properties\Annotations.cs" />

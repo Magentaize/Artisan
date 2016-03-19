@@ -53,37 +53,45 @@ namespace Artisan.Model
             set { UpdateProperty(ref _intro, value);}
         }
 
-        //private int _works;
+        private bool _isFollow;
 
-        //public int Works
-        //{
-        //    get { return _works; }
-        //    set { UpdateProperty(ref _works, value);}
-        //}
+        public bool IsFollow
+        {
+            get { return _isFollow; }
+            set { UpdateProperty(ref _isFollow, value);}
+        }
 
-        //private int _article;
+        private int _works;
 
-        //public int Article
-        //{
-        //    get { return _article; }
-        //    set { UpdateProperty(ref _article ,value);}
-        //}
+        public int Works
+        {
+            get { return _works; }
+            set { UpdateProperty(ref _works, value); }
+        }
 
-        //private int _follows;
+        private int _article;
 
-        //public int Follows
-        //{
-        //    get { return _follows; }
-        //    set { UpdateProperty(ref _follows ,value);}
-        //}
+        public int Article
+        {
+            get { return _article; }
+            set { UpdateProperty(ref _article, value); }
+        }
 
-        //private int _fans;
+        private int _follows;
 
-        //public int Fans
-        //{
-        //    get { return _fans; }
-        //    set { UpdateProperty(ref _fans, value);}
-        //}
+        public int Follows
+        {
+            get { return _follows; }
+            set { UpdateProperty(ref _follows, value); }
+        }
+
+        private int _fans;
+
+        public int Fans
+        {
+            get { return _fans; }
+            set { UpdateProperty(ref _fans, value); }
+        }
     }
 
     public class UserInfoGeo : NotifyPropertyObject, IGeo

@@ -2,7 +2,7 @@
 {
     public interface IDiscoveryPivotListItem
     {
-        IUserInfo[] Users { get; set; }
+        IUser[] Users { get; set; }
         IWork[] Works { get; set; }
         //int Id { get; set; }
         //string Title { get; set; }

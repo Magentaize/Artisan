@@ -1,6 +1,6 @@
 ﻿namespace Artisan.Interface
 {
-    public interface IUserInfo
+    public interface IUser
     {
         string Uid { get; set; }
         string NickName { get; set; }
@@ -8,10 +8,5 @@
         int Gender { get; set; }
         IGeo Geo { get; set; }
         string Intro { get; set; }
-        bool IsFollow { get; set; }
-        int Works { get; set; }
-        int Article { get; set; }
-        int Follows { get; set; }
-        int Fans { get; set; }
     }
 }

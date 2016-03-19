@@ -8,12 +8,12 @@ namespace Artisan.Model
 {
     public class DiscoveryPivotListItem:NotifyPropertyObject, IDiscoveryPivotListItem
     {
-        private UserInfo[] _users;
+        private User[] _users;
 
-        public IUserInfo[] Users
+        public IUser[] Users
         {
             get { return _users; }
-            set { UpdateProperty(ref _users, (UserInfo[])value);}
+            set { UpdateProperty(ref _users, (User[])value);}
         }
 
         private Work[] _works;

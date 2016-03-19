@@ -91,7 +91,7 @@ namespace Artisan.ViewModel
             if (result["result"].ToString() == "true")
             {
                 UserInfo user = new UserInfo();
-                user.Name = userId;
+                user.NickName = userId;
                 user.Uid = result["uid"].GetString();
                 (App.Current as App).CurrentUser = user;
                 return null;

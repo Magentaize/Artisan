@@ -105,7 +105,7 @@ namespace Artisan.Toolkit.Helper
                 result.Add(new HomePivotListItem
                 {
                     Text = item["work"]["intro"].ToString(),
-                    CreatTime = item["post_time"].ToString(),
+                    PostTime = item["post_time"].ToString(),
                     Pics = hostUri + ((JValue)item["work"]["pics"][0]).ToString(),
                     User = ParseTimeLineUser(item["user"])
                 });
