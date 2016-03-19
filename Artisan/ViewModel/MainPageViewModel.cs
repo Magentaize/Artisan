@@ -6,6 +6,11 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 using Artisan.Model;
 using Artisan.Toolkit.Helper;
+using Windows.Data.Json;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using Windows.ApplicationModel.Resources;
+using Artisan.Toolkit.Net;
 
 namespace Artisan.ViewModel
 {
@@ -49,6 +54,15 @@ namespace Artisan.ViewModel
             }
         }
 
+        public async Task<JsonObject> GetTimeLineAsync(int timeLinePage)
+        {
+            Dictionary<string, string> param = new Dictionary<string, string>();
+            param.Add("page", timeLinePage.ToString());
+            string TimeLineUri = ResourceLoader.GetForCurrentView().GetString("TimeLineUri");
+            var result = await HttpWebPost.GetJsonFromUriAsync(TimeLineUri, param);
+            MessageBox.Show(result.ToString());
+            return result ?? null;
+        }
         public MainPageViewModel()
         {
             //DiscoveryPivotListItems= new ObservableCollection<DiscoveryPivotListItem>();

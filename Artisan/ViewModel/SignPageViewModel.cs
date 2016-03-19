@@ -36,15 +36,5 @@ namespace Artisan.ViewModel
             else return new UserInfo();//未完成
         }
 
-        public async Task<JsonObject> GetTimeLineAsync(int timeLinePage)
-        {
-            Dictionary<string, string> param = new Dictionary<string, string>();
-            param.Add("page", timeLinePage.ToString());
-            string TimeLineUri = ResourceLoader.GetForCurrentView().GetString("TimeLineUri");
-            var result = await HttpWebPost.GetJsonFromUriAsync(TimeLineUri, param);
-            //var result = await HttpWebPost.PostJsonToUriAsync(TimeLineUri, param);
-            MessageBox.Show(result.ToString());
-            return result ?? null;
-        }
     }
 }
