@@ -8,20 +8,20 @@ namespace Artisan.Model
 {
     public class DiscoveryPivotListItem:NotifyPropertyObject, IDiscoveryPivotListItem
     {
-        private User[] _users;
+        private User _user;
 
-        public IUser[] Users
+        public IUser User
         {
-            get { return _users; }
-            set { UpdateProperty(ref _users, (User[])value);}
+            get { return _user; }
+            set { UpdateProperty(ref _user, (User)value);}
         }
 
-        private Work[] _works;
+        private Work _work;
 
-        public IWork[] Works
+        public IWork Work
         {
-            get { return _works; }
-            set { UpdateProperty(ref _works, (Work[])value);}
+            get { return _work; }
+            set { UpdateProperty(ref _work, (Work)value);}
         }
         //private int _id;
         //public int Id

@@ -8,7 +8,7 @@
         ISize Size { get; set; }
         string Intro { get; set; }
         int Sell { get; set; }
-        string[] Pics { get; set; }
+        string Pic { get; set; }
         int CommentsNum { get; set; }
         int LikesNum { get; set; }
     }
