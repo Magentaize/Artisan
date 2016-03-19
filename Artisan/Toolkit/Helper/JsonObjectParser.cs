@@ -15,16 +15,29 @@ namespace Artisan.Toolkit.Helper
     {
         public static UserInfoGeo ParseUserGeo(JToken token)
         {
-            return token.Type ==  JTokenType.Null ? null : new UserInfoGeo { City = token["city"].ToString(), Province = token["province"].ToString() };
+            return token.Type == JTokenType.Null ? null : new UserInfoGeo { City = token["city"].ToString(), Province = token["province"].ToString() };
         }
-        public static UserInfo ParseUserInfo(IJsonValue data)
+        public static UserInfo ParseUserInfo(JToken token)
         {
-            return new UserInfo();
+            var hostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
+            return new UserInfo()
+            {
+                Article = int.Parse(token["article_num"].ToString()),
+                Fans = int.Parse(token["fans_num"].ToString()),
+                Follows = int.Parse(token["follows_num"].ToString()),
+                Gender = int.Parse(token["gender"].ToString()),
+                Geo = ParseUserGeo(token["geo"]),
+                Intro = token["intro"].ToString(),
+                Name = token["nickname"].ToString(),
+                Pic = hostUri + token["head_pic"].ToString(),
+                Works = int.Parse(token["works_num"].ToString())
+            };
         }
         //public static 
         public static HomePivotListItemUser ParseTimeLineUser(JToken token)
         {
             var user = new HomePivotListItemUser();
+            var hostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
             if (token.Type != JTokenType.Null)
             {
                 user.Name = token["nickname"].ToString();
@@ -32,7 +45,7 @@ namespace Artisan.Toolkit.Helper
                 user.Gender = int.Parse(token["gender"].ToString());
                 user.Geo = ParseUserGeo(token["geo"]);
                 user.Intro = token["intro"].ToString();
-                user.Pic = token["head_pic"].ToString();
+                user.Pic = hostUri + token["head_pic"].ToString();
             }
             return user;
         }
@@ -75,7 +88,7 @@ namespace Artisan.Toolkit.Helper
                 result.Add(new DiscoveryPivotListItem
                 {
                     Intro = item["intro"].ToString(),
-                    Pic = hostUri + ((JValue)item["pics"][0]).ToString(),
+                    Pic = hostUri + ((JValue)item["pics"][0]).ToString(),                
                 });
             }
             return result;
