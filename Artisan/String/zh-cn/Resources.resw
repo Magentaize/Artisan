@@ -124,15 +124,15 @@
     <value>http://artisan.chinacloudapp.cn/</value>
   </data>
   <data name="SigninUri" xml:space="preserve">
-    <value>http://artisan.chinacloudapp.cn/login.json</value>
+    <value>login.json</value>
   </data>
   <data name="SignoutUri" xml:space="preserve">
-    <value>http://artisan.chinacloudapp.cn/logout.json</value>
+    <value>logout.json</value>
   </data>
   <data name="SignupUri" xml:space="preserve">
-    <value>http://artisan.chinacloudapp.cn/signup.json</value>
+    <value>signup.json</value>
   </data>
   <data name="TimeLineUri" xml:space="preserve">
-    <value>http://artisan.chinacloudapp.cn/new_timeline.json</value>
+    <value>new_timeline.json</value>
   </data>
 </root>

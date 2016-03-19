@@ -57,8 +57,9 @@ namespace Artisan.ViewModel
             param.Add("username", userId);
             param.Add("password", Password);
             param.Add("nickname", userId);
-            string SignupUri = ResourceLoader.GetForCurrentView().GetString("SignupUri");
-            var result = await HttpWebPost.PostJsonToUriAsync(SignupUri, param);
+            var SignupUri = ResourceLoader.GetForCurrentView().GetString("SignupUri");
+            var HostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
+            var result = await HttpWebPost.PostJsonToUriAsync(HostUri + SignupUri, param);
             if (result["result"].ToString() == "true") return null;
             else return result["reason"].ToString();
         }
@@ -85,7 +86,8 @@ namespace Artisan.ViewModel
             param.Add("username", userId);
             param.Add("password", Password);
             string SigninUri = ResourceLoader.GetForCurrentView().GetString("SigninUri");
-            var result = await HttpWebPost.PostJsonToUriAsync(SigninUri, param);
+            string HostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
+            var result = await HttpWebPost.PostJsonToUriAsync(HostUri + SigninUri, param);
             if (result["result"].ToString() == "true")
             {
                 UserInfo user = new UserInfo();

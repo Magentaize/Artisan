@@ -92,7 +92,7 @@ namespace Artisan.View
             if (_isFirstNavigatedToMainPage)
             {
                
-                var success = await MainPageVm.GetTimeLineAsync(1);
+                var success = await MainPageVm.GetTimeLineAsync();
                 var success2 = await MainPageVm.GetDiscoveryAsync();
                 _isFirstNavigatedToMainPage = false;
             }

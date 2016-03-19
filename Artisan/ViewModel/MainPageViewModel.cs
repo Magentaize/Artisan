@@ -106,7 +106,8 @@ namespace Artisan.ViewModel
                         param.Add("username",userId);
                         param.Add("password", Password);
                         string SigninUri = ResourceLoader.GetForCurrentView().GetString("SigninUri");
-                        var result = await HttpWebPost.PostJsonToUriAsync(SigninUri, param);
+                        string HostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
+                        var result = await HttpWebPost.PostJsonToUriAsync(HostUri + SigninUri, param);
                         if (result["result"].ToString() == "true")
                         {
                             UserInfo user = new UserInfo();
@@ -141,8 +142,9 @@ namespace Artisan.ViewModel
         {
             Dictionary<string, string> param = new Dictionary<string, string>();
             param.Add("page", CurrentPage.ToString());
-            string TimeLineUri = ResourceLoader.GetForCurrentView().GetString("TimeLineUri");
-            var result = await HttpWebPost.GetJsonStringFromUriAsync(TimeLineUri, param);
+            var TimeLineUri = ResourceLoader.GetForCurrentView().GetString("TimeLineUri");
+            var HostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
+            var result = await HttpWebPost.GetJsonStringFromUriAsync(HostUri + TimeLineUri, param);
             var items = JsonObjectParser.ParseTimeLineItem(result);
             foreach(var item in items)
             {
@@ -165,7 +167,7 @@ namespace Artisan.ViewModel
 
         internal async void Signout()
         {
-            await HttpWebPost.PostDataToUriAsync(ResourceLoader.GetForCurrentView().GetString("SignoutUri"), null);
+            await HttpWebPost.PostDataToUriAsync(ResourceLoader.GetForCurrentView().GetString("HostUri") + ResourceLoader.GetForCurrentView().GetString("SignoutUri"), null);
         }
     }
 } 
