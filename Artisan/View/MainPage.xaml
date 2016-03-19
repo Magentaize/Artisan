@@ -610,7 +610,13 @@
             </Setter>
         </Style>-->
     </Page.Resources>
-
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Icon="Back" Click="PrePage_click"/>
+            <AppBarButton Icon="Refresh" Click="Refresh_click"/>
+            <AppBarButton Icon="Next" Click="NextPage_click"/><!--什么鬼。。-->
+        </CommandBar>
+    </Page.BottomAppBar>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Pivot x:Name="MainPivot" Style="{StaticResource MainPivotStyle}">
             <PivotItem x:Name="HomePivotPItem"

@@ -261,6 +261,21 @@ namespace Artisan.View
             (App.Current as App).CurrentUser = null;
             MainPageVm.Signout();
         }
+
+        private async void Refresh_click(object sender, RoutedEventArgs e)
+        {
+            await MainPageVm.GetTimeLineAsync();
+        }
+
+        private void NextPage_click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PrePage_click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
 }

@@ -20,6 +20,15 @@ namespace Artisan.ViewModel
     {
         private Brush _themeColorBrush = new SolidColorBrush((Color) Application.Current.Resources["SystemAccentColor"]);
 
+        private int currentPage = 1;
+        public int CurrentPage
+        {
+            get { return currentPage; }
+            set
+            {
+                UpdateProperty(ref currentPage, value);
+            }
+        }
         private ObservableCollection<HomePivotListItem> _homePivotListItems =
             new ObservableCollection<HomePivotListItem>();
 
@@ -128,10 +137,10 @@ namespace Artisan.ViewModel
         //    return item;
         //}
 
-        public async Task<bool> GetTimeLineAsync(int timeLinePage)
+        public async Task<bool> GetTimeLineAsync()
         {
             Dictionary<string, string> param = new Dictionary<string, string>();
-            param.Add("page", timeLinePage.ToString());
+            param.Add("page", CurrentPage.ToString());
             string TimeLineUri = ResourceLoader.GetForCurrentView().GetString("TimeLineUri");
             var result = await HttpWebPost.GetJsonStringFromUriAsync(TimeLineUri, param);
             var items = JsonObjectParser.ParseTimeLineItem(result);
