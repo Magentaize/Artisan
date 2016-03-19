@@ -93,7 +93,7 @@ namespace Artisan.View
             {
                
                 var success = await MainPageVm.GetTimeLineAsync();
-                //var success2 = await MainPageVm.GetDiscoveryAsync();
+               // var success2 = await MainPageVm.GetDiscoveryAsync();
                 _isFirstNavigatedToMainPage = false;
             }
             bool result = await MainPageVm.AutoLoginAsync();

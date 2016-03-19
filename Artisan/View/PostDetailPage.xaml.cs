@@ -52,8 +52,8 @@ namespace Artisan.View
                 var dataContext = e.Parameter as IHomePivotListItem;
             try
             {
-                PostDetailPageVM.Name = dataContext.User.Name;
-                PostDetailPageVM.Pics = dataContext.Pics;
+               // PostDetailPageVM.Name = dataContext.User.Name;
+                //ostDetailPageVM.Pics = dataContext.Pics;
             }
             catch (NullReferenceException ex)
             {
@@ -65,8 +65,8 @@ namespace Artisan.View
             var grid = (Grid)sender;
             var dataContext = new HomePivotListItem
             {
-             Pics= (grid.DataContext as AuthorOtherPostListItem).PostSource,
-             User=new HomePivotListItemUser { Name = PostDetailPageVM.Name,},
+            // Pics= (grid.DataContext as AuthorOtherPostListItem).PostSource,
+             //User=new HomePivotListItemUser { Name = PostDetailPageVM.Name,},
             };
             //var img =VisualTree.FindVisualElement<Image>(grid);
             //var str = ((BitmapImage)img.Source).UriSource.ToString();
