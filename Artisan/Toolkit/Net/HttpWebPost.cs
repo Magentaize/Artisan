@@ -13,7 +13,7 @@ namespace Artisan.Toolkit.Net
 {
     public class HttpWebPost//懒得改名字了
     {
-        private static CookieContainer cookies = new CookieContainer();
+        public static CookieContainer cookies = new CookieContainer();
         /// <summary>
         /// 向指定uri post一组参数
         /// </summary>
@@ -31,17 +31,21 @@ namespace Artisan.Toolkit.Net
         }
         public static async Task<JsonObject> PostDataToUriAsync(string uri, string paramters)
         {
+
             HttpWebRequest request = HttpWebRequest.CreateHttp(uri);
             request.ContentType = "application/json";
             request.CookieContainer = cookies;
             request.Method = "POST";
             try {
-                using (var stream = await request.GetRequestStreamAsync())
+                if (paramters != null)
                 {
-                    byte[] data = Encoding.UTF8.GetBytes(paramters);
-                    stream.Write(data, 0, data.Length);
-                }
+                    using (var stream = await request.GetRequestStreamAsync())
+                    {
+                        byte[] data = Encoding.UTF8.GetBytes(paramters);
+                        stream.Write(data, 0, data.Length);
+                    }
 
+                }
                 var response = await request.GetResponseAsync();
 
                 string result;
@@ -70,14 +74,19 @@ namespace Artisan.Toolkit.Net
         /// <returns></returns>
         public static async Task<JsonObject> GetJsonFromUriAsync(string uri, Dictionary<string, string> paramters)
         {
-            StringBuilder sb = new StringBuilder(uri);
-            sb.Append("?");
-            foreach(var param in paramters)
+            HttpWebRequest request;
+            if (paramters != null)
             {
-                sb.Append($"{param.Key}={param.Value}&");
+                StringBuilder sb = new StringBuilder(uri);
+                sb.Append("?");
+                foreach (var param in paramters)
+                {
+                    sb.Append($"{param.Key}={param.Value}&");
+                }
+                sb.Remove(sb.Length - 1, 1);
+                request = HttpWebRequest.CreateHttp(sb.ToString());
             }
-            sb.Remove(sb.Length - 1, 1);
-            HttpWebRequest request = HttpWebRequest.CreateHttp(sb.ToString());
+            request = HttpWebRequest.CreateHttp(uri);
             request.CookieContainer = cookies;
             request.Method = "GET";
             try {

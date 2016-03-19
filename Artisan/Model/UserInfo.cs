@@ -40,9 +40,9 @@ JSON示例 {
     */
     public class UserInfo:NotifyPropertyObject,IUserInfo
     {
-        private int _uid;
+        private string _uid;
 
-        public int Uid
+        public string Uid
         {
             get { return _uid; }
             set { UpdateProperty(ref _uid, value); }

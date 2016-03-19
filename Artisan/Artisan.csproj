@@ -136,7 +136,6 @@
     <Compile Include="Toolkit\MyCommand.cs" />
     <Compile Include="Toolkit\NotifyPropertyObject.cs" />
     <Compile Include="ViewModel\SignPageViewModel.cs" />
-    <Compile Include="ViewModel\TimeLineViewModel.cs" />
     <Compile Include="View\AboutMePage\IntroductionEditDialog.xaml.cs">
       <DependentUpon>IntroductionEditDialog.xaml</DependentUpon>
     </Compile>

@@ -703,51 +703,55 @@
                     <Grid.Background>
                         <SolidColorBrush Color="{ThemeResource SystemAccentColor}" Opacity="0.4"/>
                     </Grid.Background>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid x:Name="AboutMeGrid" Margin="0,104,0,48">
+                    <Button x:Name="ToSignPage" Click="ToSignPage_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Content="登录以查看更多内容"/>
+                    <Grid x:Name="ProfilePanel" Visibility="Collapsed">
                         <Grid.RowDefinitions>
-                            <RowDefinition/>
+                            <RowDefinition Height="Auto"/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Image x:Name="MyAvatar" Source="ms-appx:///Assets/img/UserRadius.png" Grid.RowSpan="2" HorizontalAlignment="Left" Margin="16,0,8,0" Width="64"/>
-                        <TextBlock x:Name="MyName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Kaoso.Lu" VerticalAlignment="Top" Grid.Column="1" FontSize="18.667"/>
-                        <Grid x:Name="AboutMeInfoGrid" Grid.Row="1" Grid.Column="1">
+                        <Grid x:Name="AboutMeGrid" Margin="0,104,0,48">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="Auto"/>
+                                <RowDefinition/>
+                                <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock x:Name="MyWorkNumber" TextWrapping="Wrap" Text="123" d:LayoutOverrides="Width, Height" Foreground="{ThemeResource SystemAccentColor}"/>
-                            <TextBlock x:Name="MyWorkLabel" TextWrapping="Wrap" Text="作品" d:LayoutOverrides="Width, Height" Grid.Row="1" Margin="0" FontSize="10.667" HorizontalAlignment="Right"/>
-                            <TextBlock x:Name="AttentionNumber" TextWrapping="Wrap" Text="456" d:LayoutOverrides="Width, Height" Grid.Column="1" Margin="16,0,0,0" Foreground="{ThemeResource SystemAccentColor}"/>
-                            <TextBlock x:Name="AttentionLabel" TextWrapping="Wrap" Text="关注" d:LayoutOverrides="Width, Height" Grid.Column="1" Grid.Row="1" Margin="0" FontSize="10.667" HorizontalAlignment="Right"/>
-                            <TextBlock x:Name="TweetNumber" TextWrapping="Wrap" Text="789" d:LayoutOverrides="Width, Height" Grid.Column="2" Margin="16,0,0,0" Foreground="{ThemeResource SystemAccentColor}"/>
-                            <TextBlock x:Name="TweetLabel" TextWrapping="Wrap" Text="粉丝" d:LayoutOverrides="Width, Height" Grid.Row="1" Grid.Column="2" FontSize="10.667" HorizontalAlignment="Right"/>
+                            <Image x:Name="MyAvatar" Source="ms-appx:///Assets/img/UserRadius.png" Grid.RowSpan="2" HorizontalAlignment="Left" Margin="16,0,8,0" Width="64"/>
+                            <TextBlock x:Name="MyName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Kaoso.Lu" VerticalAlignment="Top" Grid.Column="1" FontSize="18.667"/>
+                            <Grid x:Name="AboutMeInfoGrid" Grid.Row="1" Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="MyWorkNumber" TextWrapping="Wrap" Text="123" d:LayoutOverrides="Width, Height" Foreground="{ThemeResource SystemAccentColor}"/>
+                                <TextBlock x:Name="MyWorkLabel" TextWrapping="Wrap" Text="作品" d:LayoutOverrides="Width, Height" Grid.Row="1" Margin="0" FontSize="10.667" HorizontalAlignment="Right"/>
+                                <TextBlock x:Name="AttentionNumber" TextWrapping="Wrap" Text="456" d:LayoutOverrides="Width, Height" Grid.Column="1" Margin="16,0,0,0" Foreground="{ThemeResource SystemAccentColor}"/>
+                                <TextBlock x:Name="AttentionLabel" TextWrapping="Wrap" Text="关注" d:LayoutOverrides="Width, Height" Grid.Column="1" Grid.Row="1" Margin="0" FontSize="10.667" HorizontalAlignment="Right"/>
+                                <TextBlock x:Name="TweetNumber" TextWrapping="Wrap" Text="789" d:LayoutOverrides="Width, Height" Grid.Column="2" Margin="16,0,0,0" Foreground="{ThemeResource SystemAccentColor}"/>
+                                <TextBlock x:Name="TweetLabel" TextWrapping="Wrap" Text="粉丝" d:LayoutOverrides="Width, Height" Grid.Row="1" Grid.Column="2" FontSize="10.667" HorizontalAlignment="Right"/>
 
+                            </Grid>
                         </Grid>
-                    </Grid>
-                    <Grid x:Name="ButtonGrid" Margin="0" Grid.Row="1">
-                        <Button x:Name="Introduction" Content="简介" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,10,0,0" Style="{StaticResource AboutMeButtonStyle}"/>
-                        <Button x:Name="Gallery" Content="作品集" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,47,0,0" Style="{StaticResource AboutMeButtonStyle}"/>
-                        <Button x:Name="Transaction" Content="交易" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,84,0,0" Style="{StaticResource AboutMeButtonStyle}"/>
-                        <Button x:Name="WaitForSale" Content="待售" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,121,0,0" Style="{StaticResource AboutMeButtonStyle}"/>
-                        <Button x:Name="Upload" Content="上传作品" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,158,0,0" Style="{StaticResource AboutMeButtonStyle}"/>
-                        <Button x:Name="Setting" Content="设置" Margin="0,294,0,0" Style="{StaticResource AboutMeButtonStyle}" Tapped="SettingButtonTapped"/>
-                        <Button x:Name="Article" Content="文章" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,195" Style="{StaticResource AboutMeButtonStyle}" d:LayoutOverrides="Height, TopPosition, BottomPosition"/>
-                        <Button x:Name="Article_Copy" Content="赞过的" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,232,0,0" Style="{StaticResource AboutMeButtonStyle}"/>
-                    </Grid>
+                        <Grid x:Name="ButtonGrid" Margin="0" Grid.Row="1">
+                            <Button x:Name="Introduction" Content="简介" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,10,0,0" Style="{StaticResource AboutMeButtonStyle}"/>
+                            <Button x:Name="Gallery" Content="作品集" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,47,0,0" Style="{StaticResource AboutMeButtonStyle}"/>
+                            <Button x:Name="Transaction" Content="交易" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,84,0,0" Style="{StaticResource AboutMeButtonStyle}"/>
+                            <Button x:Name="WaitForSale" Content="待售" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,121,0,0" Style="{StaticResource AboutMeButtonStyle}"/>
+                            <Button x:Name="Upload" Content="上传作品" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,158,0,0" Style="{StaticResource AboutMeButtonStyle}"/>
+                            <Button x:Name="Setting" Content="设置" Margin="0,294,0,0" Style="{StaticResource AboutMeButtonStyle}" Tapped="SettingButtonTapped"/>
+                            <Button x:Name="Signout" Content="注销" Margin="0,320,0,0" Style="{StaticResource AboutMeButtonStyle}" Tapped="Signout_Tapped"/>
+                            <Button x:Name="Article" Content="文章" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,195" Style="{StaticResource AboutMeButtonStyle}" d:LayoutOverrides="Height, TopPosition, BottomPosition"/>
+                            <Button x:Name="Article_Copy" Content="赞过的" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,232,0,0" Style="{StaticResource AboutMeButtonStyle}"/>
+                        </Grid>
 
+                    </Grid>
                 </Grid>
             </PivotItem>
         </Pivot>

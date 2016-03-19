@@ -10,6 +10,9 @@ using Artisan.Model;
 using Artisan.Toolkit.Helper;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using Artisan.Toolkit.Net;
 
 namespace Artisan.ViewModel
 {
@@ -55,26 +58,58 @@ namespace Artisan.ViewModel
 
         public MainPageViewModel()
         {
-            //DiscoveryPivotListItems= new ObservableCollection<DiscoveryPivotListItem>();
-            //ThemeColorBrush = new SolidColorBrush((Color)Application.Current.Resources["SystemAccentColor"]);
-            Random random = new Random((int) DateTime.Now.Ticks);
-            for (int j = 1; j <= 8;)
-            {
-                string str = "../Assets/img/" + random.Next(1, 7).ToString() + ".jpg";
-                HomePivotListItems.Add(new HomePivotListItem
-                {
-                    Text = "IMG" + j.ToString() + ":0x" + Address(),
-                    CreatTime = DateFormat.GetFormattedTime(),
-                    Pics = str,
-                    User = new HomePivotListItemUser { Name = "Artist " + j.ToString(), },
-                });
+            
+            ////DiscoveryPivotListItems= new ObservableCollection<DiscoveryPivotListItem>();
+            ////ThemeColorBrush = new SolidColorBrush((Color)Application.Current.Resources["SystemAccentColor"]);
+            //Random random = new Random((int) DateTime.Now.Ticks);
+            //for (int j = 1; j <= 8;)
+            //{
+            //    string str = "../Assets/img/" + random.Next(1, 7).ToString() + ".jpg";
+            //    HomePivotListItems.Add(new HomePivotListItem
+            //    {
+            //        Text = "IMG" + j.ToString() + ":0x" + Address(),
+            //        CreatTime = DateFormat.GetFormattedTime(),
+            //        Pics = str,
+            //        User = new HomePivotListItemUser { Name = "Artist " + j.ToString(), },
+            //    });
 
-                DiscoveryPivotListItems.Add(new DiscoveryPivotListItem
+            //    DiscoveryPivotListItems.Add(new DiscoveryPivotListItem
+            //    {
+            //        Intro = "今日推荐:IMG" + j++.ToString(),
+            //        Pic = str
+            //    });
+            //}
+        }
+
+        internal async Task<bool> AutoLoginAsync()
+        {
+            if ((App.Current as App).CurrentUser == null)
+            {
+                bool? AutoLogin = UserConfiguration.Settings["AutoSignin"] as bool?;
+                if (AutoLogin != null)
                 {
-                    Intro = "今日推荐:IMG" + j++.ToString(),
-                    Pic = str
-                });
+                    if (AutoLogin == true)
+                    {
+                        string userId = UserConfiguration.Settings["Username"] as string;
+                        string Password = UserConfiguration.Settings["Password"] as string;
+                        if (userId == null || Password == null) return false;
+                        Dictionary<string, string> param = new Dictionary<string, string>();
+                        param.Add("username",userId);
+                        param.Add("password", Password);
+                        string SigninUri = ResourceLoader.GetForCurrentView().GetString("SigninUri");
+                        var result = await HttpWebPost.PostJsonToUriAsync(SigninUri, param);
+                        if (result["result"].ToString() == "true")
+                        {
+                            UserInfo user = new UserInfo();
+                            user.Name = userId;
+                            user.Uid = result["uid"].GetString();
+                            (App.Current as App).CurrentUser = user;
+                        }
+                    }
+                }
+                return false;
             }
+            else return true;
         }
 
         private static string Address()
@@ -98,6 +133,16 @@ namespace Artisan.ViewModel
             return item;
         }
 
+        public async Task<string> GetTimeLineAsync(int timeLinePage)
+        {
+            Dictionary<string, string> param = new Dictionary<string, string>();
+            param.Add("page", timeLinePage.ToString());
+            string TimeLineUri = ResourceLoader.GetForCurrentView().GetString("TimeLineUri");
+            var result = await HttpWebPost.GetJsonStringFromUriAsync(TimeLineUri, param);
+            //MessageBox.Show(result.ToString());
+            return result ?? null;
+        }
+
         public void AddItemToHomePivotListFromJsonString(string jObjectString)
         {
             var hostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
@@ -116,5 +161,9 @@ namespace Artisan.ViewModel
 
         }
 
+        internal async void Signout()
+        {
+            await HttpWebPost.PostDataToUriAsync(ResourceLoader.GetForCurrentView().GetString("SignoutUri"), null);
+        }
     }
 } 

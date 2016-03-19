@@ -1,8 +1,11 @@
 ﻿using Artisan.Model;
+using Artisan.Toolkit.Helper;
+using Artisan.Toolkit.Net;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -50,7 +53,7 @@ namespace Artisan
                 this.DebugSettings.EnableFrameRateCounter = true;
             }
 #endif
-
+            LoadConfiguration();
             Frame rootFrame = Window.Current.Content as Frame;
 
             // 不要在窗口已包含内容时重复应用程序初始化，
@@ -84,6 +87,18 @@ namespace Artisan
             //订阅对象的BackRequested事件，在点击后退导航按钮时捕捉到该动作
             SystemNavigationManager.GetForCurrentView().BackRequested += AppBackRequested;
             rootFrame.Navigated += RootFrameNavigated;
+        }
+
+        private void LoadConfiguration()
+        {
+            //UserConfiguration.Settings["AutoSignin"] 
+            //if(obj!= null)
+            //    if((bool)obj == true)
+            //    {
+            //        HttpWebPost.cookies = UserConfiguration.Settings["cookies"] as CookieContainer ?? new CookieContainer();
+
+            //    }
+
         }
 
         private void AppBackRequested(object sender, BackRequestedEventArgs e)

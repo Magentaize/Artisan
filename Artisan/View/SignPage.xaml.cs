@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Artisan.Toolkit;
+using Artisan.Toolkit.Helper;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上提供
 
@@ -29,7 +30,16 @@ namespace Artisan.View
         {
             this.InitializeComponent();
         }
+        private SignPageViewModel SignPageVm { get; } = new SignPageViewModel();
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            string userid = UserConfiguration.Settings["Username"] as string;
+            string password = UserConfiguration.Settings["Password"] as string;
+            UserId.Text = userid ?? "";
+            Password.Password = password ?? "";
+        }
         private async void SignupButton_Click(object sender, RoutedEventArgs e)
         {
             var vm = this.DataContext as SignPageViewModel;
@@ -44,7 +54,7 @@ namespace Artisan.View
                 return;
             }
 
-            string result = await vm.SignupAsync(UserId.Text, Password.Password);
+            string result = await SignPageVm.SignupAsync(UserId.Text, Password.Password);
             if (result != null)
             {
                 ErrorInfo.Text = result;
@@ -61,20 +71,22 @@ namespace Artisan.View
                 ErrorInfo.Text = "请正确填写用户名和密码";
                 return;
             }
-            var vm = this.DataContext as SignPageViewModel;
-            var result = await vm.SigninAsync(UserId.Text, Password.Password);
-            if (result == null)
+
+            var result = await SignPageVm.SigninAsync(UserId.Text, Password.Password);
+            if (result != null)
             {
-                ErrorInfo.Text = "登录失败";
+                ErrorInfo.Text = result;
             }
-            else
-            Frame.Navigate(typeof(MainPage));
+            else {
+                Frame.GoBack();
+            }
         }
 
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
         {
             SwitchToSignup.Visibility = Visibility.Collapsed;
             SigninButton.Visibility = Visibility.Collapsed;
+            AutoSignin.Visibility = SavePassword.Visibility = Visibility.Collapsed;
             Password2.Visibility = Visibility.Visible;
             SignupButton.Visibility = Visibility.Visible;
             SystemNavigationManager.GetForCurrentView().BackRequested += SignPage_BackRequested;
@@ -85,11 +97,13 @@ namespace Artisan.View
         {
             SwitchToSignup.Visibility = Visibility.Visible;
             SigninButton.Visibility = Visibility.Visible;
+            AutoSignin.Visibility = SavePassword.Visibility = Visibility.Visible;
             Password2.Visibility = Visibility.Collapsed;
             SignupButton.Visibility = Visibility.Collapsed;
-            e.Handled = true;
+
             SystemNavigationManager.GetForCurrentView().BackRequested -= SignPage_BackRequested;
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+            e.Handled = true;
         }
 
         private void SigninButton_LostFocus(object sender, RoutedEventArgs e)

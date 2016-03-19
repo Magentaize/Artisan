@@ -75,9 +75,14 @@ namespace Artisan.View
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedFrom(e);
-            SignPageViewModel spvm = new SignPageViewModel();
-            var jObjectString = await spvm.GetTimeLineAsync(1);
+            var jObjectString = await MainPageVm.GetTimeLineAsync(1);
             MainPageVm.AddItemToHomePivotListFromJsonString(jObjectString);
+            bool result = await MainPageVm.AutoLoginAsync();
+            if((App.Current as App).CurrentUser != null)
+            {
+                ToSignPage.Visibility = Visibility.Collapsed;
+                ProfilePanel.Visibility = Visibility.Visible;
+            }
         }
         private async void Upload_Click(object sender, RoutedEventArgs e)
         {
@@ -233,6 +238,19 @@ namespace Artisan.View
         private void MainPagePostComment_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.Frame.Navigate(typeof (CommentPage));
+        }
+
+        private void ToSignPage_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(SignPage));
+        }
+
+        private void Signout_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            ToSignPage.Visibility = Visibility.Visible;
+            ProfilePanel.Visibility = Visibility.Collapsed;
+            (App.Current as App).CurrentUser = null;
+            MainPageVm.Signout();
         }
     }
 
