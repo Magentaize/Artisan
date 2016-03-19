@@ -67,7 +67,7 @@ namespace Artisan.Toolkit.Net
             }
         }
         /// <summary>
-        /// 使用html方式发送get参数,返回jsonObject
+        /// 使用html方式发送get带参数,返回jsonObject
         /// </summary>
         /// <param name="uri"></param>
         /// <param name="paramters"></param>
@@ -107,7 +107,7 @@ namespace Artisan.Toolkit.Net
         }
 
         /// <summary>
-        /// 使用html方式发送get参数,返回string
+        /// 使用html方式发送get带参数,返回string
         /// </summary>
         /// <param name="uri"></param>
         /// <param name="paramters"></param>
@@ -121,6 +121,40 @@ namespace Artisan.Toolkit.Net
                 sb.Append($"{param.Key}={param.Value}&");
             }
             sb.Remove(sb.Length - 1, 1);
+            HttpWebRequest request = HttpWebRequest.CreateHttp(sb.ToString());
+            request.CookieContainer = cookies;
+            request.Method = "GET";
+            try
+            {
+                var response = await request.GetResponseAsync();
+                string result;
+                using (var stream = response.GetResponseStream())
+                {
+                    StreamReader sr = new StreamReader(stream);
+                    result = sr.ReadToEnd();
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 使用html方式发送get不带参数,返回string
+        /// </summary>
+        /// <param name="uri"></param>
+        /// <returns></returns>
+        public static async Task<string> GetJsonStringFromUriAsync(string uri)
+        {
+            StringBuilder sb = new StringBuilder(uri);
+            //sb.Append("?");
+            //foreach (var param in paramters)
+            //{
+            //    sb.Append($"{param.Key}={param.Value}&");
+            //}
+            //sb.Remove(sb.Length - 1, 1);
             HttpWebRequest request = HttpWebRequest.CreateHttp(sb.ToString());
             request.CookieContainer = cookies;
             request.Method = "GET";
