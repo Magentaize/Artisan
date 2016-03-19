@@ -35,7 +35,7 @@ namespace Artisan.Toolkit.Helper
         }
         public static ImageSize ParseSize(JToken token)
         {
-            string[] array = token.ToString().Split('x');
+            string[] array = token.ToString().Split('x','X');
             if(array != null)
             {
                 return new ImageSize
@@ -49,13 +49,14 @@ namespace Artisan.Toolkit.Helper
         public static Work ParseWork(JToken token)
         {
             if (token.Type == JTokenType.Null) return null;
+            var hostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
             return new Work()
             {
                 CommentsNum = int.Parse(token["comments_num"].ToString()),
                 LikesNum = int.Parse(token["likes_num"].ToString()),
                 Intro = token["intro"].ToString(),
                 Name = token["name"].ToString(),
-                Pic = token["pic"].ToString(),//存疑
+                Pic = hostUri + token["pic"].ToString(),//存疑
                 Sell = int.Parse(token["sell"].ToString()),
                 Size = ParseSize(token["size"]),
                 Uid = token["uid"].ToString(),
@@ -65,6 +66,7 @@ namespace Artisan.Toolkit.Helper
         //public static 
         public static UserInfo ParseUserInfo(JToken token)
         {
+
             var hostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
             return new UserInfo()
             {
