@@ -133,32 +133,19 @@ namespace Artisan.ViewModel
             return item;
         }
 
-        public async Task<string> GetTimeLineAsync(int timeLinePage)
+        public async Task<bool> GetTimeLineAsync(int timeLinePage)
         {
             Dictionary<string, string> param = new Dictionary<string, string>();
             param.Add("page", timeLinePage.ToString());
             string TimeLineUri = ResourceLoader.GetForCurrentView().GetString("TimeLineUri");
             var result = await HttpWebPost.GetJsonStringFromUriAsync(TimeLineUri, param);
             //MessageBox.Show(result.ToString());
-            return result ?? null;
-        }
-
-        public void AddItemToHomePivotListFromJsonString(string jObjectString)
-        {
-            var hostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
-            var jToken = JObject.Parse(jObjectString).First.First;
-            foreach (var item in jToken)
+           var items = JsonObjectParser.ParseTimeLineItem(result);
+            foreach(var item in items)
             {
-                HomePivotListItems.Add(new HomePivotListItem
-                {
-                    Text = item["work"]["intro"].ToString(),
-                    CreatTime = item["post_time"].ToString(),
-                    Pics = hostUri + ((JValue)item["work"]["pics"][0]).ToString(),
-                    User = new HomePivotListItemUser { Name = item["user"]["nickname"].ToString(),},
-                });
+                HomePivotListItems.Add(item);
             }
-            //JsonConvert.DeserializeObject<HomePivotListItem>(jObjectString);
-
+            return  HomePivotListItems != null;
         }
 
         internal async void Signout()

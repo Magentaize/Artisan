@@ -91,8 +91,8 @@ namespace Artisan.View
             base.OnNavigatedFrom(e);
             if (_isFirstNavigatedToMainPage)
             {
-                var jObjectString = await MainPageVm.GetTimeLineAsync(1);
-                MainPageVm.AddItemToHomePivotListFromJsonString(jObjectString);
+               
+                var success = await MainPageVm.GetTimeLineAsync(1);
                 _isFirstNavigatedToMainPage = false;
             }
             bool result = await MainPageVm.AutoLoginAsync();
