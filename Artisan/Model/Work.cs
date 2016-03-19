@@ -52,12 +52,12 @@ namespace Artisan.Model
             set { UpdateProperty(ref _sell, value);}
         }
 
-        private string[] _pics;
+        private string _pic;
 
-        public string[] Pics
+        public string Pic
         {
-            get { return _pics; }
-            set { UpdateProperty(ref _pics, value);}
+            get { return _pic; }
+            set { UpdateProperty(ref _pic, value);}
         }
 
         private int _commentsNum;

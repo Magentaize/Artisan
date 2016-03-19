@@ -344,7 +344,7 @@
                     </Grid.RowDefinitions>
                     <Image x:Name="PostImage"
                        Stretch="UniformToFill"
-                       Source="{x:Bind Pics}"
+                       Source="{x:Bind Work.Pics}"
                        Grid.Row="1"/>
                     <!--x:Bind PostSource-->
                     <Grid VerticalAlignment="Top" Grid.Row="0">
@@ -368,20 +368,20 @@
                             VerticalAlignment="Stretch" Tapped="HomePageAuthorDeatiltapped"/>
                         <TextBlock x:Name="AuthorName" 
                                TextWrapping="Wrap"
-                               Text="{x:Bind User.Name}" 
+                               Text="{x:Bind User.NickName}" 
                                d:LayoutOverrides="Width, Height" 
                                Grid.Column="1" 
                                HorizontalAlignment="Left" 
                                Margin="0,8,0,0"/>
                         <TextBlock x:Name="CreatTime" 
                                TextWrapping="Wrap"
-                               Text="{x:Bind CreatTime}"
+                               Text="{x:Bind PostTime}"
                                HorizontalAlignment="Right"
                                Grid.Column="1"
                                Margin="0,8,8,0"/>
                         <TextBlock x:Name="PostInfo"
                                TextWrapping="Wrap"
-                               Text="{x:Bind Text}"
+                               Text="{x:Bind Work.Intro}"
                                HorizontalAlignment="Left"
                                Grid.Column="1" 
                                Grid.Row="1"
@@ -411,7 +411,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Image x:Name="PostImage" Stretch="UniformToFill" Source="{x:Bind Pic}" Grid.RowSpan="2" Height="180"/>
+                <Image x:Name="PostImage" Stretch="UniformToFill" Source="{x:Bind Work.Pic}" Grid.RowSpan="2" Height="180"/>
                 <Grid VerticalAlignment="Bottom" Grid.Row="1">
                     <Grid.Background>
                         <SolidColorBrush Color="{ThemeResource SystemAccentColor}" Opacity="0.4"/>
@@ -421,7 +421,7 @@
                     </Grid.RowDefinitions>
                     <TextBlock x:Name="PostInfo"
                                TextWrapping="Wrap" 
-                               Text="{x:Bind Intro}"
+                               Text="{x:Bind Work.Intro}"
                                d:LayoutOverrides="Width, Height, TopPosition, BottomPosition"
                                Margin="0,4,8,4"
                                HorizontalAlignment="Right"

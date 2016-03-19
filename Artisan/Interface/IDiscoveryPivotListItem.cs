@@ -2,8 +2,8 @@
 {
     public interface IDiscoveryPivotListItem
     {
-        IUser[] Users { get; set; }
-        IWork[] Works { get; set; }
+        IUser User { get; set; }
+        IWork Work { get; set; }
         //int Id { get; set; }
         //string Title { get; set; }
         //string Intro { get; set; }
