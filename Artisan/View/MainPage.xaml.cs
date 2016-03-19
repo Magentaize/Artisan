@@ -264,20 +264,22 @@ namespace Artisan.View
 
         private async void Refresh_click(object sender, RoutedEventArgs e)
         {
-            await MainPageVm.GetTimeLineAsync();
+            int currentIndex = MainPivot.SelectedIndex;
+            await MainPageVm.RefreshCurrentView(currentIndex);
         }
 
         private async void NextPage_click(object sender, RoutedEventArgs e)
         {
             ++MainPageVm.CurrentPage;
-            await MainPageVm.GetTimeLineAsync();
+            await MainPageVm.RefreshCurrentView(MainPivot.SelectedIndex);
         }
 
         private async void PrePage_click(object sender, RoutedEventArgs e)
         {
             if (MainPageVm.CurrentPage > 1)
                 --MainPageVm.CurrentPage;
-            await MainPageVm.GetTimeLineAsync();
+            await MainPageVm.RefreshCurrentView(MainPivot.SelectedIndex);
+
         }
     }
 

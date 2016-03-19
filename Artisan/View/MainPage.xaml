@@ -611,7 +611,7 @@
         </Style>-->
     </Page.Resources>
     <Page.BottomAppBar>
-        <CommandBar ClosedDisplayMode="Minimal">
+        <CommandBar>
             <AppBarButton Icon="Back" Content="上一页" Click="PrePage_click"/>
                 <AppBarButton Icon="Refresh" Content="刷新" Click="Refresh_click"/>
             <AppBarButton Icon="Forward" Content="下一页" Click="NextPage_click"/>

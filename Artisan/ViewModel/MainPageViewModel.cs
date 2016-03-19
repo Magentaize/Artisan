@@ -170,5 +170,15 @@ namespace Artisan.ViewModel
         {
             await HttpWebPost.PostDataToUriAsync(ResourceLoader.GetForCurrentView().GetString("HostUri") + ResourceLoader.GetForCurrentView().GetString("SignoutUri"), null);
         }
+
+        internal async Task<bool?> RefreshCurrentView(int currentIndex)
+        {
+            switch (currentIndex)
+            {
+                case 0: return await GetTimeLineAsync();
+                case 1:return await GetDiscoveryAsync();
+                default:return null;
+            }
+        }
     }
 } 
