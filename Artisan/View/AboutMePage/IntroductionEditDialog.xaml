@@ -13,7 +13,7 @@
     SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
 
     <Grid>
-        <TextBox x:Name="textBox" TextWrapping="Wrap" Text="请在此输入简介" Margin="0" Height="116"/>
+        <TextBox x:Name="textBox" TextWrapping="Wrap" PlaceholderText="请在此输入简介" Margin="0" Height="116"/>
 
     </Grid>
 </ContentDialog>
