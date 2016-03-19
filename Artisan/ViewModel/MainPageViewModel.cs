@@ -102,7 +102,7 @@ namespace Artisan.ViewModel
         {
             var hostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
             var jToken = JObject.Parse(jObjectString).First.First;
-            foreach (JObject item in jToken)
+            foreach (var item in jToken)
             {
                 HomePivotListItems.Add(new HomePivotListItem
                 {
