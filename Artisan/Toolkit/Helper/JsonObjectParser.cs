@@ -25,12 +25,15 @@ namespace Artisan.Toolkit.Helper
         public static HomePivotListItemUser ParseTimeLineUser(JToken token)
         {
             var user = new HomePivotListItemUser();
-            user.Name = token["nickname"]?.ToString();
-            user.Uid = token["_id"]?.ToString();
-            user.Gender = int.Parse(token["gender"]?.ToString());
-            user.Geo = ParseUserGeo(token["geo"]);
-            user.Intro = token["intro"]?.ToString();
-            user.Pic = token["head_pic"]?.ToString();
+            if (token.Type != JTokenType.Null)
+            {
+                user.Name = token["nickname"].ToString();
+                user.Uid = token["_id"].ToString();
+                user.Gender = int.Parse(token["gender"].ToString());
+                user.Geo = ParseUserGeo(token["geo"]);
+                user.Intro = token["intro"].ToString();
+                user.Pic = token["head_pic"].ToString();
+            }
             return user;
         }
         /// <summary>
