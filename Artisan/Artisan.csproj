@@ -119,6 +119,7 @@
     <Compile Include="Model\UserInfo.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Toolkit\Exceptions\ToolkitInternalException.cs" />
+    <Compile Include="Toolkit\Helper\JsonObjectParser.cs" />
     <Compile Include="Toolkit\Helper\UserConfiguration.cs" />
     <Compile Include="Toolkit\Net\HttpWebPost.cs" />
     <Compile Include="Toolkit\Utilities\GetVersion.cs" />
@@ -135,6 +136,7 @@
     <Compile Include="Toolkit\MyCommand.cs" />
     <Compile Include="Toolkit\NotifyPropertyObject.cs" />
     <Compile Include="ViewModel\SignPageViewModel.cs" />
+    <Compile Include="ViewModel\TimeLineViewModel.cs" />
     <Compile Include="View\AboutMePage\IntroductionEditDialog.xaml.cs">
       <DependentUpon>IntroductionEditDialog.xaml</DependentUpon>
     </Compile>
