@@ -37,15 +37,24 @@ namespace Artisan.ViewModel
             else return new UserInfo();//未完成
         }
 
-        public async Task<JsonObject> GetTimeLineAsync(int timeLinePage)
+        //public async Task<JsonObject> GetTimeLineAsync(int timeLinePage)
+        //{
+        //    Dictionary<string, string> param = new Dictionary<string, string>();
+        //    param.Add("page", timeLinePage.ToString());
+        //    string TimeLineUri = ResourceLoader.GetForCurrentView().GetString("TimeLineUri");
+        //    var result = await HttpWebPost.GetJsonFromUriAsync(TimeLineUri, param);
+        //    var jObj = JsonObject.Parse(result.ToString());
+        //    //var result = await HttpWebPost.PostJsonToUriAsync(TimeLineUri, param);
+        //    MessageBox.Show(result.ToString());
+        //    return result ?? null;
+        //}
+        public async Task<string> GetTimeLineAsync(int timeLinePage)
         {
             Dictionary<string, string> param = new Dictionary<string, string>();
             param.Add("page", timeLinePage.ToString());
             string TimeLineUri = ResourceLoader.GetForCurrentView().GetString("TimeLineUri");
-            var result = await HttpWebPost.GetJsonFromUriAsync(TimeLineUri, param);
-            var jObj = JObject.Parse(result.ToString());
-            //var result = await HttpWebPost.PostJsonToUriAsync(TimeLineUri, param);
-            MessageBox.Show(result.ToString());
+            var result = await HttpWebPost.GetJsonStringFromUriAsync(TimeLineUri, param);
+            //MessageBox.Show(result.ToString());
             return result ?? null;
         }
     }

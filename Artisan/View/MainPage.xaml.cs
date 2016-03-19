@@ -29,7 +29,9 @@ using Artisan.View.NewsPage;
 using Artisan.ViewModel;
 using Artisan.View.AboutMePage;
 using Windows.ApplicationModel.DataTransfer;
+using Windows.Data.Json;
 using Artisan.Interface;
+using Newtonsoft.Json.Linq;
 
 //“空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409 上有介绍
 
@@ -73,7 +75,8 @@ namespace Artisan.View
         {
             base.OnNavigatedFrom(e);
             SignPageViewModel spvm = new SignPageViewModel();
-            await spvm.GetTimeLineAsync(5);
+            var jObjectString = await spvm.GetTimeLineAsync(1);
+            MainPageVm.AddItemToHomePivotListFromJsonString(jObjectString);
         }
         private async void Upload_Click(object sender, RoutedEventArgs e)
         {

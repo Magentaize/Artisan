@@ -1,11 +1,15 @@
 ﻿using Artisan.Toolkit;
 using System;
 using System.Collections.ObjectModel;
+using Windows.ApplicationModel.Resources;
+using Windows.Data.Json;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 using Artisan.Model;
 using Artisan.Toolkit.Helper;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Artisan.ViewModel
 {
@@ -92,6 +96,24 @@ namespace Artisan.ViewModel
                 User = new HomePivotListItemUser { Name = "Artist " + i.ToString(),},
             };
             return item;
+        }
+
+        public void AddItemToHomePivotListFromJsonString(string jObjectString)
+        {
+            var hostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
+            var jToken = JObject.Parse(jObjectString).First.First;
+            foreach (JObject item in jToken)
+            {
+                HomePivotListItems.Add(new HomePivotListItem
+                {
+                    Text = item["work"]["intro"].ToString(),
+                    CreatTime = item["post_time"].ToString(),
+                    Pics = hostUri + ((JValue)item["work"]["pics"][0]).ToString(),
+                    User = new HomePivotListItemUser { Name = item["user"]["nickname"].ToString(),},
+                });
+            }
+            //JsonConvert.DeserializeObject<HomePivotListItem>(jObjectString);
+
         }
 
     }

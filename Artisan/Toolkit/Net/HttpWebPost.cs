@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Data.Json;
 using Windows.Web.Http;
+using Newtonsoft.Json.Linq;
 
 namespace Artisan.Toolkit.Net
 {
@@ -89,6 +90,41 @@ namespace Artisan.Toolkit.Net
                 }
                 var obj = JsonObject.Parse(result);
                 return obj;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 使用html方式发送get参数,返回string
+        /// </summary>
+        /// <param name="uri"></param>
+        /// <param name="paramters"></param>
+        /// <returns></returns>
+        public static async Task<string> GetJsonStringFromUriAsync(string uri, Dictionary<string, string> paramters)
+        {
+            StringBuilder sb = new StringBuilder(uri);
+            sb.Append("?");
+            foreach (var param in paramters)
+            {
+                sb.Append($"{param.Key}={param.Value}&");
+            }
+            sb.Remove(sb.Length - 1, 1);
+            HttpWebRequest request = HttpWebRequest.CreateHttp(sb.ToString());
+            request.CookieContainer = cookies;
+            request.Method = "GET";
+            try
+            {
+                var response = await request.GetResponseAsync();
+                string result;
+                using (var stream = response.GetResponseStream())
+                {
+                    StreamReader sr = new StreamReader(stream);
+                    result = sr.ReadToEnd();
+                }
+                return result;
             }
             catch (Exception e)
             {

@@ -12,8 +12,8 @@ namespace UnitTest
         [TestMethod]
         public async Task<Dictionary<string,string> > TestMethod1()
         {
-           var result = await HttpWebPost.PostDataToUriAsync("http://artisan.chinacloudapp.cn/signup.json", "nickname=zix&username=rukamihara&password=20132013");
-            return result;
+          // var result = await HttpWebPost.PostDataToUriAsync("http://artisan.chinacloudapp.cn/signup.json", "nickname=zix&username=rukamihara&password=20132013");
+            //return result;
         }
     }
 }
