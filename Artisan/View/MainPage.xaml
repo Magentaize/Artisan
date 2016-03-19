@@ -397,8 +397,8 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock x:Name="MainPagePostPraised" Text="&#xe901;" FontFamily="ms-appx:///Assets/icomoon.ttf#icomoon" VerticalAlignment="Center" FontSize="24" Margin="8" Foreground="DarkGray" Tapped="MainPagePostPraised_Tapped"/>
-                        <TextBlock x:Name="MainPagePostShare" Text="&#xe902;" FontFamily="ms-appx:///Assets/icomoon.ttf#icomoon" VerticalAlignment="Center" FontSize="24" Margin="8" Foreground="DarkGray" Grid.Column="1" Tapped="MainPagePostShare_Tapped" PointerEntered="MainPagePostShare_PointerEntered" PointerExited="MainPagePostShare_PointerExited"/>
-                        <TextBlock x:Name="MainPagePostComment" Text="&#xe900;" FontFamily="ms-appx:///Assets/icomoon.ttf#icomoon" VerticalAlignment="Center" FontSize="24" Margin="8" Foreground="DarkGray" Grid.Column="2" Tapped="MainPagePostComment_Tapped"/>
+                        <TextBlock x:Name="MainPagePostShare" Text="&#xe902;" FontFamily="ms-appx:///Assets/icomoon.ttf#icomoon" VerticalAlignment="Center" FontSize="24" Margin="8" Foreground="DarkGray" Grid.Column="1" Tapped="MainPagePostShare_Tapped" PointerEntered="MainPagePostButton_PointerEntered" PointerExited="MainPagePostButton_PointerExited"/>
+                        <TextBlock x:Name="MainPagePostComment" Text="&#xe900;" FontFamily="ms-appx:///Assets/icomoon.ttf#icomoon" VerticalAlignment="Center" FontSize="24" Margin="8" Foreground="DarkGray" Grid.Column="2" Tapped="MainPagePostComment_Tapped" PointerEntered="MainPagePostButton_PointerEntered" PointerExited="MainPagePostButton_PointerExited"/>
                     </Grid>
                 </Grid>
 
@@ -745,10 +745,10 @@
                             <Button x:Name="Transaction" Content="交易" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,84,0,0" Style="{StaticResource AboutMeButtonStyle}"/>
                             <Button x:Name="WaitForSale" Content="待售" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,121,0,0" Style="{StaticResource AboutMeButtonStyle}"/>
                             <Button x:Name="Upload" Content="上传作品" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,158,0,0" Style="{StaticResource AboutMeButtonStyle}"/>
-                            <Button x:Name="Setting" Content="设置" Margin="0,294,0,0" Style="{StaticResource AboutMeButtonStyle}" Tapped="SettingButtonTapped"/>
-                            <Button x:Name="Signout" Content="注销" Margin="0,320,0,0" Style="{StaticResource AboutMeButtonStyle}" Tapped="Signout_Tapped"/>
                             <Button x:Name="Article" Content="文章" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,195" Style="{StaticResource AboutMeButtonStyle}" d:LayoutOverrides="Height, TopPosition, BottomPosition"/>
-                            <Button x:Name="Article_Copy" Content="赞过的" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,232,0,0" Style="{StaticResource AboutMeButtonStyle}"/>
+                            <Button x:Name="Zan" Content="赞过的" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,232,0,0" Style="{StaticResource AboutMeButtonStyle}"/>
+                            <Button x:Name="Setting" Content="设置" Margin="0,294,0,0" Style="{StaticResource AboutMeButtonStyle}" Tapped="SettingButtonTapped"/>
+                            <Button x:Name="Signout" Content="注销" Margin="0,330,0,0" Style="{StaticResource AboutMeButtonStyle}" Tapped="Signout_Tapped"/>
                         </Grid>
 
                     </Grid>

@@ -46,7 +46,7 @@ namespace Artisan.View
 
         public MainPage()
         {
-            if (DateTime.Today.DayOfYear < 81) //一天之后白板
+            if (DateTime.Today.DayOfYear < 82) //一天之后白板
                 this.InitializeComponent();
 
             //MessageBox.Show(HttpRequest.HttpGet(@"http://www.kanglesoft.com/forum.phpzdv").Result);
@@ -72,11 +72,17 @@ namespace Artisan.View
 
             Upload.Click += Upload_Click;
         }
+
+        private bool _isFirstNavigatedToMainPage = true;
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedFrom(e);
-            var jObjectString = await MainPageVm.GetTimeLineAsync(1);
-            MainPageVm.AddItemToHomePivotListFromJsonString(jObjectString);
+            if (_isFirstNavigatedToMainPage)
+            {
+                var jObjectString = await MainPageVm.GetTimeLineAsync(1);
+                MainPageVm.AddItemToHomePivotListFromJsonString(jObjectString);
+                _isFirstNavigatedToMainPage = false;
+            }
             bool result = await MainPageVm.AutoLoginAsync();
             if((App.Current as App).CurrentUser != null)
             {
@@ -215,22 +221,12 @@ namespace Artisan.View
             DataTransferManager.ShowShareUI();
         }
 
-        private void MainPagePostShare_PointerEntered(object sender, PointerRoutedEventArgs e)
+        private void MainPagePostButton_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             ((TextBlock)sender).Foreground = new SolidColorBrush(Colors.DeepSkyBlue);
         }
 
-        private void MainPagePostShare_PointerExited(object sender, PointerRoutedEventArgs e)
-        {
-            ((TextBlock)sender).Foreground = new SolidColorBrush(Colors.DarkGray);
-        }
-
-        private void MainPagePostComment_PointerEntered(object sender, PointerRoutedEventArgs e)
-        {
-            ((TextBlock)sender).Foreground = new SolidColorBrush(Colors.DeepSkyBlue);
-        }
-
-        private void MainPagePostComment_PointerExited(object sender, PointerRoutedEventArgs e)
+        private void MainPagePostButton_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             ((TextBlock)sender).Foreground = new SolidColorBrush(Colors.DarkGray);
         }
