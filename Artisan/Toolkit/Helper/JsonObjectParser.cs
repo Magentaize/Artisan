@@ -111,7 +111,8 @@ namespace Artisan.Toolkit.Helper
                 result.Add(new HomePivotListItem
                 {
                     Tid = item["_id"].ToString(),
-                    PostTime = item["post_time"].ToString(),
+                    //PostTime = item["post_time"].ToString(),
+                    PostTime = DateFormat.GetFormattedDate(item["post_time"].ToString()),
                     Work = ParseWork(item["work"]),
                     User = ParseUser(item["user"])
                 });
