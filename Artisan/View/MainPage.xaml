@@ -406,7 +406,7 @@
             </Grid>
         </DataTemplate>
         <DataTemplate x:Key="DiscoveryDT" x:DataType="interface:IDiscoveryPivotListItem">
-            <Grid Margin="0,0,0,4" Tapped="ItemTapped">
+            <Grid Margin="0,0,0,4">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
