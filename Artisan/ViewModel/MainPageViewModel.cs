@@ -66,12 +66,15 @@ namespace Artisan.ViewModel
                         string SigninUri = ResourceLoader.GetForCurrentView().GetString("SigninUri");
                         string HostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
                         var result = await HttpWebPost.PostJsonToUriAsync(HostUri + SigninUri, param);
+                        if (result == null) return false;
+
                         if (result["result"].ToString() == "true")
                         {
                             UserInfo user = new UserInfo();
                             user.NickName = userId;
                             user.Uid = result["uid"].GetString();
                             (App.Current as App).CurrentUser = user;
+                            return true;
                         }
                     }
                 }
@@ -80,14 +83,17 @@ namespace Artisan.ViewModel
             else return true;
         }
 
-        public async Task<bool> GetTimeLineAsync()
+        public async Task<bool> GetTimeLineAsync(bool forceRefresh = true)
         {
+            if (HomePivotList.Count != 0 && !forceRefresh) return false;
             HomePivotList.Clear();
             Dictionary<string, string> param = new Dictionary<string, string>();
             param.Add("page", CurrentPage.ToString());
             var TimeLineUri = ResourceLoader.GetForCurrentView().GetString("TimeLineUri");
             var HostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
             var result = await HttpWebPost.GetJsonStringFromUriAsync(HostUri + TimeLineUri, param);
+            if (result == null) return false;
+
             var items = JsonObjectParser.ParseTimeLineItem(result);
             foreach (var item in items)
             {
@@ -96,10 +102,14 @@ namespace Artisan.ViewModel
             return  HomePivotList != null;
         }
 
-        public async Task<bool> GetDiscoveryAsync()
+        public async Task<bool> GetDiscoveryAsync(bool forceRefresh = true)
         {
+            if (DiscoveryPivotList.Count != 0 && !forceRefresh) return false;
+            DiscoveryPivotList.Clear();
             string DiscoveryUri = ResourceLoader.GetForCurrentView().GetString("FindUri");
             var result = await HttpWebPost.GetJsonStringFromUriAsync(DiscoveryUri);
+            if (result == null) return false;
+
             var items = JsonObjectParser.ParseDiscoveryItem(result);
             foreach (var item in items)
             {
@@ -108,9 +118,11 @@ namespace Artisan.ViewModel
             return DiscoveryPivotList != null;
         }
 
-        internal async Task<bool> UploadImage(StorageFile file)
+        internal async Task<string> UploadImage(StorageFile file)
         {
             UserInfo user = (App.Current as App).CurrentUser;
+            if (user == null) return "未登录或登录失效，请尝试重新登录";
+            if (user.Uid == null) return "未登录或登录失效，请尝试重新登录";
             BitmapImage bi = new BitmapImage();
             bi.SetSource(await file.OpenReadAsync());
 
@@ -129,7 +141,10 @@ namespace Artisan.ViewModel
             string targetUri = ResourceLoader.GetForCurrentView().GetString("HostUri")
                 +   ResourceLoader.GetForCurrentView().GetString("update_timelineUri");
             string result = await HttpWebPost.PostMutipartDataToUriAsync(targetUri, param, attach);
-            return result.Contains("true");
+            if (result == null) return "服务器没有响应";
+            if (result.Contains("true"))
+                return null;     
+            return JObject.Parse(result)["reason"].ToString();
             //Guid id = null;
             //switch (file.FileType)
             //{
@@ -147,12 +162,12 @@ namespace Artisan.ViewModel
             await HttpWebPost.PostDataToUriAsync(ResourceLoader.GetForCurrentView().GetString("HostUri") + ResourceLoader.GetForCurrentView().GetString("SignoutUri"), null);
         }
 
-        internal async Task<bool?> RefreshCurrentView(int currentIndex)
+        internal async Task<bool?> RefreshCurrentView(int currentIndex, bool forceRefresh = true)
         {
             switch (currentIndex)
             {
-                case 0: return await GetTimeLineAsync();
-                case 1:return await GetDiscoveryAsync();
+                case 0: return await GetTimeLineAsync(forceRefresh);
+                case 1:return await GetDiscoveryAsync(forceRefresh);
                 default:return null;
             }
         }

@@ -88,6 +88,7 @@ namespace Artisan.ViewModel
             string SigninUri = ResourceLoader.GetForCurrentView().GetString("SigninUri");
             string HostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
             var result = await HttpWebPost.PostJsonToUriAsync(HostUri + SigninUri, param);
+            if (result == null) return null;
             if (result["result"].ToString() == "true")
             {
                 UserInfo user = new UserInfo();

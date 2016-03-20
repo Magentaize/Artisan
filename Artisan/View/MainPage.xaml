@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Artisan"
+      xmlns:model="using:Artisan.Model"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:interface="using:Artisan.Interface"
@@ -330,7 +331,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <DataTemplate x:Key="HomeListDT" x:DataType="interface:IHomePivotListItem">
+        <DataTemplate x:Key="HomeListDT" x:DataType="model:HomePivotListItem">
             <Grid HorizontalAlignment="Stretch">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -614,16 +615,17 @@
     </Page.Resources>
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarButton Icon="Back" Content="上一页" Click="PrePage_click"/>
-            <AppBarButton Icon="Refresh" Content="刷新" Click="Refresh_click"/>
-            <AppBarButton Icon="Forward" Content="下一页" Click="NextPage_click"/>
+            <AppBarButton x:Name="pgBack" Icon="Back" Content="上一页" Click="PrePage_click"/>
+            <AppBarButton x:Name="pgRefresh" Icon="Refresh" Content="刷新" Click="Refresh_click"/>
+            <AppBarButton x:Name="pgForward" Icon="Forward" Content="下一页" Click="NextPage_click"/>
         </CommandBar>
     </Page.BottomAppBar>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Pivot x:Name="MainPivot" Style="{StaticResource MainPivotStyle}">
+        <Pivot x:Name="MainPivot" Style="{StaticResource MainPivotStyle}" SelectionChanged="MainPivot_SelectionChanged" >
             <PivotItem x:Name="HomePivotPItem"
                        Header="首页"
                        Style="{StaticResource HomePivotItemStyle}"
+                       
                        Margin="0" >
                 <!--<Grid Background="{x:Bind MainPageVm.ThemeColorBrush}">-->
                 <Grid>

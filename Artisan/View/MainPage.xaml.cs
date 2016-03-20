@@ -98,8 +98,8 @@ namespace Artisan.View
             if (_isFirstNavigatedToMainPage)
             {
                
-                var success = await MainPageVm.GetTimeLineAsync();
-                var success2 = await MainPageVm.GetDiscoveryAsync();
+                //var success = await MainPageVm.GetTimeLineAsync();
+                //var success2 = await MainPageVm.GetDiscoveryAsync();
                 _isFirstNavigatedToMainPage = false;
             }
             bool result = await MainPageVm.AutoLoginAsync();
@@ -119,8 +119,8 @@ namespace Artisan.View
             picker.FileTypeFilter.Add(".png");
 
             StorageFile file = await picker.PickSingleFileAsync();
-            bool success = await MainPageVm.UploadImage(file);
-            MessageDialog dialog = new MessageDialog(success ? "上传成功" : "上传失败");
+            string result = await MainPageVm.UploadImage(file);
+            MessageDialog dialog = new MessageDialog(result ?? "上传成功");
             await dialog.ShowAsync();
         }
 
@@ -275,6 +275,21 @@ namespace Artisan.View
                 --MainPageVm.CurrentPage;
                 await MainPageVm.RefreshCurrentView(MainPivot.SelectedIndex);
             }
+
+        }
+
+        private async void MainPivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Pivot pivot = sender as Pivot;
+            switch (pivot.SelectedIndex)
+            {
+                case 0: pgBack.Visibility = pgForward.Visibility = pgRefresh.Visibility = Visibility.Visible; break;
+                default:
+                    pgBack.Visibility = pgForward.Visibility = Visibility.Collapsed;
+                    pgRefresh.Visibility = Visibility.Visible; break;
+
+            }           
+            await MainPageVm.RefreshCurrentView(pivot.SelectedIndex, false);
 
         }
     }

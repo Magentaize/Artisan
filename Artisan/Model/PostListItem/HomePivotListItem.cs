@@ -6,7 +6,7 @@ using Artisan.Interface;
 
 namespace Artisan.Model
 {
-    public class HomePivotListItem:PostListItem, IHomePivotListItem
+    public class HomePivotListItem:PostListItem
     {
         private string _tid;
 
