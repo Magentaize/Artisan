@@ -109,15 +109,16 @@
     </Compile>
     <Compile Include="Interface\IAuthorOtherPostListItem.cs" />
     <Compile Include="Interface\ICommentListItem.cs" />
-    <Compile Include="Interface\IDiscoveryPivotListItem.cs" />
+    <Compile Include="Interface\PostListItem\IDiscoveryPivotListItem.cs" />
     <Compile Include="Interface\IGeo.cs" />
-    <Compile Include="Interface\IHomePivotListItem.cs" />
+    <Compile Include="Interface\PostListItem\IHomePivotListItem.cs" />
+    <Compile Include="Interface\PostListItem\IPostListItem.cs" />
     <Compile Include="Interface\IUserInfo.cs" />
     <Compile Include="Interface\IWork.cs" />
     <Compile Include="Interface\IUser.cs" />
     <Compile Include="Model\AuthorOtherPostListItem.cs" />
     <Compile Include="Model\CommentListItem.cs" />
-    <Compile Include="Model\HomePivotListItem\HomePivotListItemUser.cs" />
+    <Compile Include="Model\PostListItem\PostListItem.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\UserInfo.cs" />
     <Compile Include="Model\Work.cs" />
@@ -131,9 +132,9 @@
     <Compile Include="Toolkit\Net\HttpRequest.cs" />
     <Compile Include="ViewModel\CommentPageViewModel.cs" />
     <Compile Include="ViewModel\PostDetailPageViewModel.cs" />
-    <Compile Include="Model\DiscoveryPivotListItem.cs" />
+    <Compile Include="Model\PostListItem\DiscoveryPivotListItem.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
-    <Compile Include="Model\HomePivotListItem\HomePivotListItem.cs" />
+    <Compile Include="Model\PostListItem\HomePivotListItem.cs" />
     <Compile Include="Model\ThemeColor.cs" />
     <Compile Include="Toolkit\Helper\VisualTree.cs" />
     <Compile Include="Toolkit\MessageDialog.cs" />

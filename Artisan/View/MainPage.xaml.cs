@@ -125,12 +125,20 @@ namespace Artisan.View
             this.Frame.Navigate(typeof(PersonalTweetPage), "ms-appx:///Assets/img/1.jpg");
         }
 
-        private void ItemTapped(object sender, TappedRoutedEventArgs e)
+        private void TimeLineListItemTapped(object sender, TappedRoutedEventArgs e)
+        {
+            var grid = (Grid)sender;
+            var dataContext =
+                (PostListItem) (((Image) VisualTree.FindVisualElementFormName(grid, "PostImage")).DataContext);
+            this.Frame.Navigate(typeof(PostDetail), dataContext);
+        }
+
+        private void DiscoveryListItemTapped(object sender, TappedRoutedEventArgs e)
         {
             var grid = (Grid) sender;
-            var dataContext = new HomePivotListItem
+            var dataContext = new PostListItem
             {
-                Work = new Work { Pic = ((DiscoveryPivotListItem)(((Image)VisualTree.FindVisualElementFormName(grid, "PostImage")).DataContext)).Work.Pic },
+                Work = new Work { Pic = ((PostListItem)(((Image)VisualTree.FindVisualElementFormName(grid, "PostImage")).DataContext)).Work.Pic },
                 User = new User { NickName = @"KuosLo", },
             };
             //var img = VisualTree.FindVisualElement<Image>(grid);
