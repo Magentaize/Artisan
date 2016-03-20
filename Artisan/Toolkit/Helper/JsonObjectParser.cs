@@ -169,7 +169,7 @@ namespace Artisan.Toolkit.Helper
         }
 
         /// <summary>
-        /// 对应指定作者的其他作品
+        /// 对应指定作者的其他作品,仅返回作品列表
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>

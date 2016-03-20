@@ -7,6 +7,7 @@
     xmlns:vm="using:Artisan.ViewModel"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:interface="using:Artisan.Interface"
     mc:Ignorable="d">
     <Page.Resources>
         <Style x:Key="AuthorInfoButton" TargetType="Button">
@@ -85,7 +86,7 @@
         <ItemsPanelTemplate x:Key="AuthorOtherPostItemsPanelTemplate">
             <ItemsStackPanel Orientation="Horizontal" />
         </ItemsPanelTemplate>
-        <DataTemplate x:Key="AuthorOtherPostListDt" x:DataType="model:PostListItem">
+        <DataTemplate x:Key="AuthorOtherPostListDt" x:DataType="interface:IPostListItem">
             <Grid Tapped="ItemTapped">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
