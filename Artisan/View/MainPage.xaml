@@ -713,7 +713,7 @@
                     <Grid.Background>
                         <SolidColorBrush Color="{ThemeResource SystemAccentColor}" Opacity="0.4"/>
                     </Grid.Background>
-                    <Button x:Name="ToSignPage" Click="ToSignPage_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource AboutMeButtonStyle}" Content="登录以查看更多内容"/>
+                    <Button x:Name="ToSignPage" Click="ToSignPage_Click" HorizontalAlignment="Center"  Padding="10" Margin="10" VerticalAlignment="Center" Style="{StaticResource AboutMeButtonStyle}" Content="登录以查看更多内容"/>
                     <Grid x:Name="ProfilePanel" Visibility="Collapsed">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>

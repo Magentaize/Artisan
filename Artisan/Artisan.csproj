@@ -181,6 +181,9 @@
     <Compile Include="View\PostDetailPage.xaml.cs">
       <DependentUpon>PostDetailPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\UploadDialog.xaml.cs">
+      <DependentUpon>UploadDialog.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -266,6 +269,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\PostDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UploadDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
