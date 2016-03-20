@@ -24,6 +24,14 @@ namespace Artisan.View.AboutMePage
             this.InitializeComponent();
         }
 
+        private string intro;
+        public string Intro {
+            get { return intro; }
+            set
+            {
+                intro = value;
+            }
+        }
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
         }

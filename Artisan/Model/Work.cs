@@ -94,5 +94,9 @@ namespace Artisan.Model
             get { return _width; }
             set { UpdateProperty(ref _width, value);}
         }
+        public override string ToString()
+        {
+            return $"{Height}x{Width}";
+        }
     }
 }

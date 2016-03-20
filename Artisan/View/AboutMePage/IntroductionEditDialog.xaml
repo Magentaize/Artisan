@@ -13,7 +13,7 @@
     SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
 
     <Grid>
-        <TextBox x:Name="textBox" TextWrapping="Wrap" PlaceholderText="请在此输入简介" Margin="0" Height="116"/>
+        <TextBox x:Name="textBox" TextWrapping="Wrap" PlaceholderText="请在此输入简介(P.S: 现在尝试修改简介会一块把头像改掉。)" Text="{x:Bind Intro}"  Margin="0" Height="116"/>
 
     </Grid>
 </ContentDialog>

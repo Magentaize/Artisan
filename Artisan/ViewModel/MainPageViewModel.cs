@@ -143,8 +143,9 @@ namespace Artisan.ViewModel
             int height = bi.PixelHeight;
             int width = bi.PixelWidth;
             UploadDialog dia = new UploadDialog();
+            dia.WorkTitle = file.Name.Split('.')[0];
             var res = await dia.ShowAsync();
-            if (res != Windows.UI.Xaml.Controls.ContentDialogResult.Primary) return "用户取消上传";
+            if (res != Windows.UI.Xaml.Controls.ContentDialogResult.Primary) return "0";
             
             Dictionary<string, string> param = new Dictionary<string, string>();
             Dictionary<string, StorageFile> attach = new Dictionary<string, StorageFile>();
