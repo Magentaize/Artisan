@@ -292,6 +292,14 @@ namespace Artisan.View
             await MainPageVm.RefreshCurrentView(pivot.SelectedIndex, false);
 
         }
+
+        private async void GotoFirstPage_Click(object sender, RoutedEventArgs e)
+        {
+            MainPageVm.CurrentPage = 1;
+            pgBack.Visibility = Visibility.Collapsed;
+            int currentIndex = MainPivot.SelectedIndex;
+            await MainPageVm.RefreshCurrentView(currentIndex);
+        }
     }
 
 }
