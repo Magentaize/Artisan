@@ -258,6 +258,7 @@ namespace Artisan.View
         {
             ++MainPageVm.CurrentPage;
             await MainPageVm.RefreshCurrentView(MainPivot.SelectedIndex);
+            if (MainPageVm.CurrentPage > 1) pgBack.Visibility = Visibility.Visible;
         }
 
         private async void PrePage_click(object sender, RoutedEventArgs e)
@@ -267,6 +268,7 @@ namespace Artisan.View
                 --MainPageVm.CurrentPage;
                 await MainPageVm.RefreshCurrentView(MainPivot.SelectedIndex);
             }
+            if (MainPageVm.CurrentPage == 1) pgBack.Visibility = Visibility.Collapsed;
 
         }
 
@@ -275,7 +277,8 @@ namespace Artisan.View
             Pivot pivot = sender as Pivot;
             switch (pivot.SelectedIndex)
             {
-                case 0: pgBack.Visibility = pgForward.Visibility = pgRefresh.Visibility = Visibility.Visible; break;
+                case 0: pgBack.Visibility = MainPageVm.CurrentPage == 1 ? Visibility.Collapsed : Visibility.Visible;
+                        pgForward.Visibility = pgRefresh.Visibility = Visibility.Visible; break;
                 default:
                     pgBack.Visibility = pgForward.Visibility = Visibility.Collapsed;
                     pgRefresh.Visibility = Visibility.Visible; break;
