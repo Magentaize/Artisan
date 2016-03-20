@@ -65,7 +65,7 @@ namespace Artisan.View
 
         private void ItemTapped(object sender, TappedRoutedEventArgs e)
         {
-            var grid = (Grid)sender;
+            var data = ((Grid)sender).DataContext;
             var dataContext = new PostListItem
             {
                 Work = PostDetailPageVM.PostItem.Work,
@@ -74,7 +74,7 @@ namespace Artisan.View
             };
             //var img =VisualTree.FindVisualElement<Image>(grid);
             //var str = ((BitmapImage)img.Source).UriSource.ToString();
-            this.Frame.Navigate(typeof(PostDetail), dataContext);
+            this.Frame.Navigate(typeof(PostDetail), (PostListItem)data);
         }
 
     }
