@@ -14,6 +14,7 @@ namespace Artisan.Toolkit.Net
     public class HttpWebPost//懒得改名字了
     {
         public static CookieContainer cookies = new CookieContainer();
+
         /// <summary>
         /// 向指定uri post一组参数
         /// </summary>
@@ -66,6 +67,71 @@ namespace Artisan.Toolkit.Net
                 return null;
             }
         }
+        public static async Task<string> PostMutipartDataToUriAsync(string uri, Dictionary<string, string> paramters, Dictionary<string, FileStream> attachs)
+        {
+            HttpWebRequest request = HttpWebRequest.CreateHttp(uri);
+            string boundary = "x_xxx_xx_xx_xxx_xxxx________x" + DateTime.Now.Ticks.ToString("x");//分隔符
+
+            request.ContentType = "mutipart/form-data; boundary=" + boundary;
+            request.CookieContainer = cookies;
+            request.Method = "POST";
+            try
+            {
+                using (var stream = await request.GetRequestStreamAsync())
+                {
+                    if (paramters != null)
+                    {
+                        StringBuilder sb = new StringBuilder();
+                        foreach(var param in paramters)
+                        {
+                            sb.Append($"--{boundary}\r\n");
+                            sb.Append($"Content-Disposition: form-data; name=\"{param.Key}\"\r\n\r\n");
+                            sb.Append($"{param.Value}\r\n--{boundary}\r\n");
+                        }
+                        //参数部分数据
+                        byte[] paramData = Encoding.UTF8.GetBytes(sb.ToString());
+                        stream.Write(paramData, 0, paramData.Length);
+
+                        foreach(var attach in attachs)
+                        {
+                            sb.Clear();
+                            sb.Append($"--{boundary}\r\n");
+                            sb.Append($"Content-Disposition: form-data; name=\"{attach.Key}\"; filename=\"{attach.Value.Name}\"\r\n");
+                            sb.Append($"Content-Type: application/octet-stream\r\n\r\n");
+                            //文件头
+                            byte[] FileHeader = Encoding.UTF8.GetBytes(sb.ToString());
+                            stream.Write(FileHeader, 0, FileHeader.Length);
+                            //文件数据
+                            byte[] attachData = new byte[attach.Value.Length];
+                            attach.Value.Read(attachData, 0, attachData.Length);
+                            stream.Write(attachData, 0, attachData.Length);
+
+                        }
+                        //结束标记
+                        byte[] endboundary = Encoding.UTF8.GetBytes($"--{boundary}--");
+                        stream.Write(endboundary, 0, endboundary.Length);
+
+                    }
+                        
+                    
+                }
+           
+                var response = await request.GetResponseAsync();
+
+                string result;
+                using (var stream = response.GetResponseStream())
+                {
+                    StreamReader sr = new StreamReader(stream);
+                    result = sr.ReadToEnd();
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+    }
         /// <summary>
         /// 使用html方式发送get带参数,返回jsonObject
         /// </summary>
