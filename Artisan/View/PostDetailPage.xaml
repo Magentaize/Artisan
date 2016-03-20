@@ -291,11 +291,12 @@
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock TextWrapping="Wrap" Text="作品名称:样例 分类:默认分类" VerticalAlignment="Top" Margin="0,0,4,0" d:LayoutOverrides="Width, LeftPosition, RightPosition" FontSize="10.667" HorizontalAlignment="Left"/>
-                            <TextBlock TextWrapping="Wrap" Text="1280x720" Grid.Column="1"  VerticalAlignment="Top" Margin="0,0,53,0" d:LayoutOverrides="Width, LeftPosition, RightPosition" FontSize="10.667" Foreground="#FF444444" HorizontalAlignment="Left"/>
-                            <Button Content="赞:126" Grid.Row="1" Height="18" FontSize="10.667" Style="{StaticResource TweetButtonStyle}" Margin="0,4,0,0" VerticalAlignment="Stretch" Padding="0" BorderThickness="0"/>
+                            <TextBlock TextWrapping="Wrap" Text="{x:Bind PostDetailPageVM.PostItem.Work.Name}" VerticalAlignment="Top" Margin="0,0,4,0" d:LayoutOverrides="Width, LeftPosition, RightPosition" FontSize="10.667" HorizontalAlignment="Left"/>
+                            <TextBlock TextWrapping="Wrap" Text="{x:Bind PostDetailPageVM.PostItem.Work.Size}" Grid.Column="1"  VerticalAlignment="Top" Margin="0,0,53,0" d:LayoutOverrides="Width, LeftPosition, RightPosition" FontSize="10.667" Foreground="#FF444444" HorizontalAlignment="Left"/>
+                            <Button Content="{x:Bind PostDetailPageVM.PostItem.Work.LikesNum}" Grid.Row="1" Height="18" FontSize="10.667" Style="{StaticResource TweetButtonStyle}" Margin="0,4,0,0" VerticalAlignment="Stretch" Padding="0" BorderThickness="0"/>
                         </Grid>
-                        <TextBlock x:Name="textBlock2" Margin="0" TextWrapping="Wrap" Text="即使毁灭银河系的危机来临，感到不祥且无力抗衡的一介高中生真寻来说明日升起的朝阳像以往常同样方向同样速度同样轨迹同样亮度辉映是谁都不敢打包票感到茫然不安冲击的少年要如何不再担心而和少女展开恋爱呢？" d:LayoutOverrides="Width, Height" Grid.Row="2" Grid.Column="1"/>
+                        <!--即使毁灭银河系的危机来临，感到不祥且无力抗衡的一介高中生真寻来说明日升起的朝阳像以往常同样方向同样速度同样轨迹同样亮度辉映是谁都不敢打包票感到茫然不安冲击的少年要如何不再担心而和少女展开恋爱呢？-->
+                        <TextBlock x:Name="textBlock2" Margin="0" TextWrapping="Wrap" Text="{x:Bind PostDetailPageVM.PostItem.Work.Intro}" d:LayoutOverrides="Width, Height" Grid.Row="2" Grid.Column="1"/>
                         <Button x:Name="AuthorInfo" 
 							HorizontalAlignment="Stretch" Margin="8" VerticalAlignment="Stretch" d:LayoutOverrides="Width, Height" Grid.RowSpan="2" Style="{StaticResource AuthorInfoButton}"/>
                         <ListView x:Name="AuthorOtherPostListView" 

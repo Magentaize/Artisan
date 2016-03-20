@@ -31,6 +31,17 @@ namespace Artisan.ViewModel
                 UpdateProperty(ref _currentPage, value);
             }
         }
+
+        public string CurrentUserName
+        {
+            get { return (App.Current as App).CurrentUser?.NickName ?? "未登录"; }
+        }
+        public UserInfo CurrentUser
+        {
+            get { return (App.Current as App).CurrentUser; }
+            set { UpdateProperty(ref (App.Current as App).CurrentUser, value); }
+        }
+
         private ObservableCollection<HomePivotListItem> _homePivotList =
             new ObservableCollection<HomePivotListItem>();
 
@@ -74,7 +85,9 @@ namespace Artisan.ViewModel
                             UserInfo user = new UserInfo();
                             user.NickName = userId;
                             user.Uid = result["uid"].GetString();
-                            (App.Current as App).CurrentUser = user;
+                            CurrentUser = user;
+                            RaisePropertyChanged("CurrentUserName");
+
                             return true;
                         }
                     }

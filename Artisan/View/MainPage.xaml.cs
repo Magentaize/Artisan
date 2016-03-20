@@ -107,6 +107,7 @@ namespace Artisan.View
             {
                 ToSignPage.Visibility = Visibility.Collapsed;
                 ProfilePanel.Visibility = Visibility.Visible;
+                MyName.Text = MainPageVm.CurrentUser.NickName;//由于绑定神奇失效，手动设置用户名
             }
         }
         private async void Upload_Click(object sender, RoutedEventArgs e)
