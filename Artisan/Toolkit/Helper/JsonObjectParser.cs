@@ -13,6 +13,11 @@ namespace Artisan.Toolkit.Helper
 {
     public class JsonObjectParser
     {
+        /// <summary>
+        /// Interface:IGeo
+        /// </summary>
+        /// <param name="token"></param>
+        /// <returns></returns>
         public static UserInfoGeo ParseUserGeo(JToken token)
         {
             return token.Type == JTokenType.Null ? null : new UserInfoGeo { City = token["city"].ToString(), Province = token["province"].ToString() };

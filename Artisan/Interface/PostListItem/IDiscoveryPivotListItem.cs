@@ -1,6 +1,6 @@
 ﻿namespace Artisan.Interface
 {
-    public interface IDiscoveryPivotListItem
+    public interface IDiscoveryPivotListItem:IPostListItem
     {
         IUser User { get; set; }
         IWork Work { get; set; }

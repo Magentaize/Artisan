@@ -337,15 +337,17 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Grid Margin="0" Tapped="ItemTapped">
+                <Grid Margin="0" Tapped="TimeLineListItemTapped">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Image x:Name="PostImage"
-                       Stretch="UniformToFill"
-                       Source="{x:Bind Work.Pic}"
-                       Grid.Row="1"/>
+                           Stretch="UniformToFill"
+                           Source="{x:Bind Work.Pic}"
+                           Height="{x:Bind Work.Size.Height}"
+                           Width="{x:Bind Work.Size.Width}"
+                           Grid.Row="1"/>
                     <!--x:Bind PostSource-->
                     <Grid VerticalAlignment="Top" Grid.Row="0">
                         <Grid.Background>
@@ -406,7 +408,7 @@
             </Grid>
         </DataTemplate>
         <DataTemplate x:Key="DiscoveryDT" x:DataType="interface:IDiscoveryPivotListItem">
-            <Grid Margin="0,0,0,4" Tapped="ItemTapped">
+            <Grid Margin="0,0,0,4" Tapped="DiscoveryListItemTapped">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>

@@ -49,7 +49,7 @@ namespace Artisan.View
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            var dataContext = e.Parameter as IHomePivotListItem;
+            var dataContext = e.Parameter as IPostListItem;
             try
             {
                 PostDetailPageVM.Name = dataContext.User.NickName;

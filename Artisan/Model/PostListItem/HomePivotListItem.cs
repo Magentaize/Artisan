@@ -6,7 +6,7 @@ using Artisan.Interface;
 
 namespace Artisan.Model
 {
-    public class HomePivotListItem:NotifyPropertyObject,IHomePivotListItem
+    public class HomePivotListItem:PostListItem, IHomePivotListItem
     {
         private string _tid;
 
@@ -24,21 +24,21 @@ namespace Artisan.Model
             set { UpdateProperty(ref _postTime, value); }
         }
 
-        private User _user;
+        //private User _user;
 
-        public IUser User
-        {
-            get { return _user; }
-            set { UpdateProperty(ref _user, (User)value);}
-        }
+        //public IUser User
+        //{
+        //    get { return _user; }
+        //    set { UpdateProperty(ref _user, (User)value);}
+        //}
 
-        private Work _work;
+        //private Work _work;
 
-        public IWork Work
-        {
-            get { return _work; }
-            set { UpdateProperty(ref _work,(Work)value);}
-        }
+        //public IWork Work
+        //{
+        //    get { return _work; }
+        //    set { UpdateProperty(ref _work,(Work)value);}
+        //}
 
         //private string _text;
         //public string Text

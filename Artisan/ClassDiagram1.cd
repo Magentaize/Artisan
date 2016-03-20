@@ -1,0 +1,861 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Artisan.App" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="37" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAQAAIAABAAAAAAAAAAAAAQAAAQAAIAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Controls.ChatMessageBubble" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="38.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\ChatMessageBubble.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Artisan.Model.AuthorOtherPostListItem" Collapsed="true">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Model\AuthorOtherPostListItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Artisan.Model.CommentListItem" Collapsed="true">
+    <Position X="6.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAECAEAAAAAAAAAAAAAAAAAAgAAQAAAAAAQAAIAA=</HashCode>
+      <FileName>Model\CommentListItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Artisan.Model.DiscoveryPivotListItem" Collapsed="true">
+    <Position X="8.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\PostListItem\DiscoveryPivotListItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Artisan.Model.HomePivotListItem" Collapsed="true">
+    <Position X="10.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAACBA=</HashCode>
+      <FileName>Model\PostListItem\HomePivotListItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Artisan.Model.PostListItem" Collapsed="true">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAgBAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\PostListItem\PostListItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Artisan.Model.ThemeColor" Collapsed="true">
+    <Position X="15.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Model\ThemeColor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Model.User" Collapsed="true">
+    <Position X="19.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAEAAAAAAAAADAABAAAAAABAAAAAEAUAAAggAAABA=</HashCode>
+      <FileName>Model\User.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Artisan.Model.UserInfo" Collapsed="true">
+    <Position X="24.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IEAAEAAAAAAAAFjAABAAABAAHAAACAEAUAAAggAEABA=</HashCode>
+      <FileName>Model\UserInfo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Artisan.Model.UserInfoGeo" Collapsed="true">
+    <Position X="28.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIIAAAAAAAAAAAAAAAAAAAAgACAAA=</HashCode>
+      <FileName>Model\UserInfo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Artisan.Model.Work" Collapsed="true">
+    <Position X="31" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEIAIAAAAAECgAAARHACAAQABAAAAAAAEAAAAAIAABE=</HashCode>
+      <FileName>Model\Work.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Artisan.Model.ImageSize" Collapsed="true">
+    <Position X="1.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABACAAAAAAAAAAEAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Work.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Artisan.Annotations.CanBeNullAttribute" Collapsed="true">
+    <Position X="35.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.NotNullAttribute" Collapsed="true">
+    <Position X="37" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.ItemNotNullAttribute" Collapsed="true">
+    <Position X="49.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.ItemCanBeNullAttribute" Collapsed="true">
+    <Position X="47.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.StringFormatMethodAttribute" Collapsed="true">
+    <Position X="33.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.ValueProviderAttribute" Collapsed="true">
+    <Position X="42.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.InvokerParameterNameAttribute" Collapsed="true">
+    <Position X="45.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.NotifyPropertyChangedInvocatorAttribute" Collapsed="true">
+    <Position X="35.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.ContractAnnotationAttribute" Collapsed="true">
+    <Position X="45.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAIAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.LocalizationRequiredAttribute" Collapsed="true">
+    <Position X="37" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.CannotApplyEqualityOperatorAttribute" Collapsed="true">
+    <Position X="37" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.BaseTypeRequiredAttribute" Collapsed="true">
+    <Position X="33.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.UsedImplicitlyAttribute" Collapsed="true">
+    <Position X="38.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.MeansImplicitUseAttribute" Collapsed="true">
+    <Position X="42.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.PublicAPIAttribute" Collapsed="true">
+    <Position X="45.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.InstantHandleAttribute" Collapsed="true">
+    <Position X="42.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.PureAttribute" Collapsed="true">
+    <Position X="47.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.PathReferenceAttribute" Collapsed="true">
+    <Position X="38.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.SourceTemplateAttribute" Collapsed="true">
+    <Position X="49.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.MacroAttribute" Collapsed="true">
+    <Position X="38.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAQAAACAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AspMvcAreaMasterLocationFormatAttribute" Collapsed="true">
+    <Position X="33.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AspMvcAreaPartialViewLocationFormatAttribute" Collapsed="true">
+    <Position X="35.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AspMvcAreaViewLocationFormatAttribute" Collapsed="true">
+    <Position X="37" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AspMvcMasterLocationFormatAttribute" Collapsed="true">
+    <Position X="45.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AspMvcPartialViewLocationFormatAttribute" Collapsed="true">
+    <Position X="33.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AspMvcViewLocationFormatAttribute" Collapsed="true">
+    <Position X="40.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AspMvcActionAttribute" Collapsed="true">
+    <Position X="45.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AspMvcAreaAttribute" Collapsed="true">
+    <Position X="49.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AspMvcControllerAttribute" Collapsed="true">
+    <Position X="38.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AspMvcMasterAttribute" Collapsed="true">
+    <Position X="44" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AspMvcModelTypeAttribute" Collapsed="true">
+    <Position X="47.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AspMvcPartialViewAttribute" Collapsed="true">
+    <Position X="49.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AspMvcSupressViewErrorAttribute" Collapsed="true">
+    <Position X="35.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AspMvcDisplayTemplateAttribute" Collapsed="true">
+    <Position X="40.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AspMvcEditorTemplateAttribute" Collapsed="true">
+    <Position X="42.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AspMvcTemplateAttribute" Collapsed="true">
+    <Position X="37" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AspMvcViewAttribute" Collapsed="true">
+    <Position X="38.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AspMvcActionSelectorAttribute" Collapsed="true">
+    <Position X="47.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.HtmlElementAttributesAttribute" Collapsed="true">
+    <Position X="37" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.HtmlAttributeValueAttribute" Collapsed="true">
+    <Position X="35.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.RazorSectionAttribute" Collapsed="true">
+    <Position X="38.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.CollectionAccessAttribute" Collapsed="true">
+    <Position X="40.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AssertionMethodAttribute" Collapsed="true">
+    <Position X="47.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AssertionConditionAttribute" Collapsed="true">
+    <Position X="45.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.TerminatesProgramAttribute" Collapsed="true">
+    <Position X="35.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.LinqTunnelAttribute" Collapsed="true">
+    <Position X="35.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.NoEnumerationAttribute" Collapsed="true">
+    <Position X="49.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.RegexPatternAttribute" Collapsed="true">
+    <Position X="45.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.XamlItemsControlAttribute" Collapsed="true">
+    <Position X="47.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.XamlItemBindingOfItemsControlAttribute" Collapsed="true">
+    <Position X="45.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AspChildControlTypeAttribute" Collapsed="true">
+    <Position X="38.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AspDataFieldAttribute" Collapsed="true">
+    <Position X="40.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AspDataFieldsAttribute" Collapsed="true">
+    <Position X="42.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AspMethodPropertyAttribute" Collapsed="true">
+    <Position X="44" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AspRequiredAttributeAttribute" Collapsed="true">
+    <Position X="42.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.AspTypePropertyAttribute" Collapsed="true">
+    <Position X="44" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.RazorImportNamespaceAttribute" Collapsed="true">
+    <Position X="33.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.RazorInjectionAttribute" Collapsed="true">
+    <Position X="35.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.RazorHelperCommonAttribute" Collapsed="true">
+    <Position X="49.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.RazorLayoutAttribute" Collapsed="true">
+    <Position X="37" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.RazorWriteLiteralMethodAttribute" Collapsed="true">
+    <Position X="40.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.RazorWriteMethodAttribute" Collapsed="true">
+    <Position X="42.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.RazorWriteMethodParameterAttribute" Collapsed="true">
+    <Position X="44" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Annotations.NoReorder" Collapsed="true">
+    <Position X="33.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Toolkit.Exceptions.ToolkitInternalException" Collapsed="true">
+    <Position X="37" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Toolkit\Exceptions\ToolkitInternalException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Toolkit.Helper.DateFormat" Collapsed="true">
+    <Position X="47.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Toolkit\Helper\DateFormat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Toolkit.Helper.JsonObjectParser" Collapsed="true">
+    <Position X="33.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAQEAAAAAAABBAAAACAAAIAAAAgAAAAAAgAAEAAA=</HashCode>
+      <FileName>Toolkit\Helper\JsonObjectParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Toolkit.Helper.UserConfiguration" Collapsed="true">
+    <Position X="40.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Toolkit\Helper\UserConfiguration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Toolkit.Helper.VisualTree" Collapsed="true">
+    <Position X="44" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAgAAAEAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Toolkit\Helper\VisualTree.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Toolkit.MessageBox" Collapsed="true">
+    <Position X="44" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Toolkit\MessageDialog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Toolkit.MyCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="45.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEACAAQAAECAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Toolkit\MyCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Artisan.Toolkit.NotifyPropertyObject" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAIAAAAAABgAAAAAAgAAABAAAAAAA=</HashCode>
+      <FileName>Toolkit\NotifyPropertyObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Artisan.Toolkit.Net.HttpRequest" Collapsed="true">
+    <Position X="38.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Toolkit\Net\HttpRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Toolkit.Net.HttpWebPost" Collapsed="true">
+    <Position X="40.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAIAAAAAAAACAAAAAAAAAAACAAAAQAAAAAAAAAACAA=</HashCode>
+      <FileName>Toolkit\Net\HttpWebPost.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.Toolkit.Utilities.GetVersion" Collapsed="true">
+    <Position X="33.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Toolkit\Utilities\GetVersion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.View.AboutMeSetting" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="33.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\AboutMePage\AboutMeSetting.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Artisan.View.AuthorDetail" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="49.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAQAAAAAAAAA=</HashCode>
+      <FileName>View\AuthorDetail.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Artisan.View.CommentPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="44" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\CommentPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Artisan.View.MainPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="40.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAFgUAAwQAAAABAAgABIAQAAAACAASAACAAAAAwAAI=</HashCode>
+      <FileName>View\MainPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.View.PraisedPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="44" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\NewsPage\PraisedPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Artisan.View.AllTweetPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="35.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\NewsPage\TweetPage\AllTweetPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Artisan.View.PersonalTweetPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="40.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\NewsPage\TweetPage\PersonalTweetPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Artisan.View.PostDetail" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="42.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAQAAAAAAAAAAAAAAAAABEA=</HashCode>
+      <FileName>View\PostDetailPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.View.SignPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="47.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAACAAAAAAAAAIAAQAAAIAQAAAAAAAAIAAAAA=</HashCode>
+      <FileName>View\SignPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Artisan.View.AboutMePage.IntroductionEditDialog" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="44" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>View\AboutMePage\IntroductionEditDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Artisan.View.AboutMePage.MyWorkPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="47.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>View\AboutMePage\MyWorkPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Artisan.View.NewsPage.CommentMePage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="42.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\NewsPage\CommentMePage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Artisan.View.NewsPage.FollowedPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="49.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\NewsPage\FollowedPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Artisan.ViewModel.CommentPageViewModel" Collapsed="true">
+    <Position X="13" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\CommentPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.ViewModel.MainPageViewModel" Collapsed="true">
+    <Position X="17.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAAABAAAAAgAFAAACAAAAAAAAAgAABAAAAAAAI=</HashCode>
+      <FileName>ViewModel\MainPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.ViewModel.PostDetailPageViewModel" Collapsed="true">
+    <Position X="22" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAABAAABAAAABAAAAAQAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\PostDetailPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Artisan.ViewModel.SignPageViewModel" Collapsed="true">
+    <Position X="26.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAgEAAAIAAAAAEAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\SignPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Artisan.Interface.IAuthorOtherPostListItem" Collapsed="true">
+    <Position X="33.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Interface\IAuthorOtherPostListItem.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Artisan.Interface.ICommentListItem" Collapsed="true">
+    <Position X="35.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAQAAIAA=</HashCode>
+      <FileName>Interface\ICommentListItem.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Artisan.Interface.IGeo" Collapsed="true">
+    <Position X="37" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Interface\IGeo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Artisan.Interface.IUser" Collapsed="true">
+    <Position X="5.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAADAABAAAAAAAAAAAAEAQAAAAAAAAAA=</HashCode>
+      <FileName>Interface\IUser.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Artisan.Interface.IUserInfo" Collapsed="true">
+    <Position X="5.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAGAAACAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Interface\IUserInfo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Artisan.Interface.IWork" Collapsed="true">
+    <Position X="40.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAACgAAAQHACAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interface\IWork.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Artisan.Interface.ISize" Collapsed="true">
+    <Position X="38.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interface\IWork.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Artisan.Interface.IDiscoveryPivotListItem" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interface\PostListItem\IDiscoveryPivotListItem.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Artisan.Interface.IHomePivotListItem" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Interface\PostListItem\IHomePivotListItem.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Artisan.Interface.IPostListItem" Collapsed="true">
+    <Position X="1.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interface\PostListItem\IPostListItem.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Artisan.Annotations.ImplicitUseKindFlags" Collapsed="true">
+    <Position X="37" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAABAEAAAAAAIAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Artisan.Annotations.ImplicitUseTargetFlags" Collapsed="true">
+    <Position X="38.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAIAAAAAAAAAAAAAAEAAAAAAQ=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Artisan.Annotations.CollectionAccessType" Collapsed="true">
+    <Position X="35.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAgAAAAEAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Artisan.Annotations.AssertionConditionType" Collapsed="true">
+    <Position X="33.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAACAAAAAAAAgAAAIAAAAAAA=</HashCode>
+      <FileName>Properties\Annotations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

@@ -89,7 +89,7 @@ namespace Artisan.ViewModel
             var HostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
             var result = await HttpWebPost.GetJsonStringFromUriAsync(HostUri + TimeLineUri, param);
             var items = JsonObjectParser.ParseTimeLineItem(result);
-            foreach(var item in items)
+            foreach (var item in items)
             {
                 HomePivotList.Add(item);
             }
