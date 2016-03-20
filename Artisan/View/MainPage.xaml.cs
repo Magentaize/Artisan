@@ -47,7 +47,6 @@ namespace Artisan.View
 
         public MainPage()
         {
-            if (DateTime.Today.DayOfYear < 82)
             this.InitializeComponent();
            
             this.NavigationCacheMode = NavigationCacheMode.Required;
