@@ -23,13 +23,13 @@ namespace Artisan.Toolkit.Net
         /// <returns></returns>
         public static async Task<JsonObject> PostJsonToUriAsync(string uri, Dictionary<string, string> paramters)
         {
-    
+
             JsonObject jsonObj = new JsonObject();
             foreach (var param in paramters)
             {
                 jsonObj.Add(param.Key, JsonValue.CreateStringValue(param.Value));
             }
-           return await PostDataToUriAsync(uri, jsonObj.ToString());
+            return await PostDataToUriAsync(uri, jsonObj.ToString());
         }
         public static async Task<JsonObject> PostDataToUriAsync(string uri, string paramters)
         {
@@ -38,7 +38,8 @@ namespace Artisan.Toolkit.Net
             request.ContentType = "application/json";
             request.CookieContainer = cookies;
             request.Method = "POST";
-            try {
+            try
+            {
                 if (paramters != null)
                 {
                     using (var stream = await request.GetRequestStreamAsync())
@@ -63,7 +64,7 @@ namespace Artisan.Toolkit.Net
                 }
                 return null;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return null;
             }
@@ -82,13 +83,14 @@ namespace Artisan.Toolkit.Net
                 {
                     StringBuilder sb = new StringBuilder();
                     if (paramters != null)
-                    {                    
+                    {
                         foreach (var param in paramters)
                         {
                             sb.Append($"--{boundary}\r\n");
                             sb.Append($"Content-Disposition: form-data; name=\"{param.Key}\"\r\n\r\n");
                             sb.Append($"{param.Value}\r\n");
                         }
+                        sb.Remove(sb.Length - 2, 2);//删除Intro最末尾的换行
                         //参数部分数据
                         byte[] paramData = Encoding.UTF8.GetBytes(sb.ToString());
                         stream.Write(paramData, 0, paramData.Length);
@@ -106,7 +108,7 @@ namespace Artisan.Toolkit.Net
                         var fileStream = await attach.Value.OpenStreamForReadAsync();
                         byte[] attachData = new byte[2048];
                         int length;
-                        while((length = fileStream.Read(attachData, 0, attachData.Length)) != 0)
+                        while ((length = fileStream.Read(attachData, 0, attachData.Length)) != 0)
                         {
                             stream.Write(attachData, 0, length);
                         }
@@ -115,7 +117,7 @@ namespace Artisan.Toolkit.Net
                     byte[] endboundary = Encoding.UTF8.GetBytes($"\r\n--{boundary}--\r\n");
                     stream.Write(endboundary, 0, endboundary.Length);
 
-                }             
+                }
 
                 var response = await request.GetResponseAsync();
 
@@ -156,7 +158,8 @@ namespace Artisan.Toolkit.Net
             request = HttpWebRequest.CreateHttp(uri);
             request.CookieContainer = cookies;
             request.Method = "GET";
-            try {
+            try
+            {
                 var response = await request.GetResponseAsync();
                 string result;
                 using (var stream = response.GetResponseStream())

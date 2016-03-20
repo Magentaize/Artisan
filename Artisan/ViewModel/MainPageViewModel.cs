@@ -32,9 +32,15 @@ namespace Artisan.ViewModel
             }
         }
 
+        private string _currentUserName;
         public string CurrentUserName
         {
-            get { return (App.Current as App).CurrentUser?.NickName ?? "未登录"; }
+            //get { return (App.Current as App).CurrentUser?.NickName ?? "未登录"; }
+            get
+            {
+                UpdateProperty(ref _currentUserName, (App.Current as App).CurrentUser?.NickName ?? "未登录");
+                return _currentUserName;
+            }
         }
         public UserInfo CurrentUser
         {
