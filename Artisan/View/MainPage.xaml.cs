@@ -85,7 +85,11 @@ namespace Artisan.View
             var editIntroduction = new IntroductionEditDialog();
             Introduction.Tapped += async delegate (object sedner, TappedRoutedEventArgs e)
               {
-                  await editIntroduction.ShowAsync();
+                  var res = await editIntroduction.ShowAsync();
+                  if (res == Windows.UI.Xaml.Controls.ContentDialogResult.Primary)
+                  {
+                      //MainPageVm.ModifyProfile(editIntroduction.Intro);
+                  }
               };
 
             Upload.Click += Upload_Click;
@@ -107,6 +111,7 @@ namespace Artisan.View
             {
                 ToSignPage.Visibility = Visibility.Collapsed;
                 ProfilePanel.Visibility = Visibility.Visible;
+                MyName.Text = MainPageVm.CurrentUser.NickName;//由于绑定神奇失效，手动设置用户名
             }
         }
         private async void Upload_Click(object sender, RoutedEventArgs e)
@@ -122,6 +127,8 @@ namespace Artisan.View
             try
             {
                 string result = await MainPageVm.UploadImage(file);
+                if (result == "0") return;
+
                 MessageDialog dialog = new MessageDialog(result ?? "上传成功");
                 await dialog.ShowAsync();
             }

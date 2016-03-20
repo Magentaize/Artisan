@@ -33,7 +33,7 @@ namespace Artisan.View
         public PostDetail()
         {
             this.InitializeComponent();
-
+            //PostDetailPageVM.PostItem.Work.
             ShareBtn.Tapped += ShareBtnTapped;
         }
 

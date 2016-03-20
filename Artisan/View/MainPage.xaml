@@ -727,8 +727,9 @@
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
+                            <!--x:Bind MainPageVm.CurrentUser.HeadPic-->
                             <Image x:Name="MyAvatar" Source="ms-appx:///Assets/img/UserRadius.png" Grid.RowSpan="2" HorizontalAlignment="Left" Margin="16,0,8,0" Width="64"/>
-                            <TextBlock x:Name="MyName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Kaoso.Lu" VerticalAlignment="Top" Grid.Column="1" FontSize="18.667"/>
+                            <TextBlock x:Name="MyName" Text="{x:Bind MainPageVm.CurrentUserName}" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" FontSize="18.667"/>
                             <Grid x:Name="AboutMeInfoGrid" Grid.Row="1" Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"/>
