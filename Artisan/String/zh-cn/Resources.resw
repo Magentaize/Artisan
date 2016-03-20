@@ -138,4 +138,7 @@
   <data name="update_timelineUri" xml:space="preserve">
     <value>update_timeline.json</value>
   </data>
+  <data name="UserOtherWorkUri" xml:space="preserve">
+    <value>works.json</value>
+  </data>
 </root>

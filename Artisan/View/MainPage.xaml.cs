@@ -82,10 +82,10 @@ namespace Artisan.View
                     await myWorkPageEditDialog.ShowAsync();
                 };
 
-            var EditIntroduction = new IntroductionEditDialog();
+            var editIntroduction = new IntroductionEditDialog();
             Introduction.Tapped += async delegate (object sedner, TappedRoutedEventArgs e)
               {
-                  await EditIntroduction.ShowAsync();
+                  await editIntroduction.ShowAsync();
               };
 
             Upload.Click += Upload_Click;
@@ -119,9 +119,15 @@ namespace Artisan.View
             picker.FileTypeFilter.Add(".png");
 
             StorageFile file = await picker.PickSingleFileAsync();
-            string result = await MainPageVm.UploadImage(file);
-            MessageDialog dialog = new MessageDialog(result ?? "上传成功");
-            await dialog.ShowAsync();
+            try
+            {
+                string result = await MainPageVm.UploadImage(file);
+                MessageDialog dialog = new MessageDialog(result ?? "上传成功");
+                await dialog.ShowAsync();
+            }
+            catch (NullReferenceException ex)
+            {
+            }
         }
 
         private void TimeLineListItemTapped(object sender, TappedRoutedEventArgs e)
@@ -154,7 +160,6 @@ namespace Artisan.View
         }
 
         private int _previousSelectBtn = 0;
-
         private void NewsChildBtnTapped(object sender, TappedRoutedEventArgs e)
         {
             Button btn = (Button) sender;

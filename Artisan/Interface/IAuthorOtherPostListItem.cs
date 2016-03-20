@@ -2,6 +2,6 @@
 {
     public interface IAuthorOtherPostListItem
     {
-        string PostSource { get; set; } //Set the same author's other post's list's item
+        IWork Work { get; set; }
     }
 }

@@ -3,14 +3,22 @@ using Artisan.Toolkit;
 
 namespace Artisan.Model
 {
-    public class AuthorOtherPostListItem:NotifyPropertyObject, IAuthorOtherPostListItem
+    public class AuthorOtherPostListItem:NotifyPropertyObject,IPostListItem
     {
-        private string _postSource;
+        private User _user;
 
-        public string PostSource
+        public IUser User
         {
-            get { return _postSource; }
-            set { UpdateProperty(ref _postSource,value);}
+            get { return _user; }
+            set { UpdateProperty(ref _user,(User)value);}
+        }
+
+        private Work _work;
+
+        public IWork Work
+        {
+            get { return _work; }
+            set { UpdateProperty(ref _work, (Work)value);}
         }
     }
 }

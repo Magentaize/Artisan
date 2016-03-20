@@ -46,28 +46,31 @@ namespace Artisan.View
         #endregion
 
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            var dataContext = e.Parameter as IPostListItem;
-            try
-            {
-                PostDetailPageVM.Name = dataContext.User.NickName;
-                PostDetailPageVM.Pics = dataContext.Work.Pic;
-            }
-            catch (NullReferenceException ex)
-            {
-                //TODO
-            }
+            PostDetailPageVM.PostItem = e.Parameter as PostListItem;
+            await PostDetailPageVM.GetAuthorOtherPostAsync();
+            //var dataContext = e.Parameter as IPostListItem;
+            //try
+            //{
+            //    PostDetailPageVM.PostItem.User.NickName = dataContext.User.NickName;
+            //    PostDetailPageVM.PostItem.Work.Pic = dataContext.Work.Pic;
+            //}
+            //catch (NullReferenceException ex)
+            //{
+            //    //TODO
+            //}
         }
 
         private void ItemTapped(object sender, TappedRoutedEventArgs e)
         {
             var grid = (Grid)sender;
-            var dataContext = new HomePivotListItem
+            var dataContext = new PostListItem
             {
-                Work = new Work { Pic = (grid.DataContext as AuthorOtherPostListItem).PostSource },
-                User = new User { NickName = PostDetailPageVM.Name, },
+                Work = PostDetailPageVM.PostItem.Work,
+                User = PostDetailPageVM.PostItem.User
+                //User = new User { NickName = PostDetailPageVM.PostItem.User.NickName, },
             };
             //var img =VisualTree.FindVisualElement<Image>(grid);
             //var str = ((BitmapImage)img.Source).UriSource.ToString();

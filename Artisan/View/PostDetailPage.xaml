@@ -85,12 +85,12 @@
         <ItemsPanelTemplate x:Key="AuthorOtherPostItemsPanelTemplate">
             <ItemsStackPanel Orientation="Horizontal" />
         </ItemsPanelTemplate>
-        <DataTemplate x:Key="AuthorOtherPostDataTemplate" x:DataType="model:AuthorOtherPostListItem">
+        <DataTemplate x:Key="AuthorOtherPostListDt" x:DataType="model:PostListItem">
             <Grid Tapped="ItemTapped">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Image Source="{x:Bind PostSource}" Height="120" Stretch="UniformToFill" Grid.Row="0"/>
+                <Image Source="{x:Bind Work.Pic}" Height="120" Stretch="UniformToFill" Grid.Row="0"/>
             </Grid>
         </DataTemplate>
         <Style x:Key="AuthorOtherPostListViewItemStyle" TargetType="ListViewItem">
@@ -256,7 +256,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Image x:Name="PostDetailImage" Grid.Row="0" Source="{x:Bind PostDetailPageVM.Pics}"/>
+                <Image x:Name="PostDetailImage" Grid.Row="0" Source="{x:Bind PostDetailPageVM.PostItem.Work.Pic}"/>
                 <Grid Grid.Row="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -275,7 +275,13 @@
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <TextBlock x:Name="AuthorName" Margin="0" TextWrapping="Wrap" Text="{x:Bind PostDetailPageVM.Name}" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                        <TextBlock x:Name="AuthorName" 
+                                   Margin="0" 
+                                   TextWrapping="Wrap" 
+                                   Text="{x:Bind PostDetailPageVM.PostItem.User.NickName}" 
+                                   Grid.Column="1"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Bottom"/>
                         <Grid Grid.Row="1" Grid.Column="1">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
@@ -301,7 +307,10 @@
                                   ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                                   ScrollViewer.HorizontalScrollMode="Auto"
                                   ScrollViewer.VerticalScrollBarVisibility="Disabled" 
-                                  ScrollViewer.VerticalScrollMode="Disabled" ItemTemplate="{StaticResource AuthorOtherPostDataTemplate}" ItemContainerStyle="{StaticResource AuthorOtherPostListViewItemStyle}" Margin="8,16,8,0"/>
+                                  ScrollViewer.VerticalScrollMode="Disabled" 
+                                  ItemTemplate="{StaticResource AuthorOtherPostListDt}"
+                                  ItemContainerStyle="{StaticResource AuthorOtherPostListViewItemStyle}" 
+                                  Margin="8,16,8,0"/>
 
                     </Grid>
                 </Grid>

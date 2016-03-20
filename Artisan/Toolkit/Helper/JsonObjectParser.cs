@@ -106,7 +106,7 @@ namespace Artisan.Toolkit.Helper
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public static  ObservableCollection<HomePivotListItem> ParseTimeLineItem(string data)
+        public static ObservableCollection<HomePivotListItem> ParseTimeLineItem(string data)
         {
             var result = new ObservableCollection<HomePivotListItem>();
             var hostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
@@ -166,6 +166,26 @@ namespace Artisan.Toolkit.Helper
                 });
             }
             return result;
-        } 
+        }
+
+        /// <summary>
+        /// 对应指定作者的其他作品
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static Collection<PostListItem> ParseAuthorOtherPostItem(string data)
+        {
+            var result = new Collection<PostListItem>();
+            var jToken = JObject.Parse(data).First.First;
+            foreach (var item in jToken)
+            {
+                result.Add(new PostListItem()
+                {
+                    Work = ParseWork(item),
+                });
+            }
+
+            return result;
+        }
     }
 }

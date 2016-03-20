@@ -171,8 +171,8 @@ namespace Artisan.ViewModel
             switch (currentIndex)
             {
                 case 0: return await GetTimeLineAsync(forceRefresh);
-                case 1:return await GetDiscoveryAsync(forceRefresh);
-                default:return null;
+                case 1: return await GetDiscoveryAsync(forceRefresh);
+                default: return null;
             }
         }
     }
