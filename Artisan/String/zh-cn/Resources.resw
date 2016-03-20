@@ -135,4 +135,7 @@
   <data name="TimeLineUri" xml:space="preserve">
     <value>new_timeline.json</value>
   </data>
+  <data name="update_timelineUri" xml:space="preserve">
+    <value>update_timeline.json</value>
+  </data>
 </root>

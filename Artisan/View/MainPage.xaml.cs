@@ -32,6 +32,7 @@ using Windows.ApplicationModel.DataTransfer;
 using Windows.Data.Json;
 using Artisan.Interface;
 using Newtonsoft.Json.Linq;
+using Windows.UI.Popups;
 
 //“空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409 上有介绍
 
@@ -118,6 +119,9 @@ namespace Artisan.View
             picker.FileTypeFilter.Add(".png");
 
             StorageFile file = await picker.PickSingleFileAsync();
+            bool success = await MainPageVm.UploadImage(file);
+            MessageDialog dialog = new MessageDialog(success ? "上传成功" : "上传失败");
+            await dialog.ShowAsync();
         }
 
         private void Setting_OnClick(object sender, RoutedEventArgs e)
@@ -259,8 +263,10 @@ namespace Artisan.View
         private async void PrePage_click(object sender, RoutedEventArgs e)
         {
             if (MainPageVm.CurrentPage > 1)
+            {
                 --MainPageVm.CurrentPage;
-            await MainPageVm.RefreshCurrentView(MainPivot.SelectedIndex);
+                await MainPageVm.RefreshCurrentView(MainPivot.SelectedIndex);
+            }
 
         }
     }

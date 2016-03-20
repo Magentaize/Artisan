@@ -13,6 +13,9 @@ using Newtonsoft.Json.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Artisan.Toolkit.Net;
+using Windows.Storage;
+using Windows.Graphics.Imaging;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace Artisan.ViewModel
 {
@@ -103,7 +106,41 @@ namespace Artisan.ViewModel
                 DiscoveryPivotList.Add(item);
             }
             return DiscoveryPivotList != null;
-        } 
+        }
+
+        internal async Task<bool> UploadImage(StorageFile file)
+        {
+            UserInfo user = (App.Current as App).CurrentUser;
+            BitmapImage bi = new BitmapImage();
+            bi.SetSource(await file.OpenReadAsync());
+
+            int height = bi.PixelHeight;
+            int width = bi.PixelWidth;
+
+            Dictionary<string, string> param = new Dictionary<string, string>();
+            Dictionary<string, StorageFile> attach = new Dictionary<string, StorageFile>();
+            param.Add("uid", user.Uid);
+            param.Add("name", "untitled");
+            param.Add("size", $"{height}X{width}");
+            param.Add("sell", "0");
+            param.Add("intro", "x");
+
+            attach.Add("pic", file);
+            string targetUri = ResourceLoader.GetForCurrentView().GetString("HostUri")
+                +   ResourceLoader.GetForCurrentView().GetString("update_timelineUri");
+            string result = await HttpWebPost.PostMutipartDataToUriAsync(targetUri, param, attach);
+            return result.Contains("true");
+            //Guid id = null;
+            //switch (file.FileType)
+            //{
+            //    case "png":id = BitmapEncoder.PngEncoderId; break;
+            //    case "bmp":id = BitmapEncoder.BmpEncoderId; break;
+            //    case "jpeg":
+            //    case "jpg":id = BitmapEncoder.JpegEncoderId; break;
+            //}
+           // var encoder = await BitmapEncoder.CreateAsync(id, await file.OpenReadAsync());
+            
+        }
 
         internal async void Signout()
         {

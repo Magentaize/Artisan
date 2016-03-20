@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Windows.Data.Json;
 using Windows.Web.Http;
 using Newtonsoft.Json.Linq;
+using Windows.Storage;
 
 namespace Artisan.Toolkit.Net
 {
@@ -67,12 +68,12 @@ namespace Artisan.Toolkit.Net
                 return null;
             }
         }
-        public static async Task<string> PostMutipartDataToUriAsync(string uri, Dictionary<string, string> paramters, Dictionary<string, FileStream> attachs)
+        public static async Task<string> PostMutipartDataToUriAsync(string uri, Dictionary<string, string> paramters, Dictionary<string, StorageFile> attachs)
         {
             HttpWebRequest request = HttpWebRequest.CreateHttp(uri);
-            string boundary = "x_xxx_xx_xx_xxx_xxxx________x" + DateTime.Now.Ticks.ToString("x");//分隔符
+            string boundary = "x_-" + DateTime.Now.Ticks.ToString("x");//分隔符
 
-            request.ContentType = "mutipart/form-data; boundary=" + boundary;
+            request.ContentType = "multipart/form-data; boundary=" + boundary;
             request.CookieContainer = cookies;
             request.Method = "POST";
             try
@@ -95,19 +96,23 @@ namespace Artisan.Toolkit.Net
                     foreach (var attach in attachs)
                     {
                         sb.Clear();
-                        sb.Append($"--{boundary}\r\n");
+                        sb.Append($"\r\n--{boundary}\r\n");
                         sb.Append($"Content-Disposition: form-data; name=\"{attach.Key}\"; filename=\"{attach.Value.Name}\"\r\n");
                         sb.Append($"Content-Type: application/octet-stream\r\n\r\n");
                         //文件头
                         byte[] FileHeader = Encoding.UTF8.GetBytes(sb.ToString());
                         stream.Write(FileHeader, 0, FileHeader.Length);
-                        //文件数据
-                        byte[] attachData = new byte[attach.Value.Length];
-                        attach.Value.Read(attachData, 0, attachData.Length);
-                        stream.Write(attachData, 0, attachData.Length);
+                        //文件数据               
+                        var fileStream = await attach.Value.OpenStreamForReadAsync();
+                        byte[] attachData = new byte[2048];
+                        int length;
+                        while((length = fileStream.Read(attachData, 0, attachData.Length)) != 0)
+                        {
+                            stream.Write(attachData, 0, length);
+                        }
                     }
                     //结束标记
-                    byte[] endboundary = Encoding.UTF8.GetBytes($"--{boundary}--");
+                    byte[] endboundary = Encoding.UTF8.GetBytes($"\r\n--{boundary}--\r\n");
                     stream.Write(endboundary, 0, endboundary.Length);
 
                 }             
