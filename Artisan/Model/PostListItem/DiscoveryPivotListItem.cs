@@ -13,7 +13,7 @@ namespace Artisan.Model
         //public IUser User
         //{
         //    get { return _user; }
-        //    set { UpdateProperty(ref _user, (User)value);}
+        //    set { UpdateProperty(ref _user, (User)value); }
         //}
 
         //private Work _work;
@@ -21,7 +21,7 @@ namespace Artisan.Model
         //public IWork Work
         //{
         //    get { return _work; }
-        //    set { UpdateProperty(ref _work, (Work)value);}
+        //    set { UpdateProperty(ref _work, (Work)value); }
         //}
 
         //private int _id;

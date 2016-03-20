@@ -97,6 +97,7 @@
     <Content Include="Assets\icomoon.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="ClassDiagram1.cd" />
     <None Include="project.json" />
     <PRIResource Include="String\zh-cn\Resources.resw" />
   </ItemGroup>

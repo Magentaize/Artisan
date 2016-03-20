@@ -5,6 +5,10 @@ namespace Artisan.Toolkit.Helper
 {
     public static class DateFormat
     {
+        /// <summary>
+        /// 废弃
+        /// </summary>
+        /// <returns></returns>
         public static string GetFormattedTime()
         {
             var random = new Random(DateTime.Now.Second);
