@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="FindUri" xml:space="preserve">
-    <value>http://artisan.chinacloudapp.cn/find.json</value>
+    <value>find.json</value>
   </data>
   <data name="HostUri" xml:space="preserve">
     <value>http://artisan.chinacloudapp.cn/</value>

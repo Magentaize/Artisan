@@ -346,8 +346,6 @@
                     <Image x:Name="PostImage"
                            Stretch="UniformToFill"
                            Source="{x:Bind Work.Pic}"
-                           Height="{x:Bind Work.Size.Height}"
-                           Width="{x:Bind Work.Size.Width}"
                            Grid.Row="1"/>
                     <!--x:Bind PostSource-->
                     <Grid VerticalAlignment="Top" Grid.Row="0">

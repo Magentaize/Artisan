@@ -97,7 +97,6 @@
     <Content Include="Assets\icomoon.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="ClassDiagram1.cd" />
     <None Include="project.json" />
     <PRIResource Include="String\zh-cn\Resources.resw" />
   </ItemGroup>
@@ -125,6 +124,7 @@
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Toolkit\Exceptions\ToolkitInternalException.cs" />
     <Compile Include="Toolkit\Helper\JsonObjectParser.cs" />
+    <Compile Include="Toolkit\Helper\TemporaryFileManager.cs" />
     <Compile Include="Toolkit\Helper\UserConfiguration.cs" />
     <Compile Include="Toolkit\Net\HttpWebPost.cs" />
     <Compile Include="Toolkit\Utilities\GetVersion.cs" />

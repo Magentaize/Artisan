@@ -124,16 +124,11 @@ namespace Artisan.View
             await dialog.ShowAsync();
         }
 
-        private void Setting_OnClick(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(PersonalTweetPage), "ms-appx:///Assets/img/1.jpg");
-        }
-
         private void TimeLineListItemTapped(object sender, TappedRoutedEventArgs e)
         {
             var grid = (Grid)sender;
             var dataContext =
-                (PostListItem) (((Image) VisualTree.FindVisualElementFormName(grid, "PostImage")).DataContext);
+                (PostListItem)((Image) VisualTree.FindVisualElementFormName(grid, "PostImage")).DataContext;
             this.Frame.Navigate(typeof(PostDetail), dataContext);
         }
 
@@ -145,9 +140,6 @@ namespace Artisan.View
                 Work = new Work { Pic = ((PostListItem)(((Image)VisualTree.FindVisualElementFormName(grid, "PostImage")).DataContext)).Work.Pic },
                 User = new User { NickName = @"KuosLo", },
             };
-            //var img = VisualTree.FindVisualElement<Image>(grid);
-            //var str = ((BitmapImage) img.Source).UriSource.ToString();
-            //this.Frame.Navigate(typeof (PostDetail), str);
             this.Frame.Navigate(typeof(PostDetail), dataContext);
         }
 
