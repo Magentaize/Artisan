@@ -107,8 +107,8 @@ namespace Artisan.ViewModel
         {
             if (DiscoveryPivotList.Count != 0 && !forceRefresh) return false;
             DiscoveryPivotList.Clear();
-            string DiscoveryUri = ResourceLoader.GetForCurrentView().GetString("FindUri");
-            var result = await HttpWebPost.GetJsonStringFromUriAsync(DiscoveryUri);
+            string targetUri = ResourceLoader.GetForCurrentView().GetString("HostUri") + ResourceLoader.GetForCurrentView().GetString("FindUri");
+            var result = await HttpWebPost.GetJsonStringFromUriAsync(targetUri);
             if (result == null) return false;
 
             var items = JsonObjectParser.ParseDiscoveryItem(result);
