@@ -612,7 +612,7 @@
         </Style>-->
     </Page.Resources>
     <Page.BottomAppBar>
-        <CommandBar>
+        <CommandBar x:Name="CommandBar">
             <AppBarButton x:Name="pgBack" Icon="Back" Visibility="Collapsed" Label="上一页" Click="PrePage_click"/>
             <AppBarButton x:Name="pgRefresh" Icon="Refresh" Label="刷新" Click="Refresh_click"/>
             <AppBarButton x:Name="pgForward" Icon="Forward" Label="下一页" Click="NextPage_click"/>
