@@ -93,13 +93,14 @@ namespace Artisan.ViewModel
             {
                 HomePivotList.Add(item);
             }
-            return  HomePivotList != null;
+            return HomePivotList != null;
         }
 
         public async Task<bool> GetDiscoveryAsync()
         {
-            string DiscoveryUri = ResourceLoader.GetForCurrentView().GetString("FindUri");
-            var result = await HttpWebPost.GetJsonStringFromUriAsync(DiscoveryUri);
+            var DiscoveryUri = ResourceLoader.GetForCurrentView().GetString("FindUri");
+            var HostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
+            var result = await HttpWebPost.GetJsonStringFromUriAsync(HostUri + DiscoveryUri);
             var items = JsonObjectParser.ParseDiscoveryItem(result);
             foreach (var item in items)
             {
