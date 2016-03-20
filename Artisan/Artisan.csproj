@@ -124,7 +124,6 @@
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Toolkit\Exceptions\ToolkitInternalException.cs" />
     <Compile Include="Toolkit\Helper\JsonObjectParser.cs" />
-    <Compile Include="Toolkit\Helper\TemporaryFileManager.cs" />
     <Compile Include="Toolkit\Helper\UserConfiguration.cs" />
     <Compile Include="Toolkit\Net\HttpWebPost.cs" />
     <Compile Include="Toolkit\Utilities\GetVersion.cs" />
@@ -180,6 +179,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\PostDetailPage.xaml.cs">
       <DependentUpon>PostDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UploadDialog.xaml.cs">
+      <DependentUpon>UploadDialog.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -266,6 +268,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\PostDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UploadDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

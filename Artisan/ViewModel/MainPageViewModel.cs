@@ -16,6 +16,7 @@ using Artisan.Toolkit.Net;
 using Windows.Storage;
 using Windows.Graphics.Imaging;
 using Windows.UI.Xaml.Media.Imaging;
+using Artisan.View;
 
 namespace Artisan.ViewModel
 {
@@ -128,14 +129,17 @@ namespace Artisan.ViewModel
 
             int height = bi.PixelHeight;
             int width = bi.PixelWidth;
-
+            UploadDialog dia = new UploadDialog();
+            var res = await dia.ShowAsync();
+            if (res != Windows.UI.Xaml.Controls.ContentDialogResult.Primary) return "用户取消上传";
+            
             Dictionary<string, string> param = new Dictionary<string, string>();
             Dictionary<string, StorageFile> attach = new Dictionary<string, StorageFile>();
             param.Add("uid", user.Uid);
-            param.Add("name", "untitled");
+            param.Add("name", dia.WorkTitle);
             param.Add("size", $"{height}X{width}");
             param.Add("sell", "0");
-            param.Add("intro", "x");
+            param.Add("intro",dia.Intro);
 
             attach.Add("pic", file);
             string targetUri = ResourceLoader.GetForCurrentView().GetString("HostUri")
