@@ -8,7 +8,9 @@
     mc:Ignorable="d"
     Title=""
     PrimaryButtonText="确定"
-    SecondaryButtonText="取消">
+    SecondaryButtonText="取消"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
 
     <Grid>
         <TextBlock x:Name="Notification" TextWrapping="Wrap" Text="Pro..oo...Processing! QAQ" Margin="0,36,0,0"  HorizontalAlignment="Center" VerticalAlignment="Center"/>

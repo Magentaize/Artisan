@@ -19,17 +19,17 @@ namespace Artisan.Toolkit.Helper
         /// <returns></returns>
         public static string GetFormattedDate(string originDate)
         {
-            //var year = Int32.Parse(originDate.Substring(0, 4));
-            //var month = Int32.Parse(originDate.Substring(5, 2));
-            //var day = Int32.Parse(originDate.Substring(8, 2));
-            //var hour = Int32.Parse(originDate.Substring(11, 2));
-            //var minute = Int32.Parse(originDate.Substring(14, 2));
-            //var second = Int32.Parse(originDate.Substring(17, 2));
-            //DateTime tempDate = new DateTime(year,month,day,hour,minute,second);
+            var year = Int32.Parse(originDate.Substring(0, 4));
+            var month = Int32.Parse(originDate.Substring(5, 2));
+            var day = Int32.Parse(originDate.Substring(8, 2));
+            var hour = Int32.Parse(originDate.Substring(11, 2));
+            var minute = Int32.Parse(originDate.Substring(14, 2));
+            var second = Int32.Parse(originDate.Substring(17, 2));
+            DateTime originDateTime = new DateTime(year, month, day, hour, minute, second);
 
-            DateTime originDateTime = DateTime.Parse(originDate);
+            //DateTime originDateTime = DateTime.Parse(originDate);
             DateTime nowDateTime = DateTime.Now;
-            TimeSpan resultTimeSpan =originDateTime - nowDateTime;
+            TimeSpan resultTimeSpan = nowDateTime - originDateTime;
 
             string result;
             if (resultTimeSpan.Days > 0)
@@ -46,7 +46,7 @@ namespace Artisan.Toolkit.Helper
             }
             else
             {
-                result = new StringBuilder(resultTimeSpan.Seconds.ToString() + " 秒前").ToString();
+                result = "刚刚";
             }
 
             return result;

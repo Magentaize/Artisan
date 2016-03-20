@@ -57,6 +57,7 @@ namespace Artisan.View
             }
             catch (NullReferenceException ex)
             {
+                //TODO
             }
         }
 
