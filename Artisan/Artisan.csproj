@@ -111,7 +111,6 @@
     <Compile Include="Interface\ICommentListItem.cs" />
     <Compile Include="Interface\PostListItem\IDiscoveryPivotListItem.cs" />
     <Compile Include="Interface\IGeo.cs" />
-    <Compile Include="Interface\PostListItem\IHomePivotListItem.cs" />
     <Compile Include="Interface\PostListItem\IPostListItem.cs" />
     <Compile Include="Interface\IUserInfo.cs" />
     <Compile Include="Interface\IWork.cs" />
