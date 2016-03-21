@@ -60,6 +60,7 @@ namespace Artisan.ViewModel
             var SignupUri = ResourceLoader.GetForCurrentView().GetString("SignupUri");
             var HostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
             var result = await HttpWebPost.PostJsonToUriAsync(HostUri + SignupUri, param);
+
             if (result["result"].ToString() == "true") return null;
             else return result["reason"].ToString();
         }
@@ -88,7 +89,7 @@ namespace Artisan.ViewModel
             string SigninUri = ResourceLoader.GetForCurrentView().GetString("SigninUri");
             string HostUri = ResourceLoader.GetForCurrentView().GetString("HostUri");
             var result = await HttpWebPost.PostJsonToUriAsync(HostUri + SigninUri, param);
-            if (result == null) return null;
+            if (result == null) return "网络错误！";
             if (result["result"].ToString() == "true")
             {
                 UserInfo user = new UserInfo();
