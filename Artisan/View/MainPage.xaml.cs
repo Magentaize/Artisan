@@ -47,7 +47,6 @@ namespace Artisan.View
 
         public MainPage()
         {
-            if (DateTime.Today.DayOfYear < 82)
             this.InitializeComponent();
            
             this.NavigationCacheMode = NavigationCacheMode.Required;
@@ -289,9 +288,13 @@ namespace Artisan.View
             Pivot pivot = sender as Pivot;
             switch (pivot.SelectedIndex)
             {
-                case 0: pgBack.Visibility = MainPageVm.CurrentPage == 1 ? Visibility.Collapsed : Visibility.Visible;
-                        pgForward.Visibility = pgRefresh.Visibility = Visibility.Visible; break;
+                case 0:
+                    CommandBar.Visibility = Visibility.Visible;
+                    pgBack.Visibility = MainPageVm.CurrentPage == 1 ? Visibility.Collapsed : Visibility.Visible;
+                    pgForward.Visibility = pgRefresh.Visibility = Visibility.Visible;
+                    break;
                 default:
+                    CommandBar.Visibility = Visibility.Collapsed;
                     pgBack.Visibility = pgForward.Visibility = Visibility.Collapsed;
                     pgRefresh.Visibility = Visibility.Visible; break;
 
